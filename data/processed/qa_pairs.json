@@ -1,0 +1,2441 @@
+[
+    {
+        "id": "qa_fee_engineering",
+        "type": "qa",
+        "question": "What is the fee for engineering programs at NUST?",
+        "answer": "The tuition fee for Engineering and Computing programmes at NUST is Rs. 171,350 per semester for national students. Additionally, there is a one-time Admission Processing Fee of Rs. 35,000 (non-refundable), Security Deposit of Rs. 10,000 (refundable), and Miscellaneous dues of Rs. 2,700 per semester. All fees are subject to revision.",
+        "content": "What is the fee for engineering programs at NUST? The tuition fee for Engineering and Computing programmes at NUST is Rs. 171,350 per semester for national students. Additionally, there is a one-time Admission Processing Fee of Rs. 35,000 (non-refundable), Security Deposit of Rs. 10,000 (refundable), and Miscellaneous dues of Rs. 2,700 per semester. All fees are subject to revision.",
+        "keywords": [
+            "fee",
+            "tuition",
+            "engineering",
+            "computing",
+            "bscs",
+            "bsee",
+            "cost",
+            "charges",
+            "semester"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_bscs",
+        "type": "qa",
+        "question": "What is the fee for BSCS at NUST?",
+        "answer": "BS Computer Science (BSCS) falls under Engineering and Computing programmes. The tuition fee is Rs. 171,350 per semester. First semester charges include: Admission Processing Fee Rs. 35,000 (non-refundable), Security Deposit Rs. 10,000 (refundable), Tuition Fee Rs. 171,350, and Miscellaneous dues Rs. 2,700. Total first semester cost is approximately Rs. 219,050. Fees are subject to revision.",
+        "content": "What is the fee for BSCS at NUST? BS Computer Science (BSCS) falls under Engineering and Computing programmes. The tuition fee is Rs. 171,350 per semester. First semester charges include: Admission Processing Fee Rs. 35,000 (non-refundable), Security Deposit Rs. 10,000 (refundable), Tuition Fee Rs. 171,350, and Miscellaneous dues Rs. 2,700. Total first semester cost is approximately Rs. 219,050. Fees are subject to revision.",
+        "keywords": [
+            "bscs",
+            "fee",
+            "computer science",
+            "tuition",
+            "cost",
+            "seecs",
+            "semester"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_bsee",
+        "type": "qa",
+        "question": "What is the fee for Electrical Engineering at NUST?",
+        "answer": "BS Electrical Engineering (BSEE) falls under Engineering and Computing programmes. The tuition fee is Rs. 171,350 per semester. First semester total includes Admission Processing Fee Rs. 35,000, Security Deposit Rs. 10,000, and Miscellaneous dues Rs. 2,700. Fees are subject to revision.",
+        "content": "What is the fee for Electrical Engineering at NUST? BS Electrical Engineering (BSEE) falls under Engineering and Computing programmes. The tuition fee is Rs. 171,350 per semester. First semester total includes Admission Processing Fee Rs. 35,000, Security Deposit Rs. 10,000, and Miscellaneous dues Rs. 2,700. Fees are subject to revision.",
+        "keywords": [
+            "bsee",
+            "fee",
+            "electrical engineering",
+            "tuition",
+            "cost",
+            "seecs"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_bsse",
+        "type": "qa",
+        "question": "What is the fee for Software Engineering at NUST?",
+        "answer": "BS Software Engineering (BSSE) falls under Engineering and Computing programmes. The tuition fee is Rs. 171,350 per semester, same as all engineering and computing programs. Fees are subject to revision.",
+        "content": "What is the fee for Software Engineering at NUST? BS Software Engineering (BSSE) falls under Engineering and Computing programmes. The tuition fee is Rs. 171,350 per semester, same as all engineering and computing programs. Fees are subject to revision.",
+        "keywords": [
+            "bsse",
+            "fee",
+            "software engineering",
+            "tuition",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_mechanical",
+        "type": "qa",
+        "question": "What is the fee for Mechanical Engineering at NUST?",
+        "answer": "BE Mechanical Engineering falls under Engineering programmes. The tuition fee is Rs. 171,350 per semester at NUST. This is the same for all engineering and computing programs. Fees are subject to revision.",
+        "content": "What is the fee for Mechanical Engineering at NUST? BE Mechanical Engineering falls under Engineering programmes. The tuition fee is Rs. 171,350 per semester at NUST. This is the same for all engineering and computing programs. Fees are subject to revision.",
+        "keywords": [
+            "mechanical",
+            "fee",
+            "tuition",
+            "bsme",
+            "smme",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_civil",
+        "type": "qa",
+        "question": "What is the fee for Civil Engineering at NUST?",
+        "answer": "BE Civil Engineering falls under Engineering programmes. The tuition fee is Rs. 171,350 per semester at NUST. Fees are subject to revision.",
+        "content": "What is the fee for Civil Engineering at NUST? BE Civil Engineering falls under Engineering programmes. The tuition fee is Rs. 171,350 per semester at NUST. Fees are subject to revision.",
+        "keywords": [
+            "civil",
+            "fee",
+            "tuition",
+            "bsce",
+            "nice",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_bba",
+        "type": "qa",
+        "question": "What is the fee for BBA at NUST?",
+        "answer": "BBA falls under Business Studies / Social Sciences programmes. The tuition fee is Rs. 250,380 per semester. Additionally, BBA students pay an HBS Licensing Fee of Rs. 12,000 per annum. First semester charges also include Admission Processing Fee Rs. 35,000 and Security Deposit Rs. 10,000. Fees are subject to revision.",
+        "content": "What is the fee for BBA at NUST? BBA falls under Business Studies / Social Sciences programmes. The tuition fee is Rs. 250,380 per semester. Additionally, BBA students pay an HBS Licensing Fee of Rs. 12,000 per annum. First semester charges also include Admission Processing Fee Rs. 35,000 and Security Deposit Rs. 10,000. Fees are subject to revision.",
+        "keywords": [
+            "bba",
+            "fee",
+            "business",
+            "tuition",
+            "nbs",
+            "cost",
+            "semester"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_economics",
+        "type": "qa",
+        "question": "What is the fee for BS Economics at NUST?",
+        "answer": "BS Economics falls under Business Studies / Social Sciences programmes. The tuition fee is Rs. 250,380 per semester. Fees are subject to revision.",
+        "content": "What is the fee for BS Economics at NUST? BS Economics falls under Business Studies / Social Sciences programmes. The tuition fee is Rs. 250,380 per semester. Fees are subject to revision.",
+        "keywords": [
+            "economics",
+            "fee",
+            "tuition",
+            "s3h",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_architecture",
+        "type": "qa",
+        "question": "What is the fee for Architecture at NUST?",
+        "answer": "Bachelor of Architecture and Bachelor of Industrial Design have a tuition fee of Rs. 250,380 per semester at NUST. Fees are subject to revision.",
+        "content": "What is the fee for Architecture at NUST? Bachelor of Architecture and Bachelor of Industrial Design have a tuition fee of Rs. 250,380 per semester at NUST. Fees are subject to revision.",
+        "keywords": [
+            "architecture",
+            "fee",
+            "tuition",
+            "sada",
+            "industrial design",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_applied_sciences",
+        "type": "qa",
+        "question": "What is the fee for Applied Sciences programs at NUST?",
+        "answer": "Applied Sciences programmes (BS Biotechnology, BS Environmental Science, BS Food Science and Technology, BS Agriculture) have a tuition fee of Rs. 171,350 per semester. BS Mathematics, BS Physics, and BS Chemistry also have the same fee of Rs. 171,350 per semester. Fees are subject to revision.",
+        "content": "What is the fee for Applied Sciences programs at NUST? Applied Sciences programmes (BS Biotechnology, BS Environmental Science, BS Food Science and Technology, BS Agriculture) have a tuition fee of Rs. 171,350 per semester. BS Mathematics, BS Physics, and BS Chemistry also have the same fee of Rs. 171,350 per semester. Fees are subject to revision.",
+        "keywords": [
+            "applied sciences",
+            "fee",
+            "biotechnology",
+            "mathematics",
+            "physics",
+            "chemistry",
+            "tuition"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_bs_english",
+        "type": "qa",
+        "question": "What is the fee for BS English at NUST?",
+        "answer": "BS English (Language and Literature) has a tuition fee of Rs. 85,000 per semester at NUST. Fees are subject to revision.",
+        "content": "What is the fee for BS English at NUST? BS English (Language and Literature) has a tuition fee of Rs. 85,000 per semester at NUST. Fees are subject to revision.",
+        "keywords": [
+            "english",
+            "fee",
+            "tuition",
+            "language",
+            "literature",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_llb",
+        "type": "qa",
+        "question": "What is the fee for LLB at NUST?",
+        "answer": "LLB (Bachelor of Laws) falls under Business Studies / Social Sciences with a tuition fee of Rs. 250,380 per semester. There is also a Bar Council Registration Fee of Rs. 3,000. Students must have a valid HEC LAT score with minimum 50% marks. Fees are subject to revision.",
+        "content": "What is the fee for LLB at NUST? LLB (Bachelor of Laws) falls under Business Studies / Social Sciences with a tuition fee of Rs. 250,380 per semester. There is also a Bar Council Registration Fee of Rs. 3,000. Students must have a valid HEC LAT score with minimum 50% marks. Fees are subject to revision.",
+        "keywords": [
+            "llb",
+            "law",
+            "fee",
+            "tuition",
+            "nls",
+            "lat",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_structure_general",
+        "type": "qa",
+        "question": "What is the fee structure at NUST?",
+        "answer": "NUST fee structure for national UG students (2025): Engineering & Computing: Rs. 171,350/semester. Business Studies & Social Sciences: Rs. 250,380/semester. Architecture & Industrial Design: Rs. 250,380/semester. Applied Sciences (Biotech, Environmental): Rs. 171,350/semester. BS Math/Physics/Chemistry: Rs. 171,350/semester. BS English: Rs. 85,000/semester. All programs also have: Admission Processing Fee Rs. 35,000 (one-time, non-refundable), Security Deposit Rs. 10,000 (refundable), Miscellaneous Rs. 2,700/semester. All fees subject to revision.",
+        "content": "What is the fee structure at NUST? NUST fee structure for national UG students (2025): Engineering & Computing: Rs. 171,350/semester. Business Studies & Social Sciences: Rs. 250,380/semester. Architecture & Industrial Design: Rs. 250,380/semester. Applied Sciences (Biotech, Environmental): Rs. 171,350/semester. BS Math/Physics/Chemistry: Rs. 171,350/semester. BS English: Rs. 85,000/semester. All programs also have: Admission Processing Fee Rs. 35,000 (one-time, non-refundable), Security Deposit Rs. 10,000 (refundable), Miscellaneous Rs. 2,700/semester. All fees subject to revision.",
+        "keywords": [
+            "fee",
+            "structure",
+            "tuition",
+            "cost",
+            "charges",
+            "semester",
+            "engineering",
+            "business",
+            "architecture"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_data_science",
+        "type": "qa",
+        "question": "What is the fee for BS Data Science at NUST?",
+        "answer": "BS Data Science falls under Computing programmes at SEECS. The tuition fee is Rs. 171,350 per semester, same as all engineering and computing programs. Fees are subject to revision.",
+        "content": "What is the fee for BS Data Science at NUST? BS Data Science falls under Computing programmes at SEECS. The tuition fee is Rs. 171,350 per semester, same as all engineering and computing programs. Fees are subject to revision.",
+        "keywords": [
+            "data science",
+            "fee",
+            "tuition",
+            "seecs",
+            "computing",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_ai",
+        "type": "qa",
+        "question": "What is the fee for BS Artificial Intelligence at NUST?",
+        "answer": "BS Artificial Intelligence falls under Computing programmes at SEECS. The tuition fee is Rs. 171,350 per semester, same as all engineering and computing programs. Fees are subject to revision.",
+        "content": "What is the fee for BS Artificial Intelligence at NUST? BS Artificial Intelligence falls under Computing programmes at SEECS. The tuition fee is Rs. 171,350 per semester, same as all engineering and computing programs. Fees are subject to revision.",
+        "keywords": [
+            "artificial intelligence",
+            "ai",
+            "bsai",
+            "fee",
+            "tuition",
+            "seecs",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_fee_international",
+        "type": "qa",
+        "question": "What is the fee for international students at NUST?",
+        "answer": "International UG students pay in USD: Admission Processing Fee USD 600 (non-refundable), Tuition Fee USD 5,400 per annum, Security Deposit USD 250 (refundable), Health Facilities USD 120/year. This applies to all UG programs including Engineering, Computing, Business Studies, Social Sciences, Architecture, and Natural Sciences. Fees are subject to revision.",
+        "content": "What is the fee for international students at NUST? International UG students pay in USD: Admission Processing Fee USD 600 (non-refundable), Tuition Fee USD 5,400 per annum, Security Deposit USD 250 (refundable), Health Facilities USD 120/year. This applies to all UG programs including Engineering, Computing, Business Studies, Social Sciences, Architecture, and Natural Sciences. Fees are subject to revision.",
+        "keywords": [
+            "international",
+            "foreign",
+            "fee",
+            "usd",
+            "tuition",
+            "cost"
+        ],
+        "source": "NUST Prospectus 2025 (Page 77)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_apply",
+        "type": "qa",
+        "question": "How do I apply to NUST?",
+        "answer": "To apply to NUST undergraduate programs: 1) Register online at ugadmissions.nust.edu.pk. 2) Fill the online application form and upload your photograph. 3) Print the fee invoice and deposit the processing fee (Rs. 5,000 per NET exam) at any HBL branch. 4) Select your NET test date and session. 5) Appear in the NET test (computer-based, held in multiple sessions between November and July). 6) Your best NET score from multiple attempts is used. 7) Merit lists are generated by last week of July. 8) Selected candidates pay admission dues and submit documents.",
+        "content": "How do I apply to NUST? To apply to NUST undergraduate programs: 1) Register online at ugadmissions.nust.edu.pk. 2) Fill the online application form and upload your photograph. 3) Print the fee invoice and deposit the processing fee (Rs. 5,000 per NET exam) at any HBL branch. 4) Select your NET test date and session. 5) Appear in the NET test (computer-based, held in multiple sessions between November and July). 6) Your best NET score from multiple attempts is used. 7) Merit lists are generated by last week of July. 8) Selected candidates pay admission dues and submit documents.",
+        "keywords": [
+            "apply",
+            "application",
+            "admission",
+            "register",
+            "process",
+            "how",
+            "procedure"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 53-54)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_net_test",
+        "type": "qa",
+        "question": "What is the NET test?",
+        "answer": "The NUST Entry Test (NET) is a computer-based mandatory entrance exam for NUST undergraduate admissions. It is conducted in multiple sessions from November to July each year in Islamabad, Karachi, Quetta, and Gilgit. You can appear multiple times and your best score is considered. The test is based on intermediate-level education. Registration fee is Rs. 5,000 per attempt. The test covers different subjects depending on your program choice.",
+        "content": "What is the NET test? The NUST Entry Test (NET) is a computer-based mandatory entrance exam for NUST undergraduate admissions. It is conducted in multiple sessions from November to July each year in Islamabad, Karachi, Quetta, and Gilgit. You can appear multiple times and your best score is considered. The test is based on intermediate-level education. Registration fee is Rs. 5,000 per attempt. The test covers different subjects depending on your program choice.",
+        "keywords": [
+            "net",
+            "test",
+            "entry test",
+            "exam",
+            "nust entry test",
+            "computer based"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 55, 80)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_net_pattern_engineering",
+        "type": "qa",
+        "question": "What is the NET test pattern for engineering?",
+        "answer": "NET-Engineering paper (for Pre-Engineering/equivalent students): Mathematics 40%, Physics 30%, Chemistry 15%, English 10%, Intelligence 5%. This test is for all Engineering and Computing programmes. Candidates seeking engineering admission can also opt for BS Mathematics, BS Physics, BS Chemistry, and BS Food Science & Technology without additional fee.",
+        "content": "What is the NET test pattern for engineering? NET-Engineering paper (for Pre-Engineering/equivalent students): Mathematics 40%, Physics 30%, Chemistry 15%, English 10%, Intelligence 5%. This test is for all Engineering and Computing programmes. Candidates seeking engineering admission can also opt for BS Mathematics, BS Physics, BS Chemistry, and BS Food Science & Technology without additional fee.",
+        "keywords": [
+            "net",
+            "pattern",
+            "engineering",
+            "syllabus",
+            "subjects",
+            "math",
+            "physics",
+            "chemistry",
+            "weightage"
+        ],
+        "source": "NUST Prospectus 2025 (Page 55)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_net_pattern_computing",
+        "type": "qa",
+        "question": "What is the NET test pattern for computing?",
+        "answer": "NET-Computing paper (for Computer Science group/equivalent): Mathematics 40%, Physics 25%, Computer Science 20%, English 10%, Intelligence 5%. Candidates with Pre-Engineering background will get Chemistry instead of Computer Science. This test is for all Engineering and Computing programmes.",
+        "content": "What is the NET test pattern for computing? NET-Computing paper (for Computer Science group/equivalent): Mathematics 40%, Physics 25%, Computer Science 20%, English 10%, Intelligence 5%. Candidates with Pre-Engineering background will get Chemistry instead of Computer Science. This test is for all Engineering and Computing programmes.",
+        "keywords": [
+            "net",
+            "pattern",
+            "computing",
+            "computer science",
+            "syllabus",
+            "ics"
+        ],
+        "source": "NUST Prospectus 2025 (Page 55)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_net_pattern_business",
+        "type": "qa",
+        "question": "What is the NET test pattern for business?",
+        "answer": "NET-Business Studies & Social Sciences paper: English 40%, Quantitative (Basic Mathematics) 40%, Intelligence 20%. This test is for BBA, BS Public Administration, BS Mass Communication, BS Economics, BS Psychology, BS Accounting & Finance, LLB, and BS Tourism & Hospitality Management.",
+        "content": "What is the NET test pattern for business? NET-Business Studies & Social Sciences paper: English 40%, Quantitative (Basic Mathematics) 40%, Intelligence 20%. This test is for BBA, BS Public Administration, BS Mass Communication, BS Economics, BS Psychology, BS Accounting & Finance, LLB, and BS Tourism & Hospitality Management.",
+        "keywords": [
+            "net",
+            "pattern",
+            "business",
+            "bba",
+            "economics",
+            "social sciences"
+        ],
+        "source": "NUST Prospectus 2025 (Page 55)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_net_dates",
+        "type": "qa",
+        "question": "When is the NET test conducted?",
+        "answer": "NET 2025 schedule: Series 1 registration Oct-Dec 2024, tests Nov-Dec 2024. Series 2 registration Dec 2024-Feb 2025, tests Feb 2025 onwards. Series 3 registration Feb-Mar 2025, tests Mar-Apr 2025. Series 4 registration Apr-Jun 2025, tests Jun-Jul 2025. Tests are held in Islamabad (all series), Karachi (Series 2, 4), Quetta (Series 2, 4), and Gilgit (Series 4). Candidates can appear in multiple series.",
+        "content": "When is the NET test conducted? NET 2025 schedule: Series 1 registration Oct-Dec 2024, tests Nov-Dec 2024. Series 2 registration Dec 2024-Feb 2025, tests Feb 2025 onwards. Series 3 registration Feb-Mar 2025, tests Mar-Apr 2025. Series 4 registration Apr-Jun 2025, tests Jun-Jul 2025. Tests are held in Islamabad (all series), Karachi (Series 2, 4), Quetta (Series 2, 4), and Gilgit (Series 4). Candidates can appear in multiple series.",
+        "keywords": [
+            "net",
+            "dates",
+            "schedule",
+            "when",
+            "test",
+            "series",
+            "registration"
+        ],
+        "source": "NUST Prospectus 2025 (Page 49)",
+        "category": "dates"
+    },
+    {
+        "id": "qa_aggregate",
+        "type": "qa",
+        "question": "What is the aggregate formula for NUST?",
+        "answer": "The aggregate formula for all NUST UG programmes (except MBBS) is: NUST Entry Test (NET) 75% + SSC/O-Level/Equivalent 10% + HSSC/A-Level/Equivalent 15%. For O/A Level candidates who are in A Level final year, O Level equivalence marks get 25% weightage. For MBBS: NUMS MDCAT 50% + HSSC/A-Level 40% + SSC/O-Level 10%.",
+        "content": "What is the aggregate formula for NUST? The aggregate formula for all NUST UG programmes (except MBBS) is: NUST Entry Test (NET) 75% + SSC/O-Level/Equivalent 10% + HSSC/A-Level/Equivalent 15%. For O/A Level candidates who are in A Level final year, O Level equivalence marks get 25% weightage. For MBBS: NUMS MDCAT 50% + HSSC/A-Level 40% + SSC/O-Level 10%.",
+        "keywords": [
+            "aggregate",
+            "formula",
+            "merit",
+            "weightage",
+            "calculation",
+            "net score",
+            "percentage"
+        ],
+        "source": "NUST Prospectus 2025 (Page 56)",
+        "category": "merit"
+    },
+    {
+        "id": "qa_merit_criteria",
+        "type": "qa",
+        "question": "What is the merit criteria for NUST?",
+        "answer": "Merit at NUST is calculated as: 75% NET score + 15% HSSC/FSc/A-Level marks + 10% SSC/Matric/O-Level marks. Merit lists are generated tentatively by the last week of July. Candidates are offered admission based on their merit position and program preferences. You can appear in multiple NET attempts and your best score is used. After merit list announcement, candidates get a chance to review their program preferences.",
+        "content": "What is the merit criteria for NUST? Merit at NUST is calculated as: 75% NET score + 15% HSSC/FSc/A-Level marks + 10% SSC/Matric/O-Level marks. Merit lists are generated tentatively by the last week of July. Candidates are offered admission based on their merit position and program preferences. You can appear in multiple NET attempts and your best score is used. After merit list announcement, candidates get a chance to review their program preferences.",
+        "keywords": [
+            "merit",
+            "criteria",
+            "cutoff",
+            "aggregate",
+            "marks",
+            "score",
+            "selection"
+        ],
+        "source": "NUST Prospectus 2025 (Page 56)",
+        "category": "merit"
+    },
+    {
+        "id": "qa_eligibility_engineering",
+        "type": "qa",
+        "question": "What are the eligibility requirements for engineering at NUST?",
+        "answer": "For Engineering programmes: You need SSC with Science group AND HSSC Pre-Engineering group (or Computer Science group or Pre-Medical with additional Maths). For O/A Level: O level equivalence of Science group AND A level equivalence of Pre-Engineering group including Mathematics, Physics and Chemistry. Minimum 60% marks in both SSC and HSSC/equivalent. Must appear in NET test. Computer Science group students must clear Chemistry as remedial subject in 1st semester.",
+        "content": "What are the eligibility requirements for engineering at NUST? For Engineering programmes: You need SSC with Science group AND HSSC Pre-Engineering group (or Computer Science group or Pre-Medical with additional Maths). For O/A Level: O level equivalence of Science group AND A level equivalence of Pre-Engineering group including Mathematics, Physics and Chemistry. Minimum 60% marks in both SSC and HSSC/equivalent. Must appear in NET test. Computer Science group students must clear Chemistry as remedial subject in 1st semester.",
+        "keywords": [
+            "eligibility",
+            "requirement",
+            "engineering",
+            "fsc",
+            "a-level",
+            "qualification",
+            "minimum",
+            "60"
+        ],
+        "source": "NUST Prospectus 2025 (Page 50)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_eligibility_computing",
+        "type": "qa",
+        "question": "What are the eligibility requirements for BSCS at NUST?",
+        "answer": "For BS Computer Science, BS Data Science, BS Artificial Intelligence, BS Bioinformatics: You need SSC with Science group AND HSSC Pre-Engineering OR Computer Science group OR Pre-Medical group OR HSSC with Mathematics, Statistics and Computer Science. Minimum 60% marks required. Pre-Medical students enrolling in computing must clear deficient Mathematics courses of 6 credit hours within one year.",
+        "content": "What are the eligibility requirements for BSCS at NUST? For BS Computer Science, BS Data Science, BS Artificial Intelligence, BS Bioinformatics: You need SSC with Science group AND HSSC Pre-Engineering OR Computer Science group OR Pre-Medical group OR HSSC with Mathematics, Statistics and Computer Science. Minimum 60% marks required. Pre-Medical students enrolling in computing must clear deficient Mathematics courses of 6 credit hours within one year.",
+        "keywords": [
+            "eligibility",
+            "bscs",
+            "computer science",
+            "requirement",
+            "ics",
+            "fsc",
+            "qualification"
+        ],
+        "source": "NUST Prospectus 2025 (Page 50)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_eligibility_business",
+        "type": "qa",
+        "question": "What are the eligibility requirements for BBA at NUST?",
+        "answer": "For BBA, BS Economics, BS Mass Communication, BS Public Administration, BS Psychology, BS Tourism & Hospitality Management, and BS English: You need SSC AND HSSC with any combination of subjects. For O/A Level students: O level AND A level equivalence with any combination. Minimum 60% marks in both. For BS Accounting & Finance: HSSC must include Mathematics or Accounting as mandatory subject.",
+        "content": "What are the eligibility requirements for BBA at NUST? For BBA, BS Economics, BS Mass Communication, BS Public Administration, BS Psychology, BS Tourism & Hospitality Management, and BS English: You need SSC AND HSSC with any combination of subjects. For O/A Level students: O level AND A level equivalence with any combination. Minimum 60% marks in both. For BS Accounting & Finance: HSSC must include Mathematics or Accounting as mandatory subject.",
+        "keywords": [
+            "eligibility",
+            "bba",
+            "business",
+            "economics",
+            "psychology",
+            "requirement"
+        ],
+        "source": "NUST Prospectus 2025 (Page 50)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_hostel",
+        "type": "qa",
+        "question": "Does NUST have hostels?",
+        "answer": "Yes, NUST H-12 Islamabad campus has hostels for both male and female students. Girls hostels: Fatima (PG, single occupancy), Zainab, Ayesha (UG, double/triple), Khadija (UG), Amna (UG, triple). Boys hostels: Rumi, Johar, Ammar (PG), Ghazali, Beruni, Razi, Rahmat, Attar, Liaquat, Hajveri, Zakariya (UG). Monthly charges: Single with attached bath Rs. 11,000, Double with attached bath Rs. 10,000, Double with community bath Rs. 8,000, Triple with community bath Rs. 6,750. Security Fee Rs. 15,000 (refundable).",
+        "content": "Does NUST have hostels? Yes, NUST H-12 Islamabad campus has hostels for both male and female students. Girls hostels: Fatima (PG, single occupancy), Zainab, Ayesha (UG, double/triple), Khadija (UG), Amna (UG, triple). Boys hostels: Rumi, Johar, Ammar (PG), Ghazali, Beruni, Razi, Rahmat, Attar, Liaquat, Hajveri, Zakariya (UG). Monthly charges: Single with attached bath Rs. 11,000, Double with attached bath Rs. 10,000, Double with community bath Rs. 8,000, Triple with community bath Rs. 6,750. Security Fee Rs. 15,000 (refundable).",
+        "keywords": [
+            "hostel",
+            "accommodation",
+            "room",
+            "residence",
+            "dorm",
+            "stay",
+            "charges",
+            "monthly"
+        ],
+        "source": "NUST Prospectus 2025 (Page 20)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_hostel_facilities",
+        "type": "qa",
+        "question": "What facilities do NUST hostels have?",
+        "answer": "NUST hostel facilities include: Attached/Community washrooms, fully furnished rooms, central heating, high-speed internet, telephone, gymnasium, billiard table, table tennis, TV lounges with cable TV, dining halls with attached kitchens, standby generator, free laundry service, medical care, prayer area, vending machines, and water filtration plant. All hostels have CCTV cameras, protective boundary walls, and 24/7 security personnel.",
+        "content": "What facilities do NUST hostels have? NUST hostel facilities include: Attached/Community washrooms, fully furnished rooms, central heating, high-speed internet, telephone, gymnasium, billiard table, table tennis, TV lounges with cable TV, dining halls with attached kitchens, standby generator, free laundry service, medical care, prayer area, vending machines, and water filtration plant. All hostels have CCTV cameras, protective boundary walls, and 24/7 security personnel.",
+        "keywords": [
+            "hostel",
+            "facilities",
+            "amenities",
+            "rooms",
+            "internet",
+            "laundry",
+            "gym"
+        ],
+        "source": "NUST Prospectus 2025 (Page 20)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_mess",
+        "type": "qa",
+        "question": "What are the mess charges at NUST?",
+        "answer": "NUST hostel mess charges: Mess Security Rs. 15,000 (refundable), Monthly Charges Rs. 15,175 (approximately Rs. 490 per day). The hostels provide catering services with a variety of wholesome food prepared under hygienic conditions. Hostel charges are separate from mess charges.",
+        "content": "What are the mess charges at NUST? NUST hostel mess charges: Mess Security Rs. 15,000 (refundable), Monthly Charges Rs. 15,175 (approximately Rs. 490 per day). The hostels provide catering services with a variety of wholesome food prepared under hygienic conditions. Hostel charges are separate from mess charges.",
+        "keywords": [
+            "mess",
+            "food",
+            "dining",
+            "charges",
+            "monthly",
+            "hostel"
+        ],
+        "source": "NUST Prospectus 2025 (Page 21)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_programs_nust",
+        "type": "qa",
+        "question": "What programs does NUST offer?",
+        "answer": "NUST offers UG, MS, and PhD programs across 21 institutions. H-12 Islamabad campus schools: SEECS (CS, EE, SE, DS, AI), NBS (BBA, Accounting), S3H (Economics, Psychology, Mass Comm, Public Admin), SCME (Chemical, Materials), SCEE/NICE (Civil, Environmental, Geoinformatics), SMME (Mechanical, Aerospace), SADA (Architecture, Industrial Design), SINES (Bioinformatics), SNS (Math, Physics, Chemistry), ASAB (Biotechnology, Food Science, Agriculture), NLS (LLB), NSHS (MBBS). Other campuses: MCS Rawalpindi, CoEME Rawalpindi, MCE Risalpur, CAE Risalpur, PNEC Karachi, NBC Quetta.",
+        "content": "What programs does NUST offer? NUST offers UG, MS, and PhD programs across 21 institutions. H-12 Islamabad campus schools: SEECS (CS, EE, SE, DS, AI), NBS (BBA, Accounting), S3H (Economics, Psychology, Mass Comm, Public Admin), SCME (Chemical, Materials), SCEE/NICE (Civil, Environmental, Geoinformatics), SMME (Mechanical, Aerospace), SADA (Architecture, Industrial Design), SINES (Bioinformatics), SNS (Math, Physics, Chemistry), ASAB (Biotechnology, Food Science, Agriculture), NLS (LLB), NSHS (MBBS). Other campuses: MCS Rawalpindi, CoEME Rawalpindi, MCE Risalpur, CAE Risalpur, PNEC Karachi, NBC Quetta.",
+        "keywords": [
+            "programs",
+            "degrees",
+            "courses",
+            "schools",
+            "departments",
+            "offer",
+            "institutions"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 25-47)",
+        "category": "programs"
+    },
+    {
+        "id": "qa_programs_seecs",
+        "type": "qa",
+        "question": "What programs does SEECS offer?",
+        "answer": "SEECS (School of Electrical Engineering and Computer Science) offers these undergraduate programs: BE Electrical Engineering, BE Software Engineering, BS Computer Science, BS Data Science, and BS Artificial Intelligence. Departments include: Electrical Engineering, Computer Science, Software Engineering, Data Science & AI, and Humanities & Sciences. SEECS also offers MS and PhD programs in these disciplines plus Information Technology, Information Security, and Innovative Technologies in Learning.",
+        "content": "What programs does SEECS offer? SEECS (School of Electrical Engineering and Computer Science) offers these undergraduate programs: BE Electrical Engineering, BE Software Engineering, BS Computer Science, BS Data Science, and BS Artificial Intelligence. Departments include: Electrical Engineering, Computer Science, Software Engineering, Data Science & AI, and Humanities & Sciences. SEECS also offers MS and PhD programs in these disciplines plus Information Technology, Information Security, and Innovative Technologies in Learning.",
+        "keywords": [
+            "seecs",
+            "programs",
+            "bscs",
+            "bsee",
+            "bsse",
+            "computer science",
+            "electrical",
+            "data science",
+            "ai"
+        ],
+        "source": "NUST Prospectus 2025 (Page 25)",
+        "category": "programs"
+    },
+    {
+        "id": "qa_programs_nbs",
+        "type": "qa",
+        "question": "What programs does NBS offer?",
+        "answer": "NBS (NUST Business School) offers undergraduate programs: BBA Administration, BS Accounting and Finance, BS Tourism & Hospitality Management. Postgraduate: MBA, Executive MBA (EMBA), MS Logistics & Supply Chain Management, MS Human Resource Management, MS Innovation & Entrepreneurship, MS Marketing, PhD Business Administration. NBS is ranked in the 251-300 bracket in QS World Rankings for Business & Management.",
+        "content": "What programs does NBS offer? NBS (NUST Business School) offers undergraduate programs: BBA Administration, BS Accounting and Finance, BS Tourism & Hospitality Management. Postgraduate: MBA, Executive MBA (EMBA), MS Logistics & Supply Chain Management, MS Human Resource Management, MS Innovation & Entrepreneurship, MS Marketing, PhD Business Administration. NBS is ranked in the 251-300 bracket in QS World Rankings for Business & Management.",
+        "keywords": [
+            "nbs",
+            "business",
+            "bba",
+            "mba",
+            "accounting",
+            "finance",
+            "tourism"
+        ],
+        "source": "NUST Prospectus 2025 (Page 26)",
+        "category": "programs"
+    },
+    {
+        "id": "qa_scholarship",
+        "type": "qa",
+        "question": "Does NUST offer scholarships?",
+        "answer": "Yes, NUST offers extensive financial aid: 1) Need-based scholarships through the NEED Initiative (NUST Endowment for Educational Development) providing half/full tuition fee waivers. Apply by filling the NUST Financial Aid Application Form (NFAAF) with your admission application. 2) Merit-based financial assistance for top 3 position holders per section with GPA 3.5+ per semester. 3) Over 86 endowment fund scholarships from organizations like HBL, UBL, Fauji Cement, Lucky Cement, Netsol, etc. 4) External scholarships: HEC Ehsaas, PEEF, and others. 5) Deferred payment facility for financially challenged students. 6) Ihsaan Trust interest-free loans covering 50-80% tuition.",
+        "content": "Does NUST offer scholarships? Yes, NUST offers extensive financial aid: 1) Need-based scholarships through the NEED Initiative (NUST Endowment for Educational Development) providing half/full tuition fee waivers. Apply by filling the NUST Financial Aid Application Form (NFAAF) with your admission application. 2) Merit-based financial assistance for top 3 position holders per section with GPA 3.5+ per semester. 3) Over 86 endowment fund scholarships from organizations like HBL, UBL, Fauji Cement, Lucky Cement, Netsol, etc. 4) External scholarships: HEC Ehsaas, PEEF, and others. 5) Deferred payment facility for financially challenged students. 6) Ihsaan Trust interest-free loans covering 50-80% tuition.",
+        "keywords": [
+            "scholarship",
+            "financial aid",
+            "waiver",
+            "need-based",
+            "merit-based",
+            "fee concession",
+            "hec",
+            "endowment"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 73-76)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_important_dates",
+        "type": "qa",
+        "question": "What are the important dates for NUST admission 2025?",
+        "answer": "Key dates for NUST UG admission 2025: NET Series 1 registration Oct-Dec 2024, tests Nov-Dec 2024. Series 2 registration Dec 2024-Feb 2025, tests Feb onwards. Series 3 registration Feb-Mar 2025, tests Mar-Apr 2025. Series 4 registration Apr-Jun 2025, tests Jun-Jul 2025. ACT/SAT scores deadline: July 25, 2025. Selection of candidates: August 2025. Classes begin: September 2025 (October for CAE). Apply at ugadmissions.nust.edu.pk.",
+        "content": "What are the important dates for NUST admission 2025? Key dates for NUST UG admission 2025: NET Series 1 registration Oct-Dec 2024, tests Nov-Dec 2024. Series 2 registration Dec 2024-Feb 2025, tests Feb onwards. Series 3 registration Feb-Mar 2025, tests Mar-Apr 2025. Series 4 registration Apr-Jun 2025, tests Jun-Jul 2025. ACT/SAT scores deadline: July 25, 2025. Selection of candidates: August 2025. Classes begin: September 2025 (October for CAE). Apply at ugadmissions.nust.edu.pk.",
+        "keywords": [
+            "dates",
+            "deadline",
+            "schedule",
+            "when",
+            "important dates",
+            "timeline",
+            "registration"
+        ],
+        "source": "NUST Prospectus 2025 (Page 49)",
+        "category": "dates"
+    },
+    {
+        "id": "qa_alevel",
+        "type": "qa",
+        "question": "Can I apply to NUST with A-Levels?",
+        "answer": "Yes, A-Level students can apply to NUST. Requirements: 1) Get O Level and A Level equivalence certificates from IBCC (Inter Boards Coordination Commission) with minimum 60% marks. 2) Valid O Level equivalence is mandatory at time of applying. A Level equivalence must be provided before program commencement. 3) Appear in NET test or apply via ACT/SAT scores. 4) A-Level candidates in final year get 25% weightage to O Level equivalence marks for merit calculation. IBCC office: Plot 25, Street 38, G-10/4, Islamabad. Phone: 051-9106631.",
+        "content": "Can I apply to NUST with A-Levels? Yes, A-Level students can apply to NUST. Requirements: 1) Get O Level and A Level equivalence certificates from IBCC (Inter Boards Coordination Commission) with minimum 60% marks. 2) Valid O Level equivalence is mandatory at time of applying. A Level equivalence must be provided before program commencement. 3) Appear in NET test or apply via ACT/SAT scores. 4) A-Level candidates in final year get 25% weightage to O Level equivalence marks for merit calculation. IBCC office: Plot 25, Street 38, G-10/4, Islamabad. Phone: 051-9106631.",
+        "keywords": [
+            "a-level",
+            "alevel",
+            "cambridge",
+            "ibcc",
+            "equivalence",
+            "international",
+            "o-level"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 49-54)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_sat_act",
+        "type": "qa",
+        "question": "Can I apply to NUST with SAT or ACT?",
+        "answer": "Yes. NUST has reserved ACT/SAT based seats for both national and international students. Requirements: Engineering/Computing/Architecture/Applied Sciences: ACT Composite Score minimum 25. Natural Sciences (Math/Physics/Chemistry): ACT STEM Score minimum 25. Business Studies/Social Sciences/LLB: SAT-I minimum 550 in each subject OR ACT minimum 25 in Math, English, and Reading. Scores must reach NUST by July 25, 2025. NUST SAT code: 2790, ACT code: 2915. Scores are valid for 2 years.",
+        "content": "Can I apply to NUST with SAT or ACT? Yes. NUST has reserved ACT/SAT based seats for both national and international students. Requirements: Engineering/Computing/Architecture/Applied Sciences: ACT Composite Score minimum 25. Natural Sciences (Math/Physics/Chemistry): ACT STEM Score minimum 25. Business Studies/Social Sciences/LLB: SAT-I minimum 550 in each subject OR ACT minimum 25 in Math, English, and Reading. Scores must reach NUST by July 25, 2025. NUST SAT code: 2790, ACT code: 2915. Scores are valid for 2 years.",
+        "keywords": [
+            "sat",
+            "act",
+            "international",
+            "score",
+            "minimum",
+            "composite"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 56, 70)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_campus_location",
+        "type": "qa",
+        "question": "Where is NUST located?",
+        "answer": "NUST main campus is in Sector H-12, Islamabad, Pakistan, in the backdrop of Margalla Hills. It is 20 minutes from the airport, bus and railway terminals via Kashmir Highway connected to M-1 Motorway. NUST has campuses in 5 cities: Islamabad (main H-12 campus with 11 schools), Rawalpindi (MCS and CoEME), Risalpur (MCE and CAE), Karachi (PNEC), and Quetta (NBC - Balochistan Campus).",
+        "content": "Where is NUST located? NUST main campus is in Sector H-12, Islamabad, Pakistan, in the backdrop of Margalla Hills. It is 20 minutes from the airport, bus and railway terminals via Kashmir Highway connected to M-1 Motorway. NUST has campuses in 5 cities: Islamabad (main H-12 campus with 11 schools), Rawalpindi (MCS and CoEME), Risalpur (MCE and CAE), Karachi (PNEC), and Quetta (NBC - Balochistan Campus).",
+        "keywords": [
+            "location",
+            "campus",
+            "address",
+            "where",
+            "islamabad",
+            "h-12",
+            "rawalpindi",
+            "karachi"
+        ],
+        "source": "NUST Prospectus 2025 (Page 10)",
+        "category": "campus"
+    },
+    {
+        "id": "qa_contact",
+        "type": "qa",
+        "question": "How can I contact the NUST admission office?",
+        "answer": "Contact NUST Admissions: Admissions Directorate, NUST, Sector H-12, Islamabad, Pakistan. Phone: +92-51-90856878. UAN: 111-11-6878. Email: ugadmissions@nust.edu.pk (for UG), actadmissions@nust.edu.pk (for ACT/SAT). Website: nust.edu.pk. UG Portal: ugadmissions.nust.edu.pk. PG Portal: pgadmission.nust.edu.pk. Counseling Center (C3A): 051-9085-1571, c3a@nust.edu.pk. International Office: nio@nust.edu.pk.",
+        "content": "How can I contact the NUST admission office? Contact NUST Admissions: Admissions Directorate, NUST, Sector H-12, Islamabad, Pakistan. Phone: +92-51-90856878. UAN: 111-11-6878. Email: ugadmissions@nust.edu.pk (for UG), actadmissions@nust.edu.pk (for ACT/SAT). Website: nust.edu.pk. UG Portal: ugadmissions.nust.edu.pk. PG Portal: pgadmission.nust.edu.pk. Counseling Center (C3A): 051-9085-1571, c3a@nust.edu.pk. International Office: nio@nust.edu.pk.",
+        "keywords": [
+            "contact",
+            "phone",
+            "email",
+            "office",
+            "helpline",
+            "reach",
+            "address",
+            "number"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 12, 51)",
+        "category": "contact"
+    },
+    {
+        "id": "qa_ranking",
+        "type": "qa",
+        "question": "What is NUST's ranking?",
+        "answer": "NUST is ranked #353 in QS World University Rankings 2025 and #67 among Asian Universities (QS Asian Rankings 2024). It is #1 in Pakistan in: Computer Science (#174 worldwide), Electrical & Electronics Engineering (#151-200), Civil & Structural Engineering (#151-200), Chemical Engineering (#251-300), Mechanical & Aeronautical Engineering (#201-250), Mathematics (#201-250), Material Science (#251-300), Engineering & Technology (#144 worldwide). Business & Management is ranked #301-350 worldwide (#2 in Pakistan).",
+        "content": "What is NUST's ranking? NUST is ranked #353 in QS World University Rankings 2025 and #67 among Asian Universities (QS Asian Rankings 2024). It is #1 in Pakistan in: Computer Science (#174 worldwide), Electrical & Electronics Engineering (#151-200), Civil & Structural Engineering (#151-200), Chemical Engineering (#251-300), Mechanical & Aeronautical Engineering (#201-250), Mathematics (#201-250), Material Science (#251-300), Engineering & Technology (#144 worldwide). Business & Management is ranked #301-350 worldwide (#2 in Pakistan).",
+        "keywords": [
+            "ranking",
+            "qs",
+            "world",
+            "position",
+            "rank",
+            "number",
+            "best",
+            "pakistan"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 4, 9)",
+        "category": "campus"
+    },
+    {
+        "id": "qa_sports",
+        "type": "qa",
+        "question": "What sports facilities does NUST have?",
+        "answer": "NUST H-12 campus has international standard sports facilities. Indoor: 2 multipurpose halls, 2 basketball courts, 1 volleyball, 6 badminton, 6 table tennis, 2 snooker, 1 pool table, 4 fitness gyms, 2 squash courts, 1 all-weather swimming pool, 1 bowling alley. Outdoor: 2 football fields, 5 cricket grounds, 1 hockey ground, 9 futsal grounds, 5 basketball courts, 9 volleyball courts, 5 tennis courts, 1 skating rink, 1 climbing wall, 1 athletic ground, 1.5 km hiking trail. NUST also has a Riding Club.",
+        "content": "What sports facilities does NUST have? NUST H-12 campus has international standard sports facilities. Indoor: 2 multipurpose halls, 2 basketball courts, 1 volleyball, 6 badminton, 6 table tennis, 2 snooker, 1 pool table, 4 fitness gyms, 2 squash courts, 1 all-weather swimming pool, 1 bowling alley. Outdoor: 2 football fields, 5 cricket grounds, 1 hockey ground, 9 futsal grounds, 5 basketball courts, 9 volleyball courts, 5 tennis courts, 1 skating rink, 1 climbing wall, 1 athletic ground, 1.5 km hiking trail. NUST also has a Riding Club.",
+        "keywords": [
+            "sports",
+            "facilities",
+            "gym",
+            "swimming",
+            "cricket",
+            "football",
+            "fitness"
+        ],
+        "source": "NUST Prospectus 2025 (Page 21)",
+        "category": "campus"
+    },
+    {
+        "id": "qa_clubs",
+        "type": "qa",
+        "question": "What clubs and societies does NUST have?",
+        "answer": "NUST has 40+ clubs and societies managed by the Student Affairs Directorate including: Debating Society, Music Society, Dramatics Club, Fine Arts Club, Robotics Club, IEEE Club, Hack Club, Entrepreneurs Club, Adventure Club, Trekking Club, Chess Club, Quiz Club, Science Society, Book Club, Digital Club, Paragliding Club, Community Services Club, and many more. NUST also hosts national events like National Science Bee, NUST Olympiad (biannually), Summer School for FSc students, and annual Orientation Week in September.",
+        "content": "What clubs and societies does NUST have? NUST has 40+ clubs and societies managed by the Student Affairs Directorate including: Debating Society, Music Society, Dramatics Club, Fine Arts Club, Robotics Club, IEEE Club, Hack Club, Entrepreneurs Club, Adventure Club, Trekking Club, Chess Club, Quiz Club, Science Society, Book Club, Digital Club, Paragliding Club, Community Services Club, and many more. NUST also hosts national events like National Science Bee, NUST Olympiad (biannually), Summer School for FSc students, and annual Orientation Week in September.",
+        "keywords": [
+            "clubs",
+            "societies",
+            "activities",
+            "student life",
+            "extracurricular"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 18-19)",
+        "category": "campus"
+    },
+    {
+        "id": "qa_application_fee",
+        "type": "qa",
+        "question": "What is the application fee for NUST?",
+        "answer": "NUST application processing fees: NET test registration Rs. 5,000 per exam (or USD 40). ACT National Seat Rs. 5,000 (USD 40). ACT International Seat Rs. 10,000 (USD 80). MBBS Local Rs. 2,000, Foreign Rs. 10,000. MS programs Rs. 10,000. PhD programs Rs. 5,000. Fee can be deposited at any HBL branch or via 1Link/Credit Card.",
+        "content": "What is the application fee for NUST? NUST application processing fees: NET test registration Rs. 5,000 per exam (or USD 40). ACT National Seat Rs. 5,000 (USD 40). ACT International Seat Rs. 10,000 (USD 80). MBBS Local Rs. 2,000, Foreign Rs. 10,000. MS programs Rs. 10,000. PhD programs Rs. 5,000. Fee can be deposited at any HBL branch or via 1Link/Credit Card.",
+        "keywords": [
+            "application",
+            "fee",
+            "processing",
+            "registration",
+            "cost",
+            "net",
+            "how much"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 51, 74)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_refund_policy",
+        "type": "qa",
+        "question": "What is the fee refund policy at NUST?",
+        "answer": "NUST tuition fee refund policy: Full (100%) refund if you apply within 7 days of classes starting. Half (50%) refund from 8th to 15th day of classes. No refund (0%) from 16th day onwards. The Admission Processing Fee is non-refundable under any circumstances. Security Deposit is refundable but must be claimed within 3 years of degree completion/withdrawal. Late payment penalty: 2% of semester fee after 1st due date; registration suspended after 2nd due date.",
+        "content": "What is the fee refund policy at NUST? NUST tuition fee refund policy: Full (100%) refund if you apply within 7 days of classes starting. Half (50%) refund from 8th to 15th day of classes. No refund (0%) from 16th day onwards. The Admission Processing Fee is non-refundable under any circumstances. Security Deposit is refundable but must be claimed within 3 years of degree completion/withdrawal. Late payment penalty: 2% of semester fee after 1st due date; registration suspended after 2nd due date.",
+        "keywords": [
+            "refund",
+            "policy",
+            "withdrawal",
+            "cancel",
+            "fee",
+            "return"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 73-74)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_dae",
+        "type": "qa",
+        "question": "Can DAE holders apply to NUST?",
+        "answer": "Yes, candidates with Diploma of Associate Engineering (DAE) can apply to NUST. They need minimum 60% marks in DAE in various technologies and can apply for relevant Engineering programmes through the NUST Entry Test (NET) on open merit. DAE candidates cannot opt for BS Mathematics, BS Physics, or BS Chemistry alongside engineering. For details visit: nust.edu.pk/admissions/undergraduates/dae-eligibility-criteria/",
+        "content": "Can DAE holders apply to NUST? Yes, candidates with Diploma of Associate Engineering (DAE) can apply to NUST. They need minimum 60% marks in DAE in various technologies and can apply for relevant Engineering programmes through the NUST Entry Test (NET) on open merit. DAE candidates cannot opt for BS Mathematics, BS Physics, or BS Chemistry alongside engineering. For details visit: nust.edu.pk/admissions/undergraduates/dae-eligibility-criteria/",
+        "keywords": [
+            "dae",
+            "diploma",
+            "associate engineering",
+            "eligible",
+            "apply"
+        ],
+        "source": "NUST Prospectus 2025 (Page 49)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_academic_calendar",
+        "type": "qa",
+        "question": "When does the academic year start at NUST?",
+        "answer": "The NUST academic year starts in September. There are two regular semesters: Fall (September-January) and Spring (February-June), plus an optional Summer semester (July-August). Summer semester allows students to clear deficient courses. The university observes summer vacation from August to September. NUST operates 9am to 5pm, 5 days a week. Labs and libraries remain accessible till late night and weekends.",
+        "content": "When does the academic year start at NUST? The NUST academic year starts in September. There are two regular semesters: Fall (September-January) and Spring (February-June), plus an optional Summer semester (July-August). Summer semester allows students to clear deficient courses. The university observes summer vacation from August to September. NUST operates 9am to 5pm, 5 days a week. Labs and libraries remain accessible till late night and weekends.",
+        "keywords": [
+            "academic",
+            "calendar",
+            "semester",
+            "start",
+            "fall",
+            "spring",
+            "when"
+        ],
+        "source": "NUST Prospectus 2025 (Page 11)",
+        "category": "dates"
+    },
+    {
+        "id": "qa_migration",
+        "type": "qa",
+        "question": "Can I transfer to NUST from another university?",
+        "answer": "Yes, NUST allows migration from other universities. Requirements: Apply after completing 1st year at parent university. Need SSC and HSSC with minimum 60% marks. Courses to transfer must have minimum B grade. Must complete at least 60% credit hours at NUST. Students who previously failed NUST entry test are not eligible. Fees: Processing Fee Rs. 7,000. Migration from foreign universities Rs. 250,000. From local universities Rs. 100,000. Transfer within NUST Rs. 7,000.",
+        "content": "Can I transfer to NUST from another university? Yes, NUST allows migration from other universities. Requirements: Apply after completing 1st year at parent university. Need SSC and HSSC with minimum 60% marks. Courses to transfer must have minimum B grade. Must complete at least 60% credit hours at NUST. Students who previously failed NUST entry test are not eligible. Fees: Processing Fee Rs. 7,000. Migration from foreign universities Rs. 250,000. From local universities Rs. 100,000. Transfer within NUST Rs. 7,000.",
+        "keywords": [
+            "transfer",
+            "migration",
+            "another university",
+            "switch"
+        ],
+        "source": "NUST Prospectus 2025 (Page 57)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_how_join",
+        "type": "qa",
+        "question": "How can I join NUST?",
+        "answer": "To join NUST for undergraduate programs: 1) Register online at ugadmissions.nust.edu.pk. 2) Pay the registration fee of Rs. 5,000 at any HBL branch. 3) Appear in the NUST Entry Test (NET) which is held multiple times from November to July. 4) You can also apply via ACT/SAT scores. 5) Merit lists are generated by last week of July based on: 75% NET + 15% FSc + 10% Matric. 6) Selected candidates pay admission dues and join in September.",
+        "content": "How can I join NUST? To join NUST for undergraduate programs: 1) Register online at ugadmissions.nust.edu.pk. 2) Pay the registration fee of Rs. 5,000 at any HBL branch. 3) Appear in the NUST Entry Test (NET) which is held multiple times from November to July. 4) You can also apply via ACT/SAT scores. 5) Merit lists are generated by last week of July based on: 75% NET + 15% FSc + 10% Matric. 6) Selected candidates pay admission dues and join in September.",
+        "keywords": [
+            "join",
+            "get in",
+            "admission",
+            "apply",
+            "how",
+            "ways",
+            "enter"
+        ],
+        "source": "NUST Prospectus 2025",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_ways_admission",
+        "type": "qa",
+        "question": "What are the ways to get admission in NUST?",
+        "answer": "There are two main routes for NUST UG admission: 1) NUST Entry Test (NET) \u2014 computer-based test held in multiple sessions. Apply at ugadmissions.nust.edu.pk. Fee: Rs. 5,000 per attempt. Best score from multiple attempts is used. 2) ACT/SAT \u2014 reserved seats available. Engineering/Computing need ACT Composite minimum 25. Business/Social Sciences need SAT minimum 550 per subject. Scores must reach NUST by July 25. Both routes use the same merit formula: 75% test + 15% FSc + 10% Matric.",
+        "content": "What are the ways to get admission in NUST? There are two main routes for NUST UG admission: 1) NUST Entry Test (NET) \u2014 computer-based test held in multiple sessions. Apply at ugadmissions.nust.edu.pk. Fee: Rs. 5,000 per attempt. Best score from multiple attempts is used. 2) ACT/SAT \u2014 reserved seats available. Engineering/Computing need ACT Composite minimum 25. Business/Social Sciences need SAT minimum 550 per subject. Scores must reach NUST by July 25. Both routes use the same merit formula: 75% test + 15% FSc + 10% Matric.",
+        "keywords": [
+            "ways",
+            "admission",
+            "get in",
+            "routes",
+            "options",
+            "net",
+            "act",
+            "sat"
+        ],
+        "source": "NUST Prospectus 2025",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_other_than_net",
+        "type": "qa",
+        "question": "Can I get into NUST without NET?",
+        "answer": "Yes, you can apply to NUST via ACT or SAT scores instead of NET. For Engineering/Computing: ACT Composite minimum 25. For Natural Sciences: ACT STEM minimum 25. For Business/Social Sciences/LLB: SAT-I minimum 550 per subject OR ACT minimum 25 in Math, English, Reading. SAT code: 2790, ACT code: 2915. Scores must reach NUST by July 25, 2025. Separate merit list is prepared for ACT/SAT candidates.",
+        "content": "Can I get into NUST without NET? Yes, you can apply to NUST via ACT or SAT scores instead of NET. For Engineering/Computing: ACT Composite minimum 25. For Natural Sciences: ACT STEM minimum 25. For Business/Social Sciences/LLB: SAT-I minimum 550 per subject OR ACT minimum 25 in Math, English, Reading. SAT code: 2790, ACT code: 2915. Scores must reach NUST by July 25, 2025. Separate merit list is prepared for ACT/SAT candidates.",
+        "keywords": [
+            "without net",
+            "besides net",
+            "other ways",
+            "alternative",
+            "act",
+            "sat"
+        ],
+        "source": "NUST Prospectus 2025",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_food_nust",
+        "type": "qa",
+        "question": "How can I get food at NUST?",
+        "answer": "Food at NUST campus is available through: 1) Hostel mess \u2014 provides breakfast, lunch, and dinner at Rs. 15,175/month (Rs. 490/day). Mess Security Rs. 15,000 (refundable). 2) Concordia-I and Concordia-II cafeterias and shopping complexes with cafes, mini marts, and refreshment corners. 3) South Edge Cafe (front of Main Office), Retro Cafe (near Attar Hostels), Coffee Lounge (near Grid Station). All food is prepared under hygienic conditions.",
+        "content": "How can I get food at NUST? Food at NUST campus is available through: 1) Hostel mess \u2014 provides breakfast, lunch, and dinner at Rs. 15,175/month (Rs. 490/day). Mess Security Rs. 15,000 (refundable). 2) Concordia-I and Concordia-II cafeterias and shopping complexes with cafes, mini marts, and refreshment corners. 3) South Edge Cafe (front of Main Office), Retro Cafe (near Attar Hostels), Coffee Lounge (near Grid Station). All food is prepared under hygienic conditions.",
+        "keywords": [
+            "food",
+            "eat",
+            "dining",
+            "mess",
+            "cafeteria",
+            "canteen",
+            "restaurant"
+        ],
+        "source": "NUST Prospectus 2025",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_lid",
+        "type": "qa",
+        "question": "What is LID at NUST?",
+        "answer": "LID likely refers to the Bachelor of Industrial Design (B.ID) offered at SADA (School of Art, Design and Architecture) at NUST. It is a 4-year undergraduate program. Eligibility: SSC and HSSC with Mathematics and Physics as mandatory subjects, minimum 60% marks. Admission is through NET-Architecture paper (Math 30%, Physics 30%, English 25%, Intelligence 15%) or ACT Composite Score (minimum 25). The tuition fee is Rs. 250,380 per semester.",
+        "content": "What is LID at NUST? LID likely refers to the Bachelor of Industrial Design (B.ID) offered at SADA (School of Art, Design and Architecture) at NUST. It is a 4-year undergraduate program. Eligibility: SSC and HSSC with Mathematics and Physics as mandatory subjects, minimum 60% marks. Admission is through NET-Architecture paper (Math 30%, Physics 30%, English 25%, Intelligence 15%) or ACT Composite Score (minimum 25). The tuition fee is Rs. 250,380 per semester.",
+        "keywords": [
+            "lid",
+            "industrial design",
+            "bid",
+            "sada",
+            "design"
+        ],
+        "source": "NUST Prospectus 2025",
+        "category": "programs"
+    },
+    {
+        "id": "qa_faq_0054",
+        "type": "qa",
+        "question": "Can a candidate apply both for open merit and ACT based seats?",
+        "answer": "Yes, on the basis of NET / MDCAT Score and required ACT Score.",
+        "content": "Can a candidate apply both for open merit and ACT based seats? Yes, on the basis of NET / MDCAT Score and required ACT Score.",
+        "keywords": [
+            "candidate",
+            "apply",
+            "both",
+            "open",
+            "merit",
+            "act",
+            "based",
+            "seats"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "merit"
+    },
+    {
+        "id": "qa_faq_0055",
+        "type": "qa",
+        "question": "Can a candidate of ICS / equivalent qualification eligible to apply for Engineering programmes?",
+        "answer": "Yes, as per PEC regulation No PEC/EAD/46-VCCM/Regulations/2023 dated 30 March 2023, candidates having combination of Physics, Mathematics and Computer Studies / Computer Science (ICS) or equivalent are eligible to apply for all the Engineering programs offered by NUST, but they have to clear Chemistry as a remedial subject / course in the 1st Semester after admission. Candidates, who already appeared in any NET series during current admission cycle, will also be able to update their choice preferences while applying for Series-4 or after the announcement of merit, before start of the selection process.",
+        "content": "Can a candidate of ICS / equivalent qualification eligible to apply for Engineering programmes? Yes, as per PEC regulation No PEC/EAD/46-VCCM/Regulations/2023 dated 30 March 2023, candidates having combination of Physics, Mathematics and Computer Studies / Computer Science (ICS) or equivalent are eligible to apply for all the Engineering programs offered by NUST, but they have to clear Chemistry as a remedial subject / course in the 1st Semester after admission. Candidates, who already appeared in any NET series during current admission cycle, will also be able to update their choice preferences while applying for Series-4 or after the announcement of merit, before start of the selection process.",
+        "keywords": [
+            "candidate",
+            "ics",
+            "equivalent",
+            "qualification",
+            "eligible",
+            "apply",
+            "engineering",
+            "programmes"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_faq_0056",
+        "type": "qa",
+        "question": "Can a candidate with FSc Pre-Medical / equivalent qualification, appeared in additional mathematics paper and waiting for the result, apply for admission in Engineering programs on the basis of Pre Medical marks?",
+        "answer": "Candidate can apply on the basis of Pre-Medical result, however he / she has to provide the additional math result with passing marks and overall 60% marks in HSSC at the time of joining NUST.",
+        "content": "Can a candidate with FSc Pre-Medical / equivalent qualification, appeared in additional mathematics paper and waiting for the result, apply for admission in Engineering programs on the basis of Pre Medical marks? Candidate can apply on the basis of Pre-Medical result, however he / she has to provide the additional math result with passing marks and overall 60% marks in HSSC at the time of joining NUST.",
+        "keywords": [
+            "candidate",
+            "fsc",
+            "pre",
+            "medical",
+            "equivalent",
+            "qualification",
+            "appeared",
+            "additional"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "merit"
+    },
+    {
+        "id": "qa_faq_0057",
+        "type": "qa",
+        "question": "Can candidates of FSc Pre-Medical / equivalent qualification apply for BS Computer Science?",
+        "answer": "Yes, but they have to clear deficient Mathematics courses of 6 credit hours, within one year of enrollment in the programme.",
+        "content": "Can candidates of FSc Pre-Medical / equivalent qualification apply for BS Computer Science? Yes, but they have to clear deficient Mathematics courses of 6 credit hours, within one year of enrollment in the programme.",
+        "keywords": [
+            "candidates",
+            "fsc",
+            "pre",
+            "medical",
+            "equivalent",
+            "qualification",
+            "apply",
+            "computer"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_faq_0060",
+        "type": "qa",
+        "question": "Can I apply for computing programmes with HSSC / A level background in Arts / Humanities group?",
+        "answer": "Yes, any candidate who has Mathematics as one of the mandatory subjects in HSSC / A level / Equivalent, is eligible to apply for computing programmes.",
+        "content": "Can I apply for computing programmes with HSSC / A level background in Arts / Humanities group? Yes, any candidate who has Mathematics as one of the mandatory subjects in HSSC / A level / Equivalent, is eligible to apply for computing programmes.",
+        "keywords": [
+            "apply",
+            "computing",
+            "programmes",
+            "hssc",
+            "level",
+            "background",
+            "arts",
+            "humanities"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0061",
+        "type": "qa",
+        "question": "Can I apply for more than one programme?",
+        "answer": "Yes, if you meet the eligibility criteria.",
+        "content": "Can I apply for more than one programme? Yes, if you meet the eligibility criteria.",
+        "keywords": [
+            "apply",
+            "more",
+            "than",
+            "one",
+            "programme"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0062",
+        "type": "qa",
+        "question": "Can I apply for rechecking of Entry Test Result?",
+        "answer": "Re-checking of Paper Based Entry Test may be requested within 5 days of the declaration of result along with a fee of Rs.500/- in the form of a bank draft/pay order in favour of NUST. The original bank draft / pay order should be dispatched to Admissions Directorate, NUST, Sector H-12, Islamabad, along with written application. Re-checking involves the verification of paper for any unmarked answers and error free totaling of marks.",
+        "content": "Can I apply for rechecking of Entry Test Result? Re-checking of Paper Based Entry Test may be requested within 5 days of the declaration of result along with a fee of Rs.500/- in the form of a bank draft/pay order in favour of NUST. The original bank draft / pay order should be dispatched to Admissions Directorate, NUST, Sector H-12, Islamabad, along with written application. Re-checking involves the verification of paper for any unmarked answers and error free totaling of marks.",
+        "keywords": [
+            "apply",
+            "rechecking",
+            "entry",
+            "test",
+            "result"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0063",
+        "type": "qa",
+        "question": "Can I get a copy of NUST Entry Test result?",
+        "answer": "Desirous candidates may obtain the result details of their Test from the link available on NUST website.",
+        "content": "Can I get a copy of NUST Entry Test result? Desirous candidates may obtain the result details of their Test from the link available on NUST website.",
+        "keywords": [
+            "get",
+            "copy",
+            "entry",
+            "test",
+            "result"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0064",
+        "type": "qa",
+        "question": "Can I get some sample Test papers of NUST Entry Test?",
+        "answer": "Mock Test for Computer Based / Paper Based Test are available on NUST website www.ugadmissions.nust.edu.pk under the link Sample Test , for candidates to practice.",
+        "content": "Can I get some sample Test papers of NUST Entry Test? Mock Test for Computer Based / Paper Based Test are available on NUST website www.ugadmissions.nust.edu.pk under the link Sample Test , for candidates to practice.",
+        "keywords": [
+            "get",
+            "some",
+            "sample",
+            "test",
+            "papers",
+            "entry",
+            "test"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0066",
+        "type": "qa",
+        "question": "Does NUST cater for the pick and drop facility for the students?",
+        "answer": "Pick and drop service is provided to students of Rawalpindi and Islamabad only with specified routes , for which the student has to pay separate charges. You will be guided to avail the facility during the orientation session.",
+        "content": "Does NUST cater for the pick and drop facility for the students? Pick and drop service is provided to students of Rawalpindi and Islamabad only with specified routes , for which the student has to pay separate charges. You will be guided to avail the facility during the orientation session.",
+        "keywords": [
+            "does",
+            "cater",
+            "pick",
+            "drop",
+            "facility",
+            "students"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0070",
+        "type": "qa",
+        "question": "How can I apply at NUST if I am an expatriate student?",
+        "answer": "An expatriate having dual nationality can opt for both NET and SAT on national and international seats.",
+        "content": "How can I apply at NUST if I am an expatriate student? An expatriate having dual nationality can opt for both NET and SAT on national and international seats.",
+        "keywords": [
+            "apply",
+            "expatriate",
+            "student"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0073",
+        "type": "qa",
+        "question": "How can I submit the application processing fee (online) using 1Link option?",
+        "answer": "Candidates can use the unique 17-digit 1Bill Invoice / Consumer No. mentioned under the Fee Invoice section , to pay their fee via 1Link service through any of the following payment modes: Mobile App / Online Banking (Any Bank) ATM (Any Bank) Easy Paisa / Jazz Cash etc. The benefit of making payment through 1Link is that you don\u2019t have to wait for fee verification because it is verified instantly.",
+        "content": "How can I submit the application processing fee (online) using 1Link option? Candidates can use the unique 17-digit 1Bill Invoice / Consumer No. mentioned under the Fee Invoice section , to pay their fee via 1Link service through any of the following payment modes: Mobile App / Online Banking (Any Bank) ATM (Any Bank) Easy Paisa / Jazz Cash etc. The benefit of making payment through 1Link is that you don\u2019t have to wait for fee verification because it is verified instantly.",
+        "keywords": [
+            "submit",
+            "application",
+            "processing",
+            "fee",
+            "online",
+            "using",
+            "link",
+            "option"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_faq_0076",
+        "type": "qa",
+        "question": "I am a born Pakistani with a foreign passport; can I apply as an expatriate student?",
+        "answer": "If you don't have Pakistani nationality like having CNIC / NICOP, you can apply as an international student (foreign student). You can apply on the basis of NET or ACT/SAT or both as per eligibility criteria but have to pay tuition fee and allied charges as admissible for foreign nationals. If you are a POC holder and applying on the basis of NET and ACT / SAT national seat, you will be paying tuition fee and allied charges as admissible for national student.",
+        "content": "I am a born Pakistani with a foreign passport; can I apply as an expatriate student? If you don't have Pakistani nationality like having CNIC / NICOP, you can apply as an international student (foreign student). You can apply on the basis of NET or ACT/SAT or both as per eligibility criteria but have to pay tuition fee and allied charges as admissible for foreign nationals. If you are a POC holder and applying on the basis of NET and ACT / SAT national seat, you will be paying tuition fee and allied charges as admissible for national student.",
+        "keywords": [
+            "born",
+            "pakistani",
+            "foreign",
+            "passport",
+            "apply",
+            "expatriate",
+            "student"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0077",
+        "type": "qa",
+        "question": "I am a foreigner and want to get admission at NUST?",
+        "answer": "If you fulfill the eligibility criteria, you can apply for admission on the basis of NET or ACT / SAT (International seat) or both as per policy in vogue. For details, visit https://nust.edu.pk/admissions/undergraduates/international-students/ .",
+        "content": "I am a foreigner and want to get admission at NUST? If you fulfill the eligibility criteria, you can apply for admission on the basis of NET or ACT / SAT (International seat) or both as per policy in vogue. For details, visit https://nust.edu.pk/admissions/undergraduates/international-students/ .",
+        "keywords": [
+            "foreigner",
+            "want",
+            "get",
+            "admission"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0078",
+        "type": "qa",
+        "question": "I am an overseas Pakistani who has completed O & A level from abroad, do I have to pass Urdu, Islamiyat / Ethics, and Pakistan Studies to get IBCC equivalence?",
+        "answer": "No, there isn\u2019t any such compulsory requirement of passing the above-mentioned subjects, as per IBCC equivalence rules. For further details, please visit IBCC website: https://ibcc.edu.pk/rules-for-equivalence/",
+        "content": "I am an overseas Pakistani who has completed O & A level from abroad, do I have to pass Urdu, Islamiyat / Ethics, and Pakistan Studies to get IBCC equivalence? No, there isn\u2019t any such compulsory requirement of passing the above-mentioned subjects, as per IBCC equivalence rules. For further details, please visit IBCC website: https://ibcc.edu.pk/rules-for-equivalence/",
+        "keywords": [
+            "overseas",
+            "pakistani",
+            "who",
+            "completed",
+            "level",
+            "abroad",
+            "pass",
+            "urdu"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0079",
+        "type": "qa",
+        "question": "I am in my final year of A Level and my result will be announced in August 2024. Can I apply?",
+        "answer": "Yes, you can apply, as in such case you will be evaluated on the basis of \u2018O\u2019 levels equivalence marks but you have to provide equivalence certificate of \u2018A\u2019 level within 15 days of announcement of result or at the time of admission.",
+        "content": "I am in my final year of A Level and my result will be announced in August 2024. Can I apply? Yes, you can apply, as in such case you will be evaluated on the basis of \u2018O\u2019 levels equivalence marks but you have to provide equivalence certificate of \u2018A\u2019 level within 15 days of announcement of result or at the time of admission.",
+        "keywords": [
+            "final",
+            "year",
+            "level",
+            "result",
+            "announced",
+            "august",
+            "apply"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0080",
+        "type": "qa",
+        "question": "I could not appear in NUST Entry Test, Can I take the Test on some other day?",
+        "answer": "NUST is conducting NET in paper based format on one day and in computer based format in two sessions daily, on different days, as per the schedule. As per policy, if a candidate misses the Test session he / she is not given another chance. But in case of extreme emergency, requests may be entertained on case to case basis, depending on availability of space.",
+        "content": "I could not appear in NUST Entry Test, Can I take the Test on some other day? NUST is conducting NET in paper based format on one day and in computer based format in two sessions daily, on different days, as per the schedule. As per policy, if a candidate misses the Test session he / she is not given another chance. But in case of extreme emergency, requests may be entertained on case to case basis, depending on availability of space.",
+        "keywords": [
+            "could",
+            "not",
+            "appear",
+            "entry",
+            "test",
+            "take",
+            "test",
+            "some"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0081",
+        "type": "qa",
+        "question": "I have DAE background. Which programmes can I apply for?",
+        "answer": "DAE candidate should have completed DAE with minimum 60% marks in Matric as well as DAE The detail of Engineering programmes offered to DAE candidates as approved by Pakistan Engineering Council (PEC) can be accessed by visiting https://nust.edu.pk/admissions/undergraduates/dae-eligibility-criteria/ .",
+        "content": "I have DAE background. Which programmes can I apply for? DAE candidate should have completed DAE with minimum 60% marks in Matric as well as DAE The detail of Engineering programmes offered to DAE candidates as approved by Pakistan Engineering Council (PEC) can be accessed by visiting https://nust.edu.pk/admissions/undergraduates/dae-eligibility-criteria/ .",
+        "keywords": [
+            "dae",
+            "background",
+            "which",
+            "programmes",
+            "apply"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0082",
+        "type": "qa",
+        "question": "If I am selected on all 3 merits, what should I do?",
+        "answer": "If selected on the basis of NET and ACT / SAT on national as well as international seat, you have the option to retain any one seat of your own choice.",
+        "content": "If I am selected on all 3 merits, what should I do? If selected on the basis of NET and ACT / SAT on national as well as international seat, you have the option to retain any one seat of your own choice.",
+        "keywords": [
+            "selected",
+            "all",
+            "merits",
+            "should"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "merit"
+    },
+    {
+        "id": "qa_faq_0083",
+        "type": "qa",
+        "question": "If I have taken ACT / SAT Tests, do I still have to sit in the Entry Test?",
+        "answer": "Separate admission form will be available on NUST website for applying on the basis of ACT / SAT and NET. Those applying on ACT / SAT basis does not require to appear in NET, however they can opt for NET in addition to ACT /SAT specified seats. In this way, they will be considered for both the streams.",
+        "content": "If I have taken ACT / SAT Tests, do I still have to sit in the Entry Test? Separate admission form will be available on NUST website for applying on the basis of ACT / SAT and NET. Those applying on ACT / SAT basis does not require to appear in NET, however they can opt for NET in addition to ACT /SAT specified seats. In this way, they will be considered for both the streams.",
+        "keywords": [
+            "taken",
+            "act",
+            "sat",
+            "tests",
+            "still",
+            "sit",
+            "entry",
+            "test"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0084",
+        "type": "qa",
+        "question": "Is a candidate having less than 60% marks in FSc part-1 eligible to apply for admission in NUST?",
+        "answer": "Yes, the marks entered for FSc part-1 will be utilized for merit generation. However on joining NUST, the candidate must have secure 60% or more marks in FSc complete result.",
+        "content": "Is a candidate having less than 60% marks in FSc part-1 eligible to apply for admission in NUST? Yes, the marks entered for FSc part-1 will be utilized for merit generation. However on joining NUST, the candidate must have secure 60% or more marks in FSc complete result.",
+        "keywords": [
+            "candidate",
+            "having",
+            "less",
+            "than",
+            "marks",
+            "fsc",
+            "part",
+            "eligible"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "merit"
+    },
+    {
+        "id": "qa_faq_0085",
+        "type": "qa",
+        "question": "Is an equivalence certificate of qualification other than Matric & FSc / FA necessary? Can I not submit my O'level and A' level certificates? (I ask so, because I will be applying from abroad)?",
+        "answer": "Equivalence certificates duly issued by IBCC Pakistan are necessary for those candidates who do not possess Matric & FSc / FA qualifications. Submission of only O&A level grade / mark sheets will not serve the purpose. All non FSc stream candidates must have equivalence certificate of their qualification, duly obtained from IBCC, Pakistan in relevant groups/subjects and with minimum 60% marks.",
+        "content": "Is an equivalence certificate of qualification other than Matric & FSc / FA necessary? Can I not submit my O'level and A' level certificates? (I ask so, because I will be applying from abroad)? Equivalence certificates duly issued by IBCC Pakistan are necessary for those candidates who do not possess Matric & FSc / FA qualifications. Submission of only O&A level grade / mark sheets will not serve the purpose. All non FSc stream candidates must have equivalence certificate of their qualification, duly obtained from IBCC, Pakistan in relevant groups/subjects and with minimum 60% marks.",
+        "keywords": [
+            "equivalence",
+            "certificate",
+            "qualification",
+            "other",
+            "than",
+            "matric",
+            "fsc",
+            "necessary"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_faq_0086",
+        "type": "qa",
+        "question": "Is migration to NUST allowed?",
+        "answer": "Yes, as per migration policy, students can apply for migration after completion of first year and before the beginning of final year. However, applicants with exceptionally good academic record are considered for migration to NUST. For detailed migration policy click here .",
+        "content": "Is migration to NUST allowed? Yes, as per migration policy, students can apply for migration after completion of first year and before the beginning of final year. However, applicants with exceptionally good academic record are considered for migration to NUST. For detailed migration policy click here .",
+        "keywords": [
+            "migration",
+            "allowed"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0087",
+        "type": "qa",
+        "question": "Is there any age limit for Undergraduate Admission?",
+        "answer": "There is no age limit for Undergraduate Admission.",
+        "content": "Is there any age limit for Undergraduate Admission? There is no age limit for Undergraduate Admission.",
+        "keywords": [
+            "there",
+            "any",
+            "age",
+            "limit",
+            "undergraduate",
+            "admission"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0089",
+        "type": "qa",
+        "question": "Is there any negative marking in the NUST Entry Test?",
+        "answer": "No, there is no negative marking.",
+        "content": "Is there any negative marking in the NUST Entry Test? No, there is no negative marking.",
+        "keywords": [
+            "there",
+            "any",
+            "negative",
+            "marking",
+            "entry",
+            "test"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0090",
+        "type": "qa",
+        "question": "Name on my CNIC and Passport is different from that on my academic documents (O / A Level) or equivalence certificate. Which name should I use to apply for admission?",
+        "answer": "\u200bFor this, you have to get your name changed on your CNIC and Passport, because University will use the name as per your Matric or O level equivalence certificate (SSC), duly issued by IBCC.",
+        "content": "Name on my CNIC and Passport is different from that on my academic documents (O / A Level) or equivalence certificate. Which name should I use to apply for admission? \u200bFor this, you have to get your name changed on your CNIC and Passport, because University will use the name as per your Matric or O level equivalence certificate (SSC), duly issued by IBCC.",
+        "keywords": [
+            "name",
+            "cnic",
+            "passport",
+            "different",
+            "academic",
+            "documents",
+            "level",
+            "equivalence"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0092",
+        "type": "qa",
+        "question": "Question: How frequently are University fee rates revised?",
+        "answer": "University fees are usually announced once each year, for the following academic year. However, fees are subject to change without notice.",
+        "content": "Question: How frequently are University fee rates revised? University fees are usually announced once each year, for the following academic year. However, fees are subject to change without notice.",
+        "keywords": [
+            "question",
+            "frequently",
+            "university",
+            "fee",
+            "rates",
+            "revised"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_faq_0096",
+        "type": "qa",
+        "question": "What category of candidates can apply for admission on the basis of ACT / SAT?",
+        "answer": "Any candidate can apply for admission on the basis of ACT / SAT provided he / she has score for the prescribed disciplines of study. Separate admission form will be available on NUST website for this purpose. Admission on ACT / SAT basis has two categories, i.e National and International. Candidates admitted on National seats pay tuition fee and allied charges in Pak currency whereas candidates admitted against International seats pay the required dues at rates defined for international students. For admission against international seats, the following categories will be eligible:- Pakistani national students having passed an examination equivalent to intermediate level of Pakistan from a foreign education system. Foreigners and Pakistanis having dual nationality, irrespective of the place of their HSSC study, i.e Pakistan or abroad. Pakistani students who studied abroad but have passed the requisite examination from a Pakistani board.",
+        "content": "What category of candidates can apply for admission on the basis of ACT / SAT? Any candidate can apply for admission on the basis of ACT / SAT provided he / she has score for the prescribed disciplines of study. Separate admission form will be available on NUST website for this purpose. Admission on ACT / SAT basis has two categories, i.e National and International. Candidates admitted on National seats pay tuition fee and allied charges in Pak currency whereas candidates admitted against International seats pay the required dues at rates defined for international students. For admission against international seats, the following categories will be eligible:- Pakistani national students having passed an examination equivalent to intermediate level of Pakistan from a foreign education system. Foreigners and Pakistanis having dual nationality, irrespective of the place of their HSSC study, i.e Pakistan or abroad. Pakistani students who studied abroad but have passed the requisite examination from a Pakistani board.",
+        "keywords": [
+            "category",
+            "candidates",
+            "apply",
+            "admission",
+            "basis",
+            "act",
+            "sat"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0097",
+        "type": "qa",
+        "question": "What documents are essentially required to be submitted while applying for admission?",
+        "answer": "While applying for admission, possession of Computerized National Identity Card (CNIC) / Form 'B' or NICOP is mandatory. Online registration system does not require attachment of documents / credentials. However, the same will be required for verification during selection and admission process of selected candidates.",
+        "content": "What documents are essentially required to be submitted while applying for admission? While applying for admission, possession of Computerized National Identity Card (CNIC) / Form 'B' or NICOP is mandatory. Online registration system does not require attachment of documents / credentials. However, the same will be required for verification during selection and admission process of selected candidates.",
+        "keywords": [
+            "documents",
+            "essentially",
+            "required",
+            "submitted",
+            "while",
+            "applying",
+            "admission"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0098",
+        "type": "qa",
+        "question": "What is the admission criteria for a gap year / repeater candidates?",
+        "answer": "Gap year / repeater candidates are being considered as normal candidates and there is no penalization while generating the merit.",
+        "content": "What is the admission criteria for a gap year / repeater candidates? Gap year / repeater candidates are being considered as normal candidates and there is no penalization while generating the merit.",
+        "keywords": [
+            "admission",
+            "criteria",
+            "gap",
+            "year",
+            "repeater",
+            "candidates"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0101",
+        "type": "qa",
+        "question": "What is the application processing fee for online registration for admission?",
+        "answer": "Application processing fee will be charged according to the following structure: NUST Entry Test (per exam) Pakistani / Dual Nationality Holder - Rs. 5,000/- or USD 40/- Foreign National (Non Pakistani) - Rs. 10,000/- or USD 80/- For ACT / SAT Candidates ACT / SAT based National seat - Rs. 5,000/- or USD 40/- ACT / SAT based International seat - Rs. 10,000/- or USD 80/- Application processing fee is neither refundable nor transferable . It will remain valid only for the series for which it has been paid.",
+        "content": "What is the application processing fee for online registration for admission? Application processing fee will be charged according to the following structure: NUST Entry Test (per exam) Pakistani / Dual Nationality Holder - Rs. 5,000/- or USD 40/- Foreign National (Non Pakistani) - Rs. 10,000/- or USD 80/- For ACT / SAT Candidates ACT / SAT based National seat - Rs. 5,000/- or USD 40/- ACT / SAT based International seat - Rs. 10,000/- or USD 80/- Application processing fee is neither refundable nor transferable . It will remain valid only for the series for which it has been paid.",
+        "keywords": [
+            "application",
+            "processing",
+            "fee",
+            "online",
+            "registration",
+            "admission"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_faq_0102",
+        "type": "qa",
+        "question": "What is the deadline for submission of ACT / SAT score?",
+        "answer": "Last date for ACT / SAT score to reach NUST directly from College Board, USA, is 25 July, 2025. NUST institutional code to receive ACT scores is 2915 and of SAT scores is 2790. ACT / SAT scores are valid for two years only. It is the responsibility of candidates to ensure the provision of ACT / SAT scores to Undergraduate Section, NUST, Sector H-12, Islamabad by the given deadline.",
+        "content": "What is the deadline for submission of ACT / SAT score? Last date for ACT / SAT score to reach NUST directly from College Board, USA, is 25 July, 2025. NUST institutional code to receive ACT scores is 2915 and of SAT scores is 2790. ACT / SAT scores are valid for two years only. It is the responsibility of candidates to ensure the provision of ACT / SAT scores to Undergraduate Section, NUST, Sector H-12, Islamabad by the given deadline.",
+        "keywords": [
+            "deadline",
+            "submission",
+            "act",
+            "sat",
+            "score"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0104",
+        "type": "qa",
+        "question": "What is the duration of test and the number of MCQs to be attempted?",
+        "answer": "There are total 200 MCQs to be attempted in three hours (180 minutes) .",
+        "content": "What is the duration of test and the number of MCQs to be attempted? There are total 200 MCQs to be attempted in three hours (180 minutes) .",
+        "keywords": [
+            "duration",
+            "test",
+            "number",
+            "mcqs",
+            "attempted"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0111",
+        "type": "qa",
+        "question": "What is the syllabus of Entry Test subjects and format of questions?",
+        "answer": "NUST Entry Test is primarily based on SSC / HSSC level studies (Part-1 & Part-II) and questions are in the form of MCQs with four answer options each. The paper of English is on the pattern of SAT exam. Sample Test . Textbooks are consulted while developing the question bank. Grasping the concepts available in different textbooks will be beneficial. https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings",
+        "content": "What is the syllabus of Entry Test subjects and format of questions? NUST Entry Test is primarily based on SSC / HSSC level studies (Part-1 & Part-II) and questions are in the form of MCQs with four answer options each. The paper of English is on the pattern of SAT exam. Sample Test . Textbooks are consulted while developing the question bank. Grasping the concepts available in different textbooks will be beneficial. https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings",
+        "keywords": [
+            "syllabus",
+            "entry",
+            "test",
+            "subjects",
+            "format",
+            "questions"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0112",
+        "type": "qa",
+        "question": "What is the test venue for NET in different cities?",
+        "answer": "In Islamabad , NET is conducted in NUST Exam Hall (Entry through Gate - 4) located inside the NUST Main Campus, Sector H-12, Islamabad. \u00ad\u00ad\u00ad\u00ad\u00adPin location: https://rb.gy/j0b5ds In Quetta , NET is conducted at NUST Balochistan Campus (NBC). Pin Location: https://rb.gy/9ntumc In Karachi , and Gilgit , the test venue is mentioned on respective admit cards.",
+        "content": "What is the test venue for NET in different cities? In Islamabad , NET is conducted in NUST Exam Hall (Entry through Gate - 4) located inside the NUST Main Campus, Sector H-12, Islamabad. \u00ad\u00ad\u00ad\u00ad\u00adPin location: https://rb.gy/j0b5ds In Quetta , NET is conducted at NUST Balochistan Campus (NBC). Pin Location: https://rb.gy/9ntumc In Karachi , and Gilgit , the test venue is mentioned on respective admit cards.",
+        "keywords": [
+            "test",
+            "venue",
+            "net",
+            "different",
+            "cities"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0113",
+        "type": "qa",
+        "question": "What is the timeline for the announcement of NET result?",
+        "answer": "Result of computer-based NET is uploaded within 24 hours and for paper-based NET, within 5 to 7 working days . Result can be viewed by entering the Roll No. in the following link: https://ugadmissions.nust.edu.pk/result/default.aspx",
+        "content": "What is the timeline for the announcement of NET result? Result of computer-based NET is uploaded within 24 hours and for paper-based NET, within 5 to 7 working days . Result can be viewed by entering the Roll No. in the following link: https://ugadmissions.nust.edu.pk/result/default.aspx",
+        "keywords": [
+            "timeline",
+            "announcement",
+            "net",
+            "result"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0120",
+        "type": "qa",
+        "question": "Who is exempted from payment of NET Application Processing Fee?",
+        "answer": "First, second and third position holders in HSSC exams of different BISEs are exempted from payment of NET Application Processing Fee. Such candidates should contact NUST through email at [email protected] along with valid proof obtained from the concerned education board.",
+        "content": "Who is exempted from payment of NET Application Processing Fee? First, second and third position holders in HSSC exams of different BISEs are exempted from payment of NET Application Processing Fee. Such candidates should contact NUST through email at [email protected] along with valid proof obtained from the concerned education board.",
+        "keywords": [
+            "who",
+            "exempted",
+            "payment",
+            "net",
+            "application",
+            "processing",
+            "fee"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_faq_0121",
+        "type": "qa",
+        "question": "Whom should I contact for queries about NUST Entry Test for Undergraduate Programmes?",
+        "answer": "You can contact through Phone: +92 51-90856878 e-mail: [email protected] .",
+        "content": "Whom should I contact for queries about NUST Entry Test for Undergraduate Programmes? You can contact through Phone: +92 51-90856878 e-mail: [email protected] .",
+        "keywords": [
+            "whom",
+            "should",
+            "contact",
+            "queries",
+            "about",
+            "entry",
+            "test",
+            "undergraduate"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_faq_0124",
+        "type": "qa",
+        "question": "Would the admission processing fee / security deposit be refundable in case a student does not join the University?",
+        "answer": "The university will refund only the security deposit to candidates who do not join the university. The Admission Processing Fee is non-refundable under any circumstances.",
+        "content": "Would the admission processing fee / security deposit be refundable in case a student does not join the University? The university will refund only the security deposit to candidates who do not join the university. The Admission Processing Fee is non-refundable under any circumstances.",
+        "keywords": [
+            "would",
+            "admission",
+            "processing",
+            "fee",
+            "security",
+            "deposit",
+            "refundable",
+            "case"
+        ],
+        "source": "FAQs | NUST (General FAQs)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_faq_0182",
+        "type": "qa",
+        "question": "What are the salient features of Admission System of NUST?",
+        "answer": "Admission is granted on the basis of candidates\u2019 performance in NUST Entry Test (NET) or score in Scholastic Aptitude Test (SAT) for which limited number of seats are reserved. The entire process of registration for admission is online. Candidates must be in possession of CNIC or Form B or NICOP (National Identity Card for Overseas Pakistanis). For applying for Registration:- FA / FSc stream candidates should have passed Part-I exam. A level students should have obtained minimum 60% marks in O level as per equivalence cirtificate issued by IBCC. When applications for admissions are invited, candidates are first required to get registered by providing valid email address. On provision of registration number, the candidate is required to fill up the online admission form and deposit specified processing fee. Candidates can appear in the entry test more than once to improve their score. The merit for admission is prepared on the basis of best score. For every attempt to appear in NET, a separate application is to be filled up. Computer based entry tests for all disciplines are held in multiple series at NUST Campus Islamabad according to the following schedule: First Series (NET-1) - 7 - 21 Dec 2019 Second Series (NET-2) - 14 Mar 2020 onwards Third Series (NET-3) - Jun-Jul 2020 Paper based entry test is conducted in Karachi and Quetta in Mar & July. In NET-2 & 3, candidates have an option either to appear for Paper Based Test at Karachi & Quetta or Computer Based Test at Islamabad. In Computer-based Entry Test, candidates can select the date and session of test according to their choice depending on availability of space. Admission process for all undergraduate programmes is conducted once a year to facilitate the commencement of the academic year in Fall. For more details, please visit NUST website www.nust.edu.pk. FAQs Categories",
+        "content": "What are the salient features of Admission System of NUST? Admission is granted on the basis of candidates\u2019 performance in NUST Entry Test (NET) or score in Scholastic Aptitude Test (SAT) for which limited number of seats are reserved. The entire process of registration for admission is online. Candidates must be in possession of CNIC or Form B or NICOP (National Identity Card for Overseas Pakistanis). For applying for Registration:- FA / FSc stream candidates should have passed Part-I exam. A level students should have obtained minimum 60% marks in O level as per equivalence cirtificate issued by IBCC. When applications for admissions are invited, candidates are first required to get registered by providing valid email address. On provision of registration number, the candidate is required to fill up the online admission form and deposit specified processing fee. Candidates can appear in the entry test more than once to improve their score. The merit for admission is prepared on the basis of best score. For every attempt to appear in NET, a separate application is to be filled up. Computer based entry tests for all disciplines are held in multiple series at NUST Campus Islamabad according to the following schedule: First Series (NET-1) - 7 - 21 Dec 2019 Second Series (NET-2) - 14 Mar 2020 onwards Third Series (NET-3) - Jun-Jul 2020 Paper based entry test is conducted in Karachi and Quetta in Mar & July. In NET-2 & 3, candidates have an option either to appear for Paper Based Test at Karachi & Quetta or Computer Based Test at Islamabad. In Computer-based Entry Test, candidates can select the date and session of test according to their choice depending on availability of space. Admission process for all undergraduate programmes is conducted once a year to facilitate the commencement of the academic year in Fall. For more details, please visit NUST website www.nust.edu.pk. FAQs Categories",
+        "keywords": [
+            "salient",
+            "features",
+            "admission",
+            "system"
+        ],
+        "source": "FAQs \u2013 SMME (School\u2011Level FAQ)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0183",
+        "type": "qa",
+        "question": "Q. Does applying for financial aid have any effect on admission application?",
+        "answer": "OR I have completed my admission application but I have not filled / partially filled the financial aid application and I am not interested to apply for financial aid. Will leaving the financial aid form unfilled / partially filled, effect my admission application?\u200b\u200b No, financial aid application has no effect on admission decision.",
+        "content": "Q. Does applying for financial aid have any effect on admission application? OR I have completed my admission application but I have not filled / partially filled the financial aid application and I am not interested to apply for financial aid. Will leaving the financial aid form unfilled / partially filled, effect my admission application?\u200b\u200b No, financial aid application has no effect on admission decision.",
+        "keywords": [
+            "does",
+            "applying",
+            "financial",
+            "aid",
+            "any",
+            "effect",
+            "admission",
+            "application"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_faq_0184",
+        "type": "qa",
+        "question": "Q. What is meant by physical verification?",
+        "answer": "\u200b\u200b NUST team may visit your house, business premises or carry out inquiry from the surrounding neighbors to \u200bphysically verify facts stated by you while applying for financial aid. Physical Verification may be carried out at any point of time during academic life cycle at NUST.",
+        "content": "Q. What is meant by physical verification? \u200b\u200b NUST team may visit your house, business premises or carry out inquiry from the surrounding neighbors to \u200bphysically verify facts stated by you while applying for financial aid. Physical Verification may be carried out at any point of time during academic life cycle at NUST.",
+        "keywords": [
+            "meant",
+            "physical",
+            "verification"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0185",
+        "type": "qa",
+        "question": "Q. I have submitted NFAAF and attached soft copies of supporting documents too, do I need to send hard copies of supporting documents? If yes, When?",
+        "answer": "\u200b\u200b You do not need to send supporting documents to FAO immediately after submitting NFAAF. After due processing, FAO will inform you via email to mail the documents in hard form, within a due date. Failure to provide documents within due date will lead to cancellation of NFAAF. Q. I want to apply for\u200b other need based scholarships like PEEF, CMEEF KPK, FEF etc. Do I need to submit another application form?\u200b\u200b Upon submitting NFAAF, you will be considered for all types of need based scholarships. FAO will inform you incase any additional form / document is required.",
+        "content": "Q. I have submitted NFAAF and attached soft copies of supporting documents too, do I need to send hard copies of supporting documents? If yes, When? \u200b\u200b You do not need to send supporting documents to FAO immediately after submitting NFAAF. After due processing, FAO will inform you via email to mail the documents in hard form, within a due date. Failure to provide documents within due date will lead to cancellation of NFAAF. Q. I want to apply for\u200b other need based scholarships like PEEF, CMEEF KPK, FEF etc. Do I need to submit another application form?\u200b\u200b Upon submitting NFAAF, you will be considered for all types of need based scholarships. FAO will inform you incase any additional form / document is required.",
+        "keywords": [
+            "submitted",
+            "nfaaf",
+            "attached",
+            "soft",
+            "copies",
+            "supporting",
+            "documents",
+            "too"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0186",
+        "type": "qa",
+        "question": "Q. I do not have few of the supporting documents.\u00a0What should i do?",
+        "answer": "OR I need more time to arrange the supporting documents. Please allow me to submit NFAAF and provide supporting documents in a few more working days.\u200b\u200b\u200b You may attach scan copy of a hand written letter of explanation\u200b (duly signed by you and your parent / guardian). Briefly explain reason of not attaching the supporting document and expected date till you will provide the same to Financial Aid Office. Q. I am trying to upload soft copy of the supporting documents but the system is not saving them. What should i do?\u200b\u200b File size of each of the supporting document should be less than 250 kb. Resize the scan copy of supporting document and try uploading the same. If problem persists, you may forward a screen shot of the error to [email protected] . Q. I have been offered admission in two or more disciplines and have NOT been offered scholarship in ALL of these disciplines. Is this provisional scholarship offer valid for only specific disciplines?\u200b\u200b\u200b Scholarship offered is valid for ALL disciplines offered admission in a particular selection list e.g if you secure admission in BS Physics, Chemistry & Maths in the 1st selection list, provisional admission letters wi\u200bll have the same scholarship offer. If you have NOT been offered scholarship in any of the disciplines, please write to us at [email protected] . Q. I have secured admission (for example in BS Civil Engineering in 1st selection list) and have been offered need based scholarship. Will this scholarship be transferred to other discipline(s) I am offered admission in subsequent selection list(s). How will the scholarship be transferred to other disciplines? What happens to the scholarship offer if I don\u2019t pay dues now and wait for securing admission in subsequent lists? \u200b\u200b Scholarship is awarded on merit cum need basis i.e on the basis of a candidates\u2019 position on the financial need scale in a particular selection list. Scholarship once offered to you may be transferred to ALL other offered disciplines, only if you have already deposited dues to secure admission / scholarship i.e for BS Civil Engineering in 1st selection list in the example above. To transfer scholarship offer to other disciplines, you will be required to give willingness to admission office ( [email protected] , [email protected] ). Scholarship offered to you- for BS Civil Engg in the example above- will be cancelled incase you do not deposit dues, and vacant slot will be offered in the subsequent selection list on merit cum need basis. Q. My Financial Profile Has Changed After Submission Of NFAAF. How Can I Make Changes In NFAAF After Submission? OR \u200bI Have Made Mistakes In The NFAAF. I Cannot Access It After Submission. How Can I Get It Corrected?\u200b\u200b You will be required to inform FAO via email ( [email protected] ) specifically mentioning the following: Section of NFAAF. Sub section of NFAAF. Title of the Field(s) to be amended. Amended\u200b Values. If necessary, someone from the FAO may contact you on contact numbers (provided in the NFAAF) to acquire additional information from you / family members. \u200b Q. What Happens If My Parents Are Divorced, Separated And One Parent Is Unwilling To Submit Any Information To The Financial Aid Office Or To Contribute Towards My NUST Expenses?\u200b\u200b\u200b \u200b \u200bIn fairness to all, NUST expects that parents will pay what they can, and we must assess each parent\u2019s ability to contribute to college costs by reviewing complete financial documents from both parents. You might explain to the parent, unwilling to submit financial information, that his or her information will remain confidential. Your parent should also know that providing such information no way obligates him or her to contribute to your NUST education. If you believe your situation is special, please write us a detailed letter of explanation.\u200b Q. May I Send The Deed Of Agreement In The Same Envelope In Which I Am Sending Admission Documents?\u200b\u200b\u200b Deed of agreement is to be forwarded to Financial Aid Office separately\u200b. Q. What Is The Need Assessment Process?\u200b\u200b The decision and its review follow the stages outlined below: The staff at the financial aid office (FAO) checks and reconciles the information on the financial aid form against the documents provided including their tenor and validity; seeking clarifications from the applicant/ student on anomalies, if any. Applicants are contacted for retrieval of discrepant documents (where necessary). FAO prepares student evaluation sheets that contain a brief summary of the credentials provided covering all the aspects to be presented to the financial aid committee for final decision. Shortlisted Candidates are informed to submit supporting documentation in hard form by the deadline specified by the financial aid office. Interviews / Physical Verifications are conducted where recommended by the committee. The NUST financial aid committee assesses each case through the evaluation sheet and reviews supporting documents before making their decision which is purely based on need. Decision is communicated to the students through an official provisional scholarship award letter. The Financial Aid Office reserves the right to conduct periodic reviews to ensure the award is granted to the needy students only. Q. My Father / Guardian / Earning Member Of The Family Does Not Have A Job. What Type Of Income Certificate Should I Give?\u200b\u200b Father / Guardian / Earning Member(s) of the Family will give a Declaration of monthly income from all sources on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. My Father / Guardian Does Business. What Type Of Income Certificate Should I Give?\u200b\u200b Father / Guardian / Earning Member(s) of the Family will give a Declaration of monthly income from all sources (business) on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. My Father / Guardian Does Job And Has A Part Time Business (Agriculture, Taxi, Tuition, Shop Etc). What Type Of Income Certificate Should I Give?\u200b\u200b Father / Guardian / Earning Member(s) of the Family will give salary certificate and a Declaration of monthly income from all sources (job & Business) on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. Our Monthly Income Is From Agricultural Lands. What Type Of Income Certificate Should I Give?\u200b\u200b\u200b Father / guardian will a Declaration of monthly income\u200b from all sources on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Assistant Commissioner Revenue / Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. I Was Awarded A Scholarship From A Private Outside Organization. Do I Need To Inform Financial Aid Office?\u200b\u200b Yes, if you receive an outside grant or scholarship or a third-party payment you must report the type and amount to the FAO as and when received. Q. Can I Apply F\u200bOr The Financial Aid During The Semester/Year?\u200b\u200b Only those students, whose financial situation changes drastically, due to unforeseen circumstances e.g. Retirement, death, layoffs from job etc. can apply for financial assistance during the semester/ year through their institutions.\u200b Q. What Is The Criteria Of Awarding Financial Aid?\u200b\u200b The scholarship management committee assesses financial need of all candidates and determines whether or not candidate\u0092s family has sufficient resources to afford fee at NUST. The need is determined on the basis of the financial credentials submitted by the candidate. Q. Can a student appeal for review of the financial assistance decision?\u200b\u200b There is an appeal process in place in which the NUST administration accepts requests from students who have additional information to declare, which may have been missed during the initial assessment. Undergraduate Programmes How to Apply for NET ENTRY ROUTE TO NUST UPDATES ON UG ADMISSIONS LIST OF UG PROGRAMMES AND INSTITUTIONS SALIENT FEATURES OF ADMISSION POLICY FOR UG PROGRAMMES DATES TO REMEMBER EXPATRIATE STUDENTS ELIGIBILITY CRITERIA FOR UG PROGRAMMES INELIGIBILITY CRITERIA ACADEMIC QUALIFICATION REQUIRED FOR DIFFERENT UG PROGRAMMES DAE \u2013 Eligibility Criteria PROCEDURE OF ADMISSION ON THE BASIS OF NET SUBJECTS INCLUDED IN NET WITH WEIGHTINGS MERIT GENERATION CRITERIA RE-CHECKING OF NET PAPERS APPLYING ON THE BASIS OF ACT/SAT NET APPLICATION PROCESSING FEE UNDERGRADUATE ADMISSION / SELECTION PROCESS International Students CANCELLATION OF ADMISSION Migration & Transfer Policy UG ADMISSIONS HELP DESK GUIDE MAP FOR TEST VENUE UG AWARENESS DRIVES NUST OUTREACH PROGRAMME Frequently Asked Question (FAQs) Photo Gallery Master Programmes ADMISSION ANNOUNCEMENT DATES TO REMEMBER CANCELLATION OF ADMISSION INTERNATIONAL STUDENTS INSTRUCTIONS FOR ONLINE APPLICATION FORM PROGRAMMES OF STUDY ELIGIBILITY CRITERIA ADMISSION PROCESS AND SELECTION PROCEDURE EXPATRIATE STUDENT MS HELPLINE FAQs PhD Programmes PhD ADMISSIONS PROGRAMMES OFFERED EXPATRIATE STUDENT \u2013 PHD INTERNATIONAL PhD CANDIDATE INSTRUCTIONS FOR FILLING ADMISSION FORM DATES TO REMEMBER FREQUENTLY ASKED QUESTIONS (FAQs) ELIGIBILITY CRITERIA Scholarships DEFERMENT OF TUITION FEE & SUBSISTENCE ALLOWANCE FINANCIAL ASSISTANCE FOR UNDERGRADUATE STUDENTS FREQUENTLY ASKED QUESTIONS (FAQS) GUIDELINES TO SUBMIT NEED BASED FINANCIAL AID APPLICATION FORM (NFAAF) INTEREST FREE LOAN (IHSAN TRUST) MERIT BASED SCHOLARSHIPS FOR MASTERS AND PhD NEED BASED FINANCIAL AID NFAAF- DOCUMENTATION REQUIREMENTS FORMS AND CERTIFICATES OTHER OPPORTUNITIES PUNJAB EDUCATIONAL ENDOWMENT FUND (PEEF) SCHOLARSHIPS 2024-25 Fee Structure UNDERGRADUATE FINANCIAL MATTERS POSTGRADUATE FINANCIAL MATTERS REFUND POLICY ADVANCE TAX ON PAYMENT OF FEE HOSTEL ACCOMMODATION MODE OF PAYMENT OTHER FEE CHARGES CONTACT US FREQUENTLY ASKED QUESTIONS Salient Features of Fee Policy",
+        "content": "Q. I do not have few of the supporting documents.\u00a0What should i do? OR I need more time to arrange the supporting documents. Please allow me to submit NFAAF and provide supporting documents in a few more working days.\u200b\u200b\u200b You may attach scan copy of a hand written letter of explanation\u200b (duly signed by you and your parent / guardian). Briefly explain reason of not attaching the supporting document and expected date till you will provide the same to Financial Aid Office. Q. I am trying to upload soft copy of the supporting documents but the system is not saving them. What should i do?\u200b\u200b File size of each of the supporting document should be less than 250 kb. Resize the scan copy of supporting document and try uploading the same. If problem persists, you may forward a screen shot of the error to [email protected] . Q. I have been offered admission in two or more disciplines and have NOT been offered scholarship in ALL of these disciplines. Is this provisional scholarship offer valid for only specific disciplines?\u200b\u200b\u200b Scholarship offered is valid for ALL disciplines offered admission in a particular selection list e.g if you secure admission in BS Physics, Chemistry & Maths in the 1st selection list, provisional admission letters wi\u200bll have the same scholarship offer. If you have NOT been offered scholarship in any of the disciplines, please write to us at [email protected] . Q. I have secured admission (for example in BS Civil Engineering in 1st selection list) and have been offered need based scholarship. Will this scholarship be transferred to other discipline(s) I am offered admission in subsequent selection list(s). How will the scholarship be transferred to other disciplines? What happens to the scholarship offer if I don\u2019t pay dues now and wait for securing admission in subsequent lists? \u200b\u200b Scholarship is awarded on merit cum need basis i.e on the basis of a candidates\u2019 position on the financial need scale in a particular selection list. Scholarship once offered to you may be transferred to ALL other offered disciplines, only if you have already deposited dues to secure admission / scholarship i.e for BS Civil Engineering in 1st selection list in the example above. To transfer scholarship offer to other disciplines, you will be required to give willingness to admission office ( [email protected] , [email protected] ). Scholarship offered to you- for BS Civil Engg in the example above- will be cancelled incase you do not deposit dues, and vacant slot will be offered in the subsequent selection list on merit cum need basis. Q. My Financial Profile Has Changed After Submission Of NFAAF. How Can I Make Changes In NFAAF After Submission? OR \u200bI Have Made Mistakes In The NFAAF. I Cannot Access It After Submission. How Can I Get It Corrected?\u200b\u200b You will be required to inform FAO via email ( [email protected] ) specifically mentioning the following: Section of NFAAF. Sub section of NFAAF. Title of the Field(s) to be amended. Amended\u200b Values. If necessary, someone from the FAO may contact you on contact numbers (provided in the NFAAF) to acquire additional information from you / family members. \u200b Q. What Happens If My Parents Are Divorced, Separated And One Parent Is Unwilling To Submit Any Information To The Financial Aid Office Or To Contribute Towards My NUST Expenses?\u200b\u200b\u200b \u200b \u200bIn fairness to all, NUST expects that parents will pay what they can, and we must assess each parent\u2019s ability to contribute to college costs by reviewing complete financial documents from both parents. You might explain to the parent, unwilling to submit financial information, that his or her information will remain confidential. Your parent should also know that providing such information no way obligates him or her to contribute to your NUST education. If you believe your situation is special, please write us a detailed letter of explanation.\u200b Q. May I Send The Deed Of Agreement In The Same Envelope In Which I Am Sending Admission Documents?\u200b\u200b\u200b Deed of agreement is to be forwarded to Financial Aid Office separately\u200b. Q. What Is The Need Assessment Process?\u200b\u200b The decision and its review follow the stages outlined below: The staff at the financial aid office (FAO) checks and reconciles the information on the financial aid form against the documents provided including their tenor and validity; seeking clarifications from the applicant/ student on anomalies, if any. Applicants are contacted for retrieval of discrepant documents (where necessary). FAO prepares student evaluation sheets that contain a brief summary of the credentials provided covering all the aspects to be presented to the financial aid committee for final decision. Shortlisted Candidates are informed to submit supporting documentation in hard form by the deadline specified by the financial aid office. Interviews / Physical Verifications are conducted where recommended by the committee. The NUST financial aid committee assesses each case through the evaluation sheet and reviews supporting documents before making their decision which is purely based on need. Decision is communicated to the students through an official provisional scholarship award letter. The Financial Aid Office reserves the right to conduct periodic reviews to ensure the award is granted to the needy students only. Q. My Father / Guardian / Earning Member Of The Family Does Not Have A Job. What Type Of Income Certificate Should I Give?\u200b\u200b Father / Guardian / Earning Member(s) of the Family will give a Declaration of monthly income from all sources on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. My Father / Guardian Does Business. What Type Of Income Certificate Should I Give?\u200b\u200b Father / Guardian / Earning Member(s) of the Family will give a Declaration of monthly income from all sources (business) on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. My Father / Guardian Does Job And Has A Part Time Business (Agriculture, Taxi, Tuition, Shop Etc). What Type Of Income Certificate Should I Give?\u200b\u200b Father / Guardian / Earning Member(s) of the Family will give salary certificate and a Declaration of monthly income from all sources (job & Business) on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. Our Monthly Income Is From Agricultural Lands. What Type Of Income Certificate Should I Give?\u200b\u200b\u200b Father / guardian will a Declaration of monthly income\u200b from all sources on affidavit to be printed on stamp paper having value > Rs.100, duly attested by Assistant Commissioner Revenue / Union Councilor & two witnesses. At least one of the witnesses is to be a Govt. officer of BPS 17 or above & the other a close family member well acquainted with your family financial profile. Contact numbers of the witnesses to be mentioned on the affidavit. Q. I Was Awarded A Scholarship From A Private Outside Organization. Do I Need To Inform Financial Aid Office?\u200b\u200b Yes, if you receive an outside grant or scholarship or a third-party payment you must report the type and amount to the FAO as and when received. Q. Can I Apply F\u200bOr The Financial Aid During The Semester/Year?\u200b\u200b Only those students, whose financial situation changes drastically, due to unforeseen circumstances e.g. Retirement, death, layoffs from job etc. can apply for financial assistance during the semester/ year through their institutions.\u200b Q. What Is The Criteria Of Awarding Financial Aid?\u200b\u200b The scholarship management committee assesses financial need of all candidates and determines whether or not candidate\u0092s family has sufficient resources to afford fee at NUST. The need is determined on the basis of the financial credentials submitted by the candidate. Q. Can a student appeal for review of the financial assistance decision?\u200b\u200b There is an appeal process in place in which the NUST administration accepts requests from students who have additional information to declare, which may have been missed during the initial assessment. Undergraduate Programmes How to Apply for NET ENTRY ROUTE TO NUST UPDATES ON UG ADMISSIONS LIST OF UG PROGRAMMES AND INSTITUTIONS SALIENT FEATURES OF ADMISSION POLICY FOR UG PROGRAMMES DATES TO REMEMBER EXPATRIATE STUDENTS ELIGIBILITY CRITERIA FOR UG PROGRAMMES INELIGIBILITY CRITERIA ACADEMIC QUALIFICATION REQUIRED FOR DIFFERENT UG PROGRAMMES DAE \u2013 Eligibility Criteria PROCEDURE OF ADMISSION ON THE BASIS OF NET SUBJECTS INCLUDED IN NET WITH WEIGHTINGS MERIT GENERATION CRITERIA RE-CHECKING OF NET PAPERS APPLYING ON THE BASIS OF ACT/SAT NET APPLICATION PROCESSING FEE UNDERGRADUATE ADMISSION / SELECTION PROCESS International Students CANCELLATION OF ADMISSION Migration & Transfer Policy UG ADMISSIONS HELP DESK GUIDE MAP FOR TEST VENUE UG AWARENESS DRIVES NUST OUTREACH PROGRAMME Frequently Asked Question (FAQs) Photo Gallery Master Programmes ADMISSION ANNOUNCEMENT DATES TO REMEMBER CANCELLATION OF ADMISSION INTERNATIONAL STUDENTS INSTRUCTIONS FOR ONLINE APPLICATION FORM PROGRAMMES OF STUDY ELIGIBILITY CRITERIA ADMISSION PROCESS AND SELECTION PROCEDURE EXPATRIATE STUDENT MS HELPLINE FAQs PhD Programmes PhD ADMISSIONS PROGRAMMES OFFERED EXPATRIATE STUDENT \u2013 PHD INTERNATIONAL PhD CANDIDATE INSTRUCTIONS FOR FILLING ADMISSION FORM DATES TO REMEMBER FREQUENTLY ASKED QUESTIONS (FAQs) ELIGIBILITY CRITERIA Scholarships DEFERMENT OF TUITION FEE & SUBSISTENCE ALLOWANCE FINANCIAL ASSISTANCE FOR UNDERGRADUATE STUDENTS FREQUENTLY ASKED QUESTIONS (FAQS) GUIDELINES TO SUBMIT NEED BASED FINANCIAL AID APPLICATION FORM (NFAAF) INTEREST FREE LOAN (IHSAN TRUST) MERIT BASED SCHOLARSHIPS FOR MASTERS AND PhD NEED BASED FINANCIAL AID NFAAF- DOCUMENTATION REQUIREMENTS FORMS AND CERTIFICATES OTHER OPPORTUNITIES PUNJAB EDUCATIONAL ENDOWMENT FUND (PEEF) SCHOLARSHIPS 2024-25 Fee Structure UNDERGRADUATE FINANCIAL MATTERS POSTGRADUATE FINANCIAL MATTERS REFUND POLICY ADVANCE TAX ON PAYMENT OF FEE HOSTEL ACCOMMODATION MODE OF PAYMENT OTHER FEE CHARGES CONTACT US FREQUENTLY ASKED QUESTIONS Salient Features of Fee Policy",
+        "keywords": [
+            "not",
+            "few",
+            "supporting",
+            "documents",
+            "should"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "general"
+    },
+    {
+        "id": "qa_faq_0187",
+        "type": "qa",
+        "question": "Forgot Password?",
+        "answer": "New Registration for NET SALIENTS of ACT/SAT basis Application ACT is conducted by ACT, USA. For more information, visit www.act.org. SAT is conducted by Collegeboard, USA. For more information, visit www.collegeboard.com. NUST institutional code to receive ACT scores is 2915 and for SAT scores is 2790. ACT/SAT scores are valid for 2 years. Foreign nationals (Non Pakistani) / international candidates cannot apply for Aerospace and Avionics Engineering programmes offered at CAE campus Risalpur. The merit list for candidates applying on the basis of ACT/SAT for National & International seats is prepared separately. ACT/SAT Basis Application Form Last Date: 25 Jul 2026 Registration for ACT/SAT Basis Admissions Fall 2026 session will start from 04-May-2026 NET will be conducted as per (Tentative) schedule mentioned below: NET-2026 Online Registration Test Schedule Islamabad Karachi Quetta Gilgit Series - 1 05 Oct - 25 Nov 2025 22 Nov - 10 Dec 2025 - Series - 2 14 Dec 2025 - 01 Feb 2026 31 Jan - 15 Feb 2026 14 - 15 Feb 2026 25 - 26 Mar 2026 - Series - 3 22 Feb - 30 Mar 2026 04 Apr 2026 onwards - Series - 4 Apr \u2013 Jun 2026 Jun 2026 Jul 2026 Test Venues H-12 Campus DHA City NBC APS (Jutial) Computer Based Test Timings: Morning: 0900 - 1200 hrs Afternoon: 1400 - 1700 hrs ACT / SAT Requirements for various disciplines Programmes ACT/SAT Scores Required Engineering Computing Programmes BS Biotechnology / BS Environmental Science / BS Agriculture BS Food Science and Technology Architecture & Industrial Design For candidates taken ACT Exam before April 2025. ACT Composite Score (Consisting of Maths, English, Reading and Science Portions) with minimum score of 25. For candidates taking ACT Exam of April 2025 onwards. ACT Composite Score (Consisting of Maths, English and Reading only) with minimum score of 25. Science portion with minimum score of 25. Natural Sciences ACT STEM Score (Minimum Score to apply \u2013 25) Business Studies / Social Sciences LLB SAT (Minimum score to apply in each subject \u2013 550) OR ACT Score of Maths, English and Reading (Minimum score to apply in each subject \u2013 25) Announcements Caution NUST neither conducts entry test related preparatory activities itself nor provides material in electronic or printed format for guidance of applicants. Nor is any such activity sponsored by NUST. Candidates in their own interest are advised to refrain from organizations / individuals claiming that these have any association with NUST as regard to entry test preparation. Related Links Entry Route To NUST List of UG Programmes and Institutions Updates on UG Admissions Salient Features of Admission Policy for Undergraduate (UG) Programmes Dates to Remember Eligibility Criteria for UG Programmes Ineligibility Criteria DAE - Eligibility Criteria Selection Process Academic Qualification Required For Different UG Programmes Procedure of admission on the basis of NET Subjects Included in NET with Weightings Merit Criteria For UG Admissions Re-checking of NET Papers Applying on the Basis of ACT / SAT Financial Matters UG Admission Application Processing Fee Cancellation of Admission Frequently Asked Questions Migration & Transfer Policy UG Admissions Help Desk Guide Map for Test Venue Expatriate Students International Students National University of Sciences and Technology H-12, Islamabad, Pakistan Home | Contact Us 2026 \u00a9 All rights reserved",
+        "content": "Forgot Password? New Registration for NET SALIENTS of ACT/SAT basis Application ACT is conducted by ACT, USA. For more information, visit www.act.org. SAT is conducted by Collegeboard, USA. For more information, visit www.collegeboard.com. NUST institutional code to receive ACT scores is 2915 and for SAT scores is 2790. ACT/SAT scores are valid for 2 years. Foreign nationals (Non Pakistani) / international candidates cannot apply for Aerospace and Avionics Engineering programmes offered at CAE campus Risalpur. The merit list for candidates applying on the basis of ACT/SAT for National & International seats is prepared separately. ACT/SAT Basis Application Form Last Date: 25 Jul 2026 Registration for ACT/SAT Basis Admissions Fall 2026 session will start from 04-May-2026 NET will be conducted as per (Tentative) schedule mentioned below: NET-2026 Online Registration Test Schedule Islamabad Karachi Quetta Gilgit Series - 1 05 Oct - 25 Nov 2025 22 Nov - 10 Dec 2025 - Series - 2 14 Dec 2025 - 01 Feb 2026 31 Jan - 15 Feb 2026 14 - 15 Feb 2026 25 - 26 Mar 2026 - Series - 3 22 Feb - 30 Mar 2026 04 Apr 2026 onwards - Series - 4 Apr \u2013 Jun 2026 Jun 2026 Jul 2026 Test Venues H-12 Campus DHA City NBC APS (Jutial) Computer Based Test Timings: Morning: 0900 - 1200 hrs Afternoon: 1400 - 1700 hrs ACT / SAT Requirements for various disciplines Programmes ACT/SAT Scores Required Engineering Computing Programmes BS Biotechnology / BS Environmental Science / BS Agriculture BS Food Science and Technology Architecture & Industrial Design For candidates taken ACT Exam before April 2025. ACT Composite Score (Consisting of Maths, English, Reading and Science Portions) with minimum score of 25. For candidates taking ACT Exam of April 2025 onwards. ACT Composite Score (Consisting of Maths, English and Reading only) with minimum score of 25. Science portion with minimum score of 25. Natural Sciences ACT STEM Score (Minimum Score to apply \u2013 25) Business Studies / Social Sciences LLB SAT (Minimum score to apply in each subject \u2013 550) OR ACT Score of Maths, English and Reading (Minimum score to apply in each subject \u2013 25) Announcements Caution NUST neither conducts entry test related preparatory activities itself nor provides material in electronic or printed format for guidance of applicants. Nor is any such activity sponsored by NUST. Candidates in their own interest are advised to refrain from organizations / individuals claiming that these have any association with NUST as regard to entry test preparation. Related Links Entry Route To NUST List of UG Programmes and Institutions Updates on UG Admissions Salient Features of Admission Policy for Undergraduate (UG) Programmes Dates to Remember Eligibility Criteria for UG Programmes Ineligibility Criteria DAE - Eligibility Criteria Selection Process Academic Qualification Required For Different UG Programmes Procedure of admission on the basis of NET Subjects Included in NET with Weightings Merit Criteria For UG Admissions Re-checking of NET Papers Applying on the Basis of ACT / SAT Financial Matters UG Admission Application Processing Fee Cancellation of Admission Frequently Asked Questions Migration & Transfer Policy UG Admissions Help Desk Guide Map for Test Venue Expatriate Students International Students National University of Sciences and Technology H-12, Islamabad, Pakistan Home | Contact Us 2026 \u00a9 All rights reserved",
+        "keywords": [
+            "forgot",
+            "password"
+        ],
+        "source": "Undergraduate Admissions FAQs (Main Bot FAQ Anchor)",
+        "category": "general"
+    },
+    {
+        "id": "qa_bsai_info",
+        "type": "qa",
+        "question": "What is BSAI at NUST?",
+        "answer": "BSAI stands for BS Artificial Intelligence, offered at SEECS (School of Electrical Engineering and Computer Science) at NUST H-12 Islamabad. It is a 4-year undergraduate program. The tuition fee is Rs. 171,350 per semester (same as all engineering/computing programs). Eligibility: SSC with Science group AND HSSC Pre-Engineering or Computer Science or Pre-Medical group, minimum 60% marks.",
+        "content": "What is BSAI at NUST? BSAI BS Artificial Intelligence program SEECS undergraduate 4 year tuition fee Rs 171350 per semester. What does BSAI stand for? AI program at NUST.",
+        "keywords": [
+            "bsai",
+            "artificial intelligence",
+            "ai",
+            "program",
+            "seecs"
+        ],
+        "source": "NUST Prospectus 2025",
+        "category": "programs"
+    },
+    {
+        "id": "qa_gnet_info",
+        "type": "qa",
+        "question": "What is GNET?",
+        "answer": "GNET stands for Graduate NUST Entry Test. It is an alternative to the GAT (General) test for MS/Masters program admission at NUST. GNET requires a minimum score of 50 (accumulative). NUST accepts GNET scores conducted on or after June 2023. You can register for GNET online on the NUST website.",
+        "content": "What is GNET? GNET Graduate NUST Entry Test alternative to GAT for MS Masters admission. Minimum score 50. Register online NUST website. What does GNET stand for?",
+        "keywords": [
+            "gnet",
+            "graduate",
+            "entry test",
+            "masters",
+            "alternative",
+            "gat"
+        ],
+        "source": "NUST Prospectus 2025 (Page 62)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_pre_med_options",
+        "type": "qa",
+        "question": "What can pre-medical students study at NUST?",
+        "answer": "Pre-Medical (FSc Pre-Medical) students can apply for: 1) BS Biotechnology, BS Environmental Science, BS Agriculture, BS Food Science and Technology at ASAB/SCEE. 2) Computing programs (BSCS, BS Data Science, BS Bioinformatics, BS AI) - but must clear deficient Mathematics courses of 6 credit hours within one year. 3) Engineering programs - but must clear the condensed Mathematics course of 8 weeks offered by NUST prior to admission. 4) BBA, BS Economics, BS Psychology, and other Business/Social Sciences programs (no restrictions). 5) MBBS at NSHS.",
+        "content": "What can pre-medical students study at NUST? What can pre med take? Pre-medical FSc pre-med options programs. Biotechnology Environmental Science Agriculture Food Science BSCS BS Data Science BS AI computing programs clear mathematics deficient courses. Engineering condensed math course. BBA Economics Psychology business social sciences. MBBS.",
+        "keywords": [
+            "pre-medical",
+            "pre med",
+            "fsc",
+            "options",
+            "programs",
+            "biology"
+        ],
+        "source": "NUST Prospectus 2025 (Page 50)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_sch_types",
+        "type": "qa",
+        "question": "How many types of financial aid does NUST offer?",
+        "answer": "NUST offers three types of financial aid: (1) Need-based scholarships \u2014 full or half tuition fee waivers based on family income via the NEED Initiative (NUST Endowment for Educational Development). (2) Merit-based financial assistance \u2014 for students who maintain a minimum GPA of 3.5 per semester and finish in the top 3 positions in their section. (3) Interest-free loans \u2014 through the Ihsan Trust, covering 50\u201380% of tuition.",
+        "content": "How many types of financial aid does NUST offer? NUST offers three types of financial aid: (1) Need-based scholarships \u2014 full or half tuition fee waivers based on family income via the NEED Initiative (NUST Endowment for Educational Development). (2) Merit-based financial assistance \u2014 for students who maintain a minimum GPA of 3.5 per semester and finish in the top 3 positions in their section. (3) Interest-free loans \u2014 through the Ihsan Trust, covering 50\u201380% of tuition.",
+        "keywords": [
+            "types",
+            "financial aid",
+            "scholarship",
+            "need based",
+            "merit based",
+            "loan",
+            "ihsan trust"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_when_apply",
+        "type": "qa",
+        "question": "When and how do I apply for financial aid at NUST?",
+        "answer": "UG candidates apply for financial aid immediately after submitting their online admission application. You must fill the NUST Need-Based Financial Aid Application Form (NFAAF) online via the admission portal. The NFAAF deadline is the same as the admission application deadline \u2014 tentatively June for UG. Financial aid applications are not accepted separately after the due date. For MS, the deadline is tentatively May.",
+        "content": "When and how do I apply for financial aid at NUST? UG candidates apply for financial aid immediately after submitting their online admission application. You must fill the NUST Need-Based Financial Aid Application Form (NFAAF) online via the admission portal. The NFAAF deadline is the same as the admission application deadline \u2014 tentatively June for UG. Financial aid applications are not accepted separately after the due date. For MS, the deadline is tentatively May.",
+        "keywords": [
+            "when",
+            "how",
+            "apply",
+            "financial aid",
+            "nfaaf",
+            "scholarship",
+            "deadline"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_who_eligible",
+        "type": "qa",
+        "question": "Who can apply for financial aid at NUST?",
+        "answer": "All UG and Masters candidates are eligible to apply for financial aid at the time of admission. There is no restriction based on program or school \u2014 if you are applying for admission, you can simultaneously apply for financial aid.",
+        "content": "Who can apply for financial aid at NUST? All UG and Masters candidates are eligible to apply for financial aid at the time of admission. There is no restriction based on program or school \u2014 if you are applying for admission, you can simultaneously apply for financial aid.",
+        "keywords": [
+            "who",
+            "eligible",
+            "financial aid",
+            "scholarship",
+            "apply"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_affect_admission",
+        "type": "qa",
+        "question": "Does applying for financial aid affect my NUST admission application?",
+        "answer": "No. Applying for financial aid has absolutely no effect on your admission decision. Even if you leave the NFAAF form unfilled or partially filled, it will not affect whether you get admission. The admission and financial aid processes are completely independent.",
+        "content": "Does applying for financial aid affect my NUST admission application? No. Applying for financial aid has absolutely no effect on your admission decision. Even if you leave the NFAAF form unfilled or partially filled, it will not affect whether you get admission. The admission and financial aid processes are completely independent.",
+        "keywords": [
+            "affect",
+            "admission",
+            "financial aid",
+            "scholarship",
+            "nfaaf",
+            "independent"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_physical_verification",
+        "type": "qa",
+        "question": "What is physical verification for NUST financial aid?",
+        "answer": "Physical verification means the NUST Financial Aid Office (FAO) team may visit your home, business premises, or inquire from neighbors to verify the facts you stated in your financial aid application. This can happen at any point during your academic life at NUST, not just at the time of initial application.",
+        "content": "What is physical verification for NUST financial aid? Physical verification means the NUST Financial Aid Office (FAO) team may visit your home, business premises, or inquire from neighbors to verify the facts you stated in your financial aid application. This can happen at any point during your academic life at NUST, not just at the time of initial application.",
+        "keywords": [
+            "physical verification",
+            "financial aid",
+            "fao",
+            "home visit",
+            "scholarship"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_hard_copies",
+        "type": "qa",
+        "question": "Do I need to send hard copies of documents after submitting NFAAF?",
+        "answer": "No, you do not need to send hard copies of supporting documents immediately after submitting the NFAAF. After processing your application, the Financial Aid Office (FAO) will email you with instructions to mail hard copy documents by a specified deadline. Failure to provide documents by that deadline will result in cancellation of your NFAAF.",
+        "content": "Do I need to send hard copies of documents after submitting NFAAF? No, you do not need to send hard copies of supporting documents immediately after submitting the NFAAF. After processing your application, the Financial Aid Office (FAO) will email you with instructions to mail hard copy documents by a specified deadline. Failure to provide documents by that deadline will result in cancellation of your NFAAF.",
+        "keywords": [
+            "hard copies",
+            "documents",
+            "nfaaf",
+            "financial aid",
+            "fao",
+            "submission"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_peef_other",
+        "type": "qa",
+        "question": "Do I need a separate form to apply for PEEF or other external scholarships at NUST?",
+        "answer": "No. Once you submit the NFAAF, NUST automatically considers you for all types of need-based scholarships including PEEF, CMEEF (KPK), FEF, and others. The FAO will inform you if any additional form or document is needed for a specific scholarship.",
+        "content": "Do I need a separate form to apply for PEEF or other external scholarships at NUST? No. Once you submit the NFAAF, NUST automatically considers you for all types of need-based scholarships including PEEF, CMEEF (KPK), FEF, and others. The FAO will inform you if any additional form or document is needed for a specific scholarship.",
+        "keywords": [
+            "peef",
+            "cmeef",
+            "fef",
+            "external scholarship",
+            "nfaaf",
+            "separate form"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_missing_docs",
+        "type": "qa",
+        "question": "What if I don't have some of the required documents for the NUST financial aid form?",
+        "answer": "If you are missing some supporting documents, you can attach a handwritten letter of explanation (signed by you and your parent/guardian) stating the reason for the missing document and the expected date by which you will provide it to the Financial Aid Office. If the system won't let you upload, ensure each document file is under 250KB. For upload errors, email financialaid@nust.edu.pk with a screenshot.",
+        "content": "What if I don't have some of the required documents for the NUST financial aid form? If you are missing some supporting documents, you can attach a handwritten letter of explanation (signed by you and your parent/guardian) stating the reason for the missing document and the expected date by which you will provide it to the Financial Aid Office. If the system won't let you upload, ensure each document file is under 250KB. For upload errors, email financialaid@nust.edu.pk with a screenshot.",
+        "keywords": [
+            "missing documents",
+            "nfaaf",
+            "financial aid",
+            "letter of explanation",
+            "upload",
+            "250kb"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_scholarship_transfer",
+        "type": "qa",
+        "question": "Can my NUST scholarship be transferred if I change my program from the merit list?",
+        "answer": "Yes, a scholarship offer can be transferred to other programs you are offered in subsequent selection lists, but only if you have already deposited dues to secure admission in your first offered program. To transfer, notify the admission office at ugadmissions@nust.edu.pk and fao@nust.edu.pk. If you do not deposit dues, the scholarship offer is cancelled and the slot is offered to others in the next list.",
+        "content": "Can my NUST scholarship be transferred if I change my program from the merit list? Yes, a scholarship offer can be transferred to other programs you are offered in subsequent selection lists, but only if you have already deposited dues to secure admission in your first offered program. To transfer, notify the admission office at ugadmissions@nust.edu.pk and fao@nust.edu.pk. If you do not deposit dues, the scholarship offer is cancelled and the slot is offered to others in the next list.",
+        "keywords": [
+            "scholarship transfer",
+            "program change",
+            "merit list",
+            "selection list",
+            "fao",
+            "financial aid"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_change_nfaaf",
+        "type": "qa",
+        "question": "How do I correct or update my NFAAF after submission?",
+        "answer": "After submitting your NFAAF, you cannot directly edit it. To make changes, email fao@nust.edu.pk specifying: the Section, Sub-section, Field title to be amended, and the corrected values. The FAO may contact you for additional information. If your financial profile changes significantly, you can apply for a review at any time through your institution.",
+        "content": "How do I correct or update my NFAAF after submission? After submitting your NFAAF, you cannot directly edit it. To make changes, email fao@nust.edu.pk specifying: the Section, Sub-section, Field title to be amended, and the corrected values. The FAO may contact you for additional information. If your financial profile changes significantly, you can apply for a review at any time through your institution.",
+        "keywords": [
+            "correct",
+            "update",
+            "nfaaf",
+            "after submission",
+            "financial aid",
+            "fao",
+            "changes"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_divorced_parents",
+        "type": "qa",
+        "question": "My parents are divorced. Will that affect my NUST financial aid application?",
+        "answer": "NUST expects both parents to provide financial information even if they are separated or divorced. Both parents' financial documents are assessed to determine contribution ability. If one parent is unwilling, inform them that their information stays confidential and does not obligate them to pay. If your situation is special, write a detailed letter of explanation to the Financial Aid Office.",
+        "content": "My parents are divorced. Will that affect my NUST financial aid application? NUST expects both parents to provide financial information even if they are separated or divorced. Both parents' financial documents are assessed to determine contribution ability. If one parent is unwilling, inform them that their information stays confidential and does not obligate them to pay. If your situation is special, write a detailed letter of explanation to the Financial Aid Office.",
+        "keywords": [
+            "divorced",
+            "separated",
+            "parents",
+            "financial aid",
+            "nfaaf",
+            "single parent"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_need_assessment",
+        "type": "qa",
+        "question": "What is the need assessment process for NUST financial aid?",
+        "answer": "The NUST need assessment process follows these stages: (1) FAO verifies NFAAF and supporting documents, seeks clarifications on anomalies. (2) Applicants are contacted to resolve discrepancies. (3) FAO prepares evaluation sheets for each applicant. (4) Shortlisted candidates submit hard-copy documents. (5) Interviews and physical verification are conducted where necessary. (6) The NUST Financial Aid Committee reviews each case and decides based purely on financial need. (7) Decision is communicated via an official provisional scholarship award letter. FAO conducts periodic reviews to ensure the award reaches genuinely needy students.",
+        "content": "What is the need assessment process for NUST financial aid? The NUST need assessment process follows these stages: (1) FAO verifies NFAAF and supporting documents, seeks clarifications on anomalies. (2) Applicants are contacted to resolve discrepancies. (3) FAO prepares evaluation sheets for each applicant. (4) Shortlisted candidates submit hard-copy documents. (5) Interviews and physical verification are conducted where necessary. (6) The NUST Financial Aid Committee reviews each case and decides based purely on financial need. (7) Decision is communicated via an official provisional scholarship award letter. FAO conducts periodic reviews to ensure the award reaches genuinely needy students.",
+        "keywords": [
+            "need assessment",
+            "financial aid",
+            "process",
+            "fao",
+            "committee",
+            "evaluation",
+            "scholarship"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_income_certificate",
+        "type": "qa",
+        "question": "What income certificate do I need for NUST financial aid if my father is unemployed or does business?",
+        "answer": "For the NUST NFAAF income certificate requirements: (1) If unemployed: a Declaration of all income sources on affidavit on stamp paper (>Rs. 100), attested by Union Councilor and two witnesses (one a Govt. officer BPS-17+). (2) If business: same affidavit format listing all business income. (3) If salaried + part-time (agriculture, shop, taxi, tuition): salary certificate plus affidavit for supplemental income. (4) If agricultural income: affidavit attested by Assistant Commissioner Revenue or Union Councilor and two witnesses.",
+        "content": "What income certificate do I need for NUST financial aid if my father is unemployed or does business? For the NUST NFAAF income certificate requirements: (1) If unemployed: a Declaration of all income sources on affidavit on stamp paper (>Rs. 100), attested by Union Councilor and two witnesses (one a Govt. officer BPS-17+). (2) If business: same affidavit format listing all business income. (3) If salaried + part-time (agriculture, shop, taxi, tuition): salary certificate plus affidavit for supplemental income. (4) If agricultural income: affidavit attested by Assistant Commissioner Revenue or Union Councilor and two witnesses.",
+        "keywords": [
+            "income certificate",
+            "nfaaf",
+            "unemployed",
+            "business",
+            "affidavit",
+            "stamp paper",
+            "financial aid"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_outside_grant",
+        "type": "qa",
+        "question": "If I receive a scholarship from an outside organization, should I tell NUST?",
+        "answer": "Yes. If you receive any external grant, scholarship, or third-party payment, you must report the type and amount to the NUST Financial Aid Office (FAO) as soon as you receive it. Failure to report may affect your NUST financial aid status.",
+        "content": "If I receive a scholarship from an outside organization, should I tell NUST? Yes. If you receive any external grant, scholarship, or third-party payment, you must report the type and amount to the NUST Financial Aid Office (FAO) as soon as you receive it. Failure to report may affect your NUST financial aid status.",
+        "keywords": [
+            "outside scholarship",
+            "grant",
+            "third party",
+            "report",
+            "fao",
+            "financial aid"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_mid_semester",
+        "type": "qa",
+        "question": "Can I apply for NUST financial aid during the semester or academic year?",
+        "answer": "Generally, financial aid applications are only accepted at the time of admission. However, students whose financial situation drastically changes during the year due to unforeseen circumstances (e.g., parent's death, retirement, job loss) can apply for financial assistance during the semester or year through their institution.",
+        "content": "Can I apply for NUST financial aid during the semester or academic year? Generally, financial aid applications are only accepted at the time of admission. However, students whose financial situation drastically changes during the year due to unforeseen circumstances (e.g., parent's death, retirement, job loss) can apply for financial assistance during the semester or year through their institution.",
+        "keywords": [
+            "mid semester",
+            "apply",
+            "financial aid",
+            "during year",
+            "unforeseen",
+            "job loss",
+            "death"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "id": "qa_sch_criteria",
+        "type": "qa",
+        "question": "What is the criteria for awarding financial aid at NUST?",
+        "answer": "The NUST scholarship committee assesses the financial need of all applicants to determine whether their family has sufficient resources to afford NUST fees. Need is determined purely based on the financial credentials submitted (income certificates, bank statements, property details, etc.). The process is transparent \u2014 there is also an appeal process where students can provide additional information that may have been missed during initial assessment.",
+        "content": "What is the criteria for awarding financial aid at NUST? The NUST scholarship committee assesses the financial need of all applicants to determine whether their family has sufficient resources to afford NUST fees. Need is determined purely based on the financial credentials submitted (income certificates, bank statements, property details, etc.). The process is transparent \u2014 there is also an appeal process where students can provide additional information that may have been missed during initial assessment.",
+        "keywords": [
+            "criteria",
+            "awarding",
+            "financial aid",
+            "scholarship",
+            "need",
+            "assessment",
+            "appeal"
+        ],
+        "source": "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)",
+        "category": "scholarships"
+    },
+    {
+        "question": "What is the fee for Engineering and Computing programs (BSCS, SE, Mechanical, Civil, Electrical, AI, Data Science)?",
+        "answer": "The tuition fee for all Engineering and Computing programs at NUST is Rs. 171,350 per semester. Additionally, there is a one-time Admission Processing Fee of Rs. 35,000 (non-refundable), a Security Deposit of Rs. 10,000 (refundable), and Miscellaneous dues of Rs. 2,700 per semester. For 4 years (8 semesters), the total estimated tuition cost is around Rs. 1.4 Million.",
+        "category": "Fees",
+        "source": "Structured Extraction from Official NUST Prospectus 2025"
+    },
+    {
+        "question": "What is the fee for Business Studies, Social Sciences (S3H), Architecture, and LLB? (BBA, ACF, Economics, etc.)",
+        "answer": "The tuition fee for Business (BBA, ACF), Social Sciences (Economics, Psychology, Public Admin, Mass Comm), Architecture, and LLB is Rs. 250,380 per semester. LLB students also pay a Rs. 3,000 Bar Council Registration fee. There is a one-time Admission Processing Fee of Rs. 35,000, Security Deposit of Rs. 10,000, and Miscellaneous dues of Rs. 2,700 per semester.",
+        "category": "Fees",
+        "source": "Structured Extraction from Official NUST Prospectus 2025"
+    },
+    {
+        "question": "What is the fee for BS English?",
+        "answer": "The tuition fee for BS English (Language and Literature) is Rs. 85,000 per semester. One-time admission and security fees also apply.",
+        "category": "Fees",
+        "source": "Structured Extraction from Official NUST Prospectus 2025"
+    },
+    {
+        "question": "What are the hostel charges and mess fees at NUST?",
+        "answer": "Hostel charges per month: Single with attached bath (Rs. 11,000), Double with attached bath (Rs. 10,000), Double with community bath (Rs. 8,000), Triple with community bath (Rs. 6,750). The mess fee (food) is approximately Rs. 15,175 per month.",
+        "category": "Hostel",
+        "source": "Structured Extraction from Official NUST Prospectus 2025"
+    },
+    {
+        "question": "What is the merit or aggregate criteria formula for NUST admission?",
+        "answer": "The NUST aggregate merit formula is: 75% NUST Entry Test (NET) score + 15% HSSC / A-Level / Equivalent score + 10% SSC / O-Level / Equivalent score.",
+        "category": "Merit",
+        "source": "Structured Extraction from Official NUST Prospectus 2025"
+    },
+    {
+        "id": "qa_net_recheck",
+        "type": "qa",
+        "question": "Can I request a re-checking of my NET result? What is the process and fee?",
+        "answer": "Yes, NUST allows candidates to request re-checking of their NET answer paper. The process: submit a written request to the NUST Admissions Directorate within 7 days of result announcement. Fee: Rs. 500 per paper (non-refundable). Contact: admissions@nust.edu.pk or +92-51-9085-6878. The result after re-checking is final.",
+        "content": "Can I request a re-checking of my NET result? Yes, NUST allows candidates to request re-checking of their NET answer paper. Fee: Rs. 500 per paper. Submit request within 7 days of result. Contact admissions@nust.edu.pk.",
+        "keywords": [
+            "recheck",
+            "rechecking",
+            "net result",
+            "re-check",
+            "review",
+            "net paper",
+            "process",
+            "fee"
+        ],
+        "source": "NUST Prospectus 2025 (NET FAQs)",
+        "category": "net_test"
+    },
+    {
+        "id": "qa_multiple_programs",
+        "type": "qa",
+        "question": "If I am selected for multiple programs, can I choose which one to accept?",
+        "answer": "Yes. NUST admission is preference-based. When you fill the admission form, you list your program preferences in order (1st choice, 2nd choice, etc.). NUST offers admission based on merit and your highest available preference. If selected for multiple programs, you are automatically assigned your highest-priority preference for which your merit qualifies. You can update your preferences after the merit list is announced.",
+        "content": "If selected for multiple programs at NUST, can I choose? Yes. NUST uses a preference-based system. You list programs in order of priority and are assigned your highest qualifying preference. Preferences can be updated after merit list announcement.",
+        "keywords": [
+            "multiple programs",
+            "selection",
+            "choose",
+            "preference",
+            "accept",
+            "program choice"
+        ],
+        "source": "NUST Prospectus 2025 (Admission FAQs)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_documents_upload",
+        "type": "qa",
+        "question": "What documents do I need to upload with my online application? Do I need to get them attested?",
+        "answer": "Documents required for NUST online application: Scanned copy of CNIC/B-Form, Matriculation (SSC) certificate and marksheet, Inter part-1 marksheet (for ongoing students) or full HSSC result, Domicile certificate, Passport-sized photograph. Documents do NOT need to be attested for the online upload phase. Original attested documents are only required during physical verification at the time of admission confirmation.",
+        "content": "What documents do I need for NUST online application? CNIC/B-Form, SSC certificate and marksheet, HSSC Part-1 result or full result, domicile, passport photo. Attestation is NOT required for online upload \u2014 only for physical verification at admission.",
+        "keywords": [
+            "documents",
+            "upload",
+            "attested",
+            "attestation",
+            "application",
+            "required",
+            "scan",
+            "cnic"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 53-54)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_ibcc_what",
+        "type": "qa",
+        "question": "What is IBCC and why do I need it?",
+        "answer": "IBCC (Inter Board Committee of Chairmen) is the government body that provides equivalence certificates for O-Level and A-Level qualifications in Pakistan. If you studied O/A Levels (Cambridge/Edexcel), you MUST obtain an IBCC equivalence certificate to apply to NUST. The certificate converts your grades into a Pakistani percentage. Without it, your application cannot be processed. IBCC office: Plot 25, Street 38, G-10/4, Islamabad. Phone: 051-9106631. Website: ibcc.edu.pk.",
+        "content": "What is IBCC? IBCC gives equivalence certificates to O/A Level students. Mandatory for Cambridge/Edexcel students applying to NUST. Converts grades to Pakistani percentage. IBCC office in G-10/4 Islamabad. Phone: 051-9106631.",
+        "keywords": [
+            "ibcc",
+            "equivalence",
+            "o level",
+            "a level",
+            "cambridge",
+            "what is ibcc",
+            "certificate"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 49-54)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_what_is_nust",
+        "type": "qa",
+        "question": "What is NUST?",
+        "answer": "NUST (National University of Sciences and Technology) is Pakistan's #1 ranked university, consistently ranked #1 in Pakistan and in the top 350 globally (QS World Rankings 2025: #353). Established in 1991, it is a public research university with campuses across Pakistan, headquartered at H-12, Islamabad. It offers UG, MS, and PhD programs in Engineering, Computing, Business, Architecture, Law, Medicine, Social Sciences, and Natural Sciences across 21 institutions.",
+        "content": "What is NUST? NUST (National University of Sciences and Technology) is Pakistan's #1 ranked public research university, QS ranked #353 globally (2025). Est. 1991. H-12 Islamabad campus. 21+ institutions. UG/MS/PhD in Engineering, Computing, Business, Medicine.",
+        "keywords": [
+            "what is nust",
+            "nust",
+            "university",
+            "about nust",
+            "national university",
+            "sciences technology"
+        ],
+        "source": "NUST Prospectus 2025 (Pages 4-10)",
+        "category": "general"
+    },
+    {
+        "id": "qa_hostel_guarantee",
+        "type": "qa",
+        "question": "Is hostel accommodation guaranteed for first-year students?",
+        "answer": "No, hostel accommodation is NOT guaranteed for first-year students at NUST. Hostel seats are limited and allocated on a first-come, first-served basis after admission confirmation. Many first-year students find accommodation in private hostels or apartments in Islamabad/Rawalpindi, particularly in areas like I-8, G-10, and sectors near H-12. You can apply for NUST hostel through the student portal after admission confirmation \u2014 seats are allocated based on availability and distance from home city.",
+        "content": "Is NUST hostel guaranteed for freshmen? No. Hostel seats are limited, allocated on first-come first-served after admission. Many students live in private accommodation nearby (I-8, G-10). Apply for hostel via student portal after admission confirmed.",
+        "keywords": [
+            "hostel guaranteed",
+            "first year",
+            "freshmen",
+            "hostel seat",
+            "availability",
+            "accommodation",
+            "guaranteed"
+        ],
+        "source": "NUST Prospectus 2025 (Page 20)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_hostel_names",
+        "type": "qa",
+        "question": "What are the names of hostels at NUST?",
+        "answer": "NUST H-12 campus hostels: Boys (UG): Ghazali, Beruni, Razi, Rahmat, Attar, Liaquat, Hajveri, Zakariya. Boys (PG): Rumi, Johar, Ammar. Girls (UG): Zainab, Ayesha, Khadija, Amna. Girls (PG): Fatima. Room types: Single with attached bath, Double with attached bath, Double with community bath, Triple with community bath.",
+        "content": "NUST hostel names: Boys UG hostels: Ghazali, Beruni, Razi, Rahmat, Attar, Liaquat, Hajveri, Zakariya. Boys PG: Rumi, Johar, Ammar. Girls UG: Zainab, Ayesha, Khadija, Amna. Girls PG: Fatima.",
+        "keywords": [
+            "hostel names",
+            "boys hostel",
+            "girls hostel",
+            "hostel list",
+            "ghazali",
+            "fatima",
+            "rumi",
+            "zainab"
+        ],
+        "source": "NUST Prospectus 2025 (Page 20)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_hostel_electricity",
+        "type": "qa",
+        "question": "Is electricity bill included in hostel charges?",
+        "answer": "Yes, for standard room occupancy the electricity and water bills are included in NUST hostel charges. However, if you use an air conditioner or electric heater, additional charges apply based on usage (metered separately). The security deposit (Rs. 15,000) covers damage and is refundable on departure.",
+        "content": "Is electricity included in NUST hostel? Yes, standard electricity and water are included. AC/heater usage is metered and charged separately. Security deposit Rs. 15,000 is refundable.",
+        "keywords": [
+            "electricity",
+            "electric",
+            "bill",
+            "included",
+            "hostel charges",
+            "water",
+            "ac",
+            "heater"
+        ],
+        "source": "NUST Prospectus 2025 (Page 20)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_transport",
+        "type": "qa",
+        "question": "Is transport (pick and drop) available for students? What are the charges?",
+        "answer": "Yes, NUST provides bus pick and drop service for students living in Rawalpindi and Islamabad. Routes cover major areas. Approximate charges: Rs. 10,000\u201315,000 per semester depending on route. Detail of routes and charges are announced at orientation and available from the Student Affairs Directorate. No transport is provided outside Islamabad/Rawalpindi.",
+        "content": "NUST transport/bus pick and drop: Available for Rawalpindi and Islamabad residents. Charges approx Rs. 10,000-15,000/semester depending on route. Details from Student Affairs Directorate.",
+        "keywords": [
+            "transport",
+            "bus",
+            "pick drop",
+            "pick and drop",
+            "commute",
+            "rawalpindi",
+            "islamabad",
+            "charges"
+        ],
+        "source": "NUST Prospectus 2025 (Campus Facilities)",
+        "category": "hostel"
+    },
+    {
+        "id": "qa_migration_policy",
+        "type": "qa",
+        "question": "Can I apply for migration to NUST from another university?",
+        "answer": "Yes, NUST accepts migration applications from students at HEC-recognized universities. Requirements: Minimum CGPA 3.0/4.0. Must have completed at least 1 full year at the original university. Not allowed during first year or final year at NUST. Must complete minimum 60% of degree credit hours at NUST. Processing fee: Rs. 7,000. Additional fees: Rs. 100,000 (from local university) or Rs. 250,000 (from foreign university). Seats are limited and admission is at NUST's discretion.",
+        "content": "Migration to NUST: Requires CGPA 3.0+, 1 year at original HEC-recognized university. Min 60% credits must be at NUST. Processing fee Rs. 7,000. Local transfer fee Rs. 100,000, foreign Rs. 250,000. Not allowed in first/final year.",
+        "keywords": [
+            "migration",
+            "transfer",
+            "another university",
+            "cgpa",
+            "policy",
+            "migrate"
+        ],
+        "source": "NUST Prospectus 2025 (Migration Policy)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_postgraduate_redirect",
+        "type": "qa",
+        "question": "How can I apply for MS or PhD at NUST?",
+        "answer": "NUST postgraduate admissions (MS, MPhil, MBA, PhD) are handled separately from UG admissions. Apply at pgadmissions.nust.edu.pk. For MS/MPhil: Need GAT-General (NTS) or GRE or G-NET score with minimum 50-60% (varies by program). For PhD: MS/MPhil degree required. Test fee: Rs. 10,000. For MBA: GMAT/GRE or NUST-GAT. Contact: pgadmissions@nust.edu.pk. I am primarily designed for UG admission queries.",
+        "content": "NUST MS/PhD admissions: Apply at pgadmissions.nust.edu.pk. MS needs GAT-General or GRE or G-NET min 50-60%. Application fee Rs. 10,000. PhD needs MS degree. Contact pgadmissions@nust.edu.pk.",
+        "keywords": [
+            "ms",
+            "phd",
+            "postgraduate",
+            "graduate",
+            "mphil",
+            "gat",
+            "gre",
+            "mba",
+            "masters"
+        ],
+        "source": "NUST Prospectus 2025 (Postgraduate Section)",
+        "category": "general"
+    },
+    {
+        "id": "qa_gap_year",
+        "type": "qa",
+        "question": "Can gap year or repeater students apply to NUST?",
+        "answer": "Yes, gap year and repeater candidates are fully eligible to apply to NUST. There is no age limit or penalty for appearing in admission after a gap year. Repeaters (those who have appeared for FSc/A-Level before) are treated equally with fresh candidates. Only your NET score, HSSC %, and SSC % matter for merit \u2014 not the year you appeared.",
+        "content": "Can repeaters or gap year students apply to NUST? Yes. No age limit, no penalty for gap year. Repeaters treated equally. Only NET score, HSSC%, and SSC% matter for merit.",
+        "keywords": [
+            "gap year",
+            "repeater",
+            "repeat",
+            "age limit",
+            "older",
+            "eligible",
+            "dropped"
+        ],
+        "source": "NUST Prospectus 2025 (Admission FAQs)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_alevel_late_result",
+        "type": "qa",
+        "question": "What if my A-Level result is not yet out when I apply?",
+        "answer": "A-Level students whose results have not yet been announced can still apply to NUST. During the online application, indicate that your A-Level result is awaited. You must provide a provisional result or predicted grades letter from your school. Your IBCC equivalence for O-Levels is still required immediately. The A-Level IBCC equivalence must be provided before program commencement in September. Merit is calculated once results are confirmed.",
+        "content": "A-Level result not out during NUST application? You can still apply \u2014 indicate result awaited. Provide school letter. O-Level IBCC still needed immediately. A-Level IBCC equivalence must be submitted before classes start in September.",
+        "keywords": [
+            "a level",
+            "result late",
+            "awaited",
+            "not out",
+            "provisional",
+            "predicted",
+            "alevel result"
+        ],
+        "source": "NUST Prospectus 2025 (A-Level/O-Level FAQs)",
+        "category": "eligibility"
+    },
+    {
+        "id": "qa_condensed_math",
+        "type": "qa",
+        "question": "What is the condensed math course at NUST?",
+        "answer": "NUST offers a Condensed Mathematics course for students enrolled in Computing programs (BSCS, BSSE, BSAI) who come from Pre-Medical or non-Mathematics backgrounds. It is a non-credit remedial course of about 6 credit hours, typically run in the summer before or during 1st semester. Successfully completing it fulfills the Mathematics deficiency requirement and allows students to continue in their program without academic penalty.",
+        "content": "NUST condensed math course: Non-credit remedial maths for Pre-Medical/non-Maths students in Computing programs (BSCS/BSSE/BSAI). Run before/during 1st semester. ~6 credit hours. Completing it removes Maths deficiency.",
+        "keywords": [
+            "condensed math",
+            "remedial math",
+            "maths course",
+            "deficient",
+            "pre medical computing",
+            "mathematics"
+        ],
+        "source": "NUST Prospectus 2025 (Academic Regulations)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_what_is_s3h",
+        "type": "qa",
+        "question": "What is S3H at NUST and what programs does it offer?",
+        "answer": "S3H (School of Social Sciences and Humanities) is NUST's school for social sciences, humanities, and law. Located at H-12 Islamabad campus. UG programs: BS Economics, BS Mass Communication & Media, BS Psychology, BS Governance & Public Policy, LLB (Law), BS Tourism & Hospitality Management. Fee: Rs. 250,380/semester (LLB also has Bar Council fee of Rs. 3,000). Admission via NET for Business Studies & Social Sciences pattern.",
+        "content": "What is NUST S3H? School of Social Sciences and Humanities at H-12 Islamabad. Programs: BS Economics, BS Mass Comm, BS Psychology, BS Public Policy, LLB, BS Tourism. Fee Rs. 250,380/semester.",
+        "keywords": [
+            "s3h",
+            "social sciences",
+            "humanities",
+            "law",
+            "llb",
+            "economics",
+            "psychology",
+            "mass communication"
+        ],
+        "source": "NUST Prospectus 2025 (S3H Section)",
+        "category": "programs"
+    },
+    {
+        "id": "qa_change_program",
+        "type": "qa",
+        "question": "Can I change my program after admission?",
+        "answer": "Program change within NUST is possible but limited. After 1st semester, students with high CGPA may apply for intra-institution transfer (within the same school, if allowed). Inter-institution transfer (changing school, e.g. from SEECS to NBS) is very rare and requires approval from both institutions plus the Registrar's office. Not all programs allow this. Consult your institution's academic office for current rules.",
+        "content": "Program change after NUST admission: Intra-institution transfer possible after 1st semester with high CGPA. Inter-institution transfer very rare, needs both schools' approval. Consult academic office.",
+        "keywords": [
+            "change program",
+            "program change",
+            "transfer",
+            "switch",
+            "change field",
+            "after admission"
+        ],
+        "source": "NUST Prospectus 2025 (Academic Regulations)",
+        "category": "admission_process"
+    },
+    {
+        "id": "qa_acf_fee",
+        "type": "qa",
+        "question": "What is the fee for BS Accounting and Finance at NUST?",
+        "answer": "BS Accounting and Finance (ACF) at NUST NBS has a tuition fee of Rs. 210,000 per semester for national students. Additionally: one-time Admission Processing Fee Rs. 35,000, Security Deposit Rs. 10,000 (refundable), and Miscellaneous dues Rs. 2,700/semester. International students pay USD 5,400 per annum.",
+        "content": "Fee for BS Accounting and Finance (ACF) at NUST: Rs. 210,000/semester (national). Admission fee Rs. 35,000 (one-time). Security deposit Rs. 10,000 (refundable). International: USD 5,400/year.",
+        "keywords": [
+            "acf",
+            "accounting",
+            "finance",
+            "fee",
+            "bs accounting",
+            "accounting and finance",
+            "nbs"
+        ],
+        "source": "NUST Prospectus 2025 (Page 73)",
+        "category": "fees"
+    },
+    {
+        "id": "qa_net_miss",
+        "type": "qa",
+        "question": "What happens if I miss my NET session?",
+        "answer": "If you miss your registered NET session, you will NOT get a refund of the Rs. 5,000 registration fee \u2014 it is non-refundable. However, you can register for and appear in a subsequent NET series (e.g., if you miss Series 2, you can still register for Series 3 or 4). NUST uses your best NET score across all series, so appearing in later sessions is still beneficial.",
+        "content": "What if I miss my NET session? The Rs. 5,000 fee is non-refundable. You can still register for a later NET series. Best score across all attempts is considered \u2014 so appearing in later series is still valid.",
+        "keywords": [
+            "miss net",
+            "missed net",
+            "absent",
+            "net session",
+            "miss session",
+            "non refundable"
+        ],
+        "source": "NUST Prospectus 2025 (NET FAQs)",
+        "category": "net_test"
+    },
+    {
+        "question": "Are there any quota / reserved seats?",
+        "answer": "There are no quota seats available at NUST. All admissions are based purely on merit.",
+        "category": "admissions",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Are there any reserved / quota seats for admission in MBBS Programme?",
+        "answer": "Admissions in NSHS for MBBS will be purely on merit, based upon the MDCAT conducted by NUMS.",
+        "category": "medical",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Can a candidate apply both for open merit and ACT based seats?",
+        "answer": "Yes, on the basis of NET / MDCAT Score and required ACT Score.",
+        "category": "admissions",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Can a candidate of ICS / equivalent qualification eligible to apply for Engineering programmes?",
+        "answer": "Yes, candidates having combination of Physics, Mathematics and Computer Studies / Computer Science (ICS) or equivalent are eligible to apply for ALL Engineering programs offered by NUST, but they have to clear Chemistry as a remedial subject / course in the 1st Semester after admission.",
+        "category": "eligibility",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Can candidates of FSc Pre-Medical / equivalent qualification apply for BS Computer Science?",
+        "answer": "Yes, but they have to clear deficient Mathematics courses of 6 credit hours, within one year of enrollment in the programme.",
+        "category": "eligibility",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Can I apply for rechecking of Entry Test Result?",
+        "answer": "Re-checking of Paper Based Entry Test may be requested within 5 days of the declaration of result along with a fee of Rs.500/- in the form of a bank draft/pay order in favour of NUST.",
+        "category": "net",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Does NUST cater for the pick and drop facility?",
+        "answer": "Facility is available for the residents of Rawalpindi and Islamabad with specified routes, for which they have to pay separate charges. Details will be shared during orientation.",
+        "category": "transport",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Is migration to NUST allowed?",
+        "answer": "Yes, as per migration policy, students can apply for migration after completion of first year and before the beginning of final year. Applicants with exceptionally good academic record are considered.",
+        "category": "admissions",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Wait, what is the admission criteria for a gap year / repeater candidates?",
+        "answer": "Gap year / repeater candidates are considered as normal candidates and there is no penalization while generating the merit.",
+        "category": "admissions",
+        "source": "Official NUST FAQ"
+    },
+    {
+        "question": "Is the admission processing fee refundable?",
+        "answer": "Admission Processing Fee is neither refundable nor transferable. It remains valid only for the series for which it has been paid.",
+        "category": "fees",
+        "source": "Official NUST FAQ"
+    }
+]

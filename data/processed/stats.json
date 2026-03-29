@@ -1,0 +1,33 @@
+{
+  "total_chunks": 492,
+  "total_qa_pairs": 121,
+  "categories": {
+    "merit": 18,
+    "eligibility": 41,
+    "net_test": 45,
+    "campus": 22,
+    "fees": 65,
+    "programs": 194,
+    "admission_process": 31,
+    "scholarships": 24,
+    "contact": 12,
+    "general": 29,
+    "hostel": 9,
+    "dates": 2
+  },
+  "processing_stats": {
+    "chunks_created": 492,
+    "text_files": 4,
+    "skipped_short": 1,
+    "duplicates_removed": 2,
+    "pdf_files": 2
+  },
+  "config_used": {
+    "raw_dir": "M:\\Sem_4\\Projects\\NUST_Admission_Assistant\\data\\raw",
+    "output_dir": "M:\\Sem_4\\Projects\\NUST_Admission_Assistant\\data\\processed",
+    "max_chunk_words": 120,
+    "min_chunk_words": 20,
+    "overlap_words": 25,
+    "min_chunk_chars": 50
+  }
+}

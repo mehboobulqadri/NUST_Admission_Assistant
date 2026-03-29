@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>NUST Admission Assistant</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "nust-blue": "#002147",
+                "nust-gold": "#C5B358",
+              },
+              fontFamily: {
+                "headline": ["Manrope", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "label": ["Inter", "sans-serif"]
+              },
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-body bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 antialiased selection:bg-blue-300 dark:selection:bg-blue-900/50">
+
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 space-y-4 flex items-center justify-between px-4 sm:px-6 py-3 shadow-sm">
+    <div class="flex items-center gap-4">
+        <button class="menu-toggle material-symbols-outlined text-blue-800 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">menu</button>
+        <div class="h-9 w-9 overflow-hidden rounded-full border border-slate-200 dark:border-slate-800 bg-white flex items-center justify-center shrink-0">
+            <img alt="NUST Seal" class="h-6 w-6 object-contain" src="/resources/nust_png.png"/>
+        </div>
+        <h1 class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-blue-900 to-blue-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent font-manrope tracking-tight hidden sm:block">NUST Admissions</h1>
+    </div>
+
+    <!-- Interface Controls -->
+    <nav class="flex items-center space-x-2 sm:space-x-4">
+        <div class="relative flex items-center">
+            <span class="material-symbols-outlined text-slate-400 mr-2 text-sm hidden sm:block">memory</span>
+            <select id="model-select" class="block w-32 sm:w-40 text-xs font-bold bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-blue-500 appearance-none py-1.5 px-3 shadow-sm cursor-pointer outline-none transition-colors">
+                <option value="">Loading...</option>
+            </select>
+        </div>
+        <button id="theme-toggle" class="material-symbols-outlined text-blue-800 dark:text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">dark_mode</button>
+    </nav>
+</header>
+
+<!-- Hideable Sidebar -->
+<!-- By default pushed off-screen (-translate-x-full) -->
+<aside id="sidebar" class="fixed left-0 top-0 h-full w-72 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl border-r border-slate-200 dark:border-white/5 flex flex-col pt-20 pb-12 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] -translate-x-full shadow-2xl">
+    <div class="px-8 mt-4 mb-8 flex justify-between items-center">
+        <h2 class="font-manrope font-extrabold text-blue-900 dark:text-yellow-600 text-xs uppercase tracking-widest opacity-80">Official Resources</h2>
+        <button class="menu-toggle material-symbols-outlined text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors lg:hidden">close</button>
+    </div>
+    <nav class="flex-1 px-4 space-y-1">
+        <a class="flex items-center gap-4 text-slate-700 dark:text-slate-300 px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors group" href="https://nust.edu.pk/admissions/" target="_blank">
+            <span class="material-symbols-outlined text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400">open_in_new</span>
+            <span class="font-inter text-sm font-semibold tracking-wide">NUST Portal</span>
+        </a>
+        <a class="flex items-center gap-4 text-slate-700 dark:text-slate-300 px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors group" href="https://nust.edu.pk/admissions/fee-structure/" target="_blank">
+            <span class="material-symbols-outlined text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400">open_in_new</span>
+            <span class="font-inter text-sm font-semibold tracking-wide">Fee Structure</span>
+        </a>
+        <a class="flex items-center gap-4 text-slate-700 dark:text-slate-300 px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors group" href="https://nust.edu.pk/admissions/eligibility-criteria/" target="_blank">
+            <span class="material-symbols-outlined text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400">open_in_new</span>
+            <span class="font-inter text-sm font-semibold tracking-wide">Eligibility Criteria</span>
+        </a>
+    </nav>
+</aside>
+
+<!-- Main Chat Canvas -->
+<main class="pt-20 pb-48 px-4 sm:px-6 lg:max-w-4xl mx-auto min-h-screen w-full flex flex-col">
+    
+    <!-- Welcome Editorial Section -->
+    <section class="mt-6 mb-8 text-center transition-colors duration-300 pt-4 shrink-0">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl text-blue-950 dark:text-white font-headline font-extrabold mb-3 tracking-tight">How can I help you today?</h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-lg mx-auto">Ask about NUST admissions, campus life, NET dates, or quickly calculate your merit standing.</p>
+    </section>
+
+    <!-- Chat Container -->
+    <div id="chat-container" class="space-y-6 pb-4 px-1 sm:px-4">
+        <!-- Initial Bot Message -->
+        <div class="flex flex-col items-start gap-2 max-w-[90%] sm:max-w-[85%] bot-message">
+            <div class="flex items-center gap-3 mb-1">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
+                    <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
+                </div>
+                <span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>
+            </div>
+            <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
+                <p class="text-body-lg leading-relaxed">Assalam-o-Alaikum! I am the official NUST Admission Assistant. What information are you looking for regarding your academic journey?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Area Shell -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-slate-50 via-slate-50/90 dark:from-slate-900 dark:via-slate-900/90 to-transparent z-30 shrink-0">
+        <div class="max-w-3xl mx-auto">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-300 to-blue-200 dark:from-blue-900/40 dark:to-slate-700/40 rounded-3xl blur-md opacity-30 group-focus-within:opacity-60 transition duration-700"></div>
+                
+                <form id="chat-form" class="relative flex items-center bg-white dark:bg-[#0a1526] rounded-2xl border border-slate-300 dark:border-slate-700/60 shadow-lg dark:shadow-2xl overflow-hidden pl-4 pr-2 py-2">
+                    <input id="chat-input" class="bg-transparent border-none outline-none focus:ring-0 flex-1 text-slate-900 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 font-body py-3 text-[15px] sm:text-base mr-2 disabled:opacity-50" placeholder="Ask about Merit, Fees, or Programs..." type="text" autocomplete="off"/>
+                    <div class="flex items-center shrink-0">
+                        <button id="submit-btn" type="submit" class="nust-glow-btn flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-xl text-white dark:text-slate-100 shadow disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span class="material-symbols-outlined text-lg sm:text-xl" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="mt-4 flex flex-wrap justify-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar max-w-2xl mx-auto">
+                <button class="suggestion-btn text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors whitespace-nowrap shadow-sm">How to apply?</button>
+                <button class="suggestion-btn text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors whitespace-nowrap shadow-sm">What is the NET Syllabus?</button>
+                <button class="suggestion-btn text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors whitespace-nowrap shadow-sm">Hostel Guidelines</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

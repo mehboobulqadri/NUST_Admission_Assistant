@@ -1,0 +1,32 @@
+# Environments
+.venv/
+env/
+venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Specific
+data/index/
+retrieval/embed_cache.pkl
+test_results/
+.stitch*
+stitch*
+*.log
+*.tmp
+smoke_test_*.py
+tmp_*.py

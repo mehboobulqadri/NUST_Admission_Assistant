@@ -1,0 +1,16 @@
+# Core UI & API
+gradio==5.49.1
+requests==2.33.0
+
+# Retrieval & Math
+numpy==2.4.3
+rank-bm25==0.2.2
+
+# Document Processing
+pdfplumber==0.11.9
+tqdm==4.67.3
+
+# Web Scraping (Optional/Tools)
+beautifulsoup4==4.14.3
+cloudscraper==1.2.71
+pyyaml==6.0.3

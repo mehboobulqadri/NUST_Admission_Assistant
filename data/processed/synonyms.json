@@ -1,0 +1,15 @@
+{
+  "cost": "fee",
+  "price": "fee",
+  "money": "fee",
+  "marks": "merit",
+  "score": "merit",
+  "cutoff": "merit",
+  "stay": "hostel",
+  "dorm": "hostel",
+  "courses": "programs",
+  "subjects": "programs",
+  "apply": "admission_process",
+  "register": "admission_process",
+  "exam": "net_test"
+}

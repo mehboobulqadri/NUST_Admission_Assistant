@@ -1,0 +1,280 @@
+sources:
+  # === Core Admissions & Prospectus ===
+  - name: "NUST Undergraduate Admissions (Main Page)"
+    url: "https://nust.edu.pk/admissions/undergraduates/"
+    type: web
+    priority: high
+
+  - name: "NUST Undergraduate Admission Portal (Bot Bible)"
+    url: "https://ugadmissions.nust.edu.pk"
+    type: web
+    priority: high
+
+  - name: "UG Prospectus 2025 (Downloads)"
+    url: "https://nust.edu.pk/downloads/prospectus/"
+    type: web
+    priority: high
+
+  - name: "Undergraduate Selection Process (Merit Lists, Invoices, etc.)"
+    url: "https://nust.edu.pk/admissions/undergraduates/undergraduate-selection-process/"
+    type: web
+    priority: high
+
+  - name: "Admissions Directorate (General UG Office Info)"
+    url: "https://nust.edu.pk/about-us/resources-offices/admissions-office/"
+    type: web
+    priority: high
+
+
+  # === NET & Merit ===
+  - name: "NET Test Information (Schedule & Registration)"
+    url: "https://nust.edu.pk/admissions/undergraduates/dates-to-remember/"
+    type: web
+    priority: high
+
+  - name: "NET Paper Pattern and Syllabus (Engineering, Computing, Business)"
+    url: "https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings/"
+    type: web
+    priority: high
+
+  - name: "Aggregate Formula and Weightage (NET, FSc, Matric)"
+    url: "https://nust.edu.pk/admissions/undergraduates/dates-to-remember/"
+    type: web
+    priority: high
+
+
+  # === Eligibility & Equivalence ===
+  - name: "Undergraduate Eligibility Criteria for All Programs"
+    url: "https://nust.edu.pk/admissions/undergraduates/eligibility-criteria-for-ug-programmes/"
+    type: web
+    priority: high
+
+  - name: "O-Level and A-Level Equivalence (IBCC) Guidelines"
+    url: "https://nust.edu.pk/admissions/undergraduates/eligibility-criteria-for-ug-programmes/"
+    type: web
+    priority: high
+
+
+  # === Fee Structure ===
+  - name: "Undergraduate Fee Structure (National & International)"
+    url: "https://nust.edu.pk/admissions/fee-structure/undergraduate-financial-matters/"
+    type: web
+    priority: high
+
+  - name: "Refund Policy for Admission Fees"
+    url: "https://nust.edu.pk/admissions/fee-structure/refund-policy/"
+    type: web
+    priority: high
+
+
+  # === Programs & Campuses ===
+  - name: "All Undergraduate Programs (UG Programs Index)"
+    url: "https://nust.edu.pk/academics/undergraduate/"
+    type: web
+    priority: high
+
+  - name: "SEECS (School of Electrical Engineering and Computer Science)"
+    url: "https://seecs.nust.edu.pk"
+    type: web
+    priority: high
+
+  - name: "SEECS Programs (Detailed List)"
+    url: "https://seecs.nust.edu.pk/programs/"
+    type: web
+    priority: medium
+
+  - name: "SMME (School of Mechanical and Manufacturing Engineering)"
+    url: "https://smme.nust.edu.pk"
+    type: web
+    priority: high
+
+  - name: "SMME Programs (Detailed List)"
+    url: "https://smme.nust.edu.pk/programs/"
+    type: web
+    priority: medium
+
+  - name: "NBS (NUST Business School)"
+    url: "https://nbs.nust.edu.pk"
+    type: web
+    priority: high
+
+  - name: "NBS Programs (Detailed List)"
+    url: "https://nbs.nust.edu.pk/programs/"
+    type: web
+    priority: medium
+
+  - name: "S3H (School of Social Sciences and Humanities)"
+    url: "https://s3h.nust.edu.pk"
+    type: web
+    priority: high
+
+  - name: "S3H Programs (Basic Info / About)"
+    url: "https://s3h.nust.edu.pk/about-us/"
+    type: web
+    priority: medium
+
+
+  # === FAQs ===
+  - name: "Undergraduate Admissions FAQs (Main Bot FAQ Anchor)"
+    url: "https://ugadmissions.nust.edu.pk"
+    type: web
+    priority: high
+
+
+  # === Scholarships & Financial Aid ===
+  - name: "Undergraduate Financial Aid and Need-Based Scholarships"
+    url: "https://nust.edu.pk/admissions/scholarships/need-based-financial-aid/"
+    type: web
+    priority: medium
+
+  - name: "Deferment of Tuition Fee Policy"
+    url: "https://nust.edu.pk/admissions/scholarships/need-based-financial-aid/"
+    type: web
+    priority: medium
+
+
+  # === Hostels & Accommodation ===
+  - name: "Hostel Accommodation and Allotment Rules"
+    url: "https://campuslife.nust.edu.pk/facility-and-amenity/housing-and-dining/"
+    type: web
+    priority: medium
+
+  - name: "Hostel Fee Structure"
+    url: "https://campuslife.nust.edu.pk/facility-and-amenity/housing-and-dining/"
+    type: web
+    priority: medium
+
+
+  # === Alternative Admission Routes ===
+  - name: "Undergraduate Admissions on SAT / ACT Scores"
+    url: "https://nust.edu.pk/admissions/undergraduates/applying-on-the-basis-of-scholastic-aptitude-test-sat/"
+    type: web
+    priority: medium
+
+
+  # === Contact / Helpdesk ===
+  - name: "UG Admissions Help Desk (Phone / Email Portal)"
+    url: "https://nust.edu.pk/admissions/undergraduates/ug-admissions-help-desk/"
+    type: web
+    priority: medium
+
+  - name: "Undergraduate Admissions Contact Us (Portal form)"
+    url: "https://ugadmissions.nust.edu.pk/ContactUs.aspx"
+    type: web
+    priority: medium
+
+
+  # === NEW: FAQ Hubs (added from your big list) ===
+  - name: "UG Admissions - FAQs | NUST (Category Page)"
+    url: "https://nust.edu.pk/faq-category/ug-admission/"
+    type: web
+    priority: medium
+
+  - name: "FAQs | NUST (General FAQs)"
+    url: "https://nust.edu.pk/faqs/"
+    type: web
+    priority: medium
+
+  - name: "FAQs | NUST (Masters FAQ Hub)"
+    url: "https://nust.edu.pk/admissions/masters/faqs/"
+    type: web
+    priority: medium
+
+  - name: "FAQs – SMME (School‑Level FAQ)"
+    url: "https://smme.nust.edu.pk/faqs/"
+    type: web
+    priority: medium
+
+  - name: "FREQUENTLY ASKED QUESTIONS (FAQS) | NUST (Scholarship FAQs)"
+    url: "https://nust.edu.pk/admissions/scholarships/frequently-asked-questions-faqs/"
+    type: web
+    priority: medium
+
+
+  # === NEW: UG Policies & Process Pages ===
+  - name: "SALIENT FEATURES OF ADMISSION POLICY FOR UG PROGRAMMES | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/salient-features/"
+    type: web
+    priority: medium
+
+  - name: "UPDATES ON UG ADMISSIONS | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/updates-on-ug-admissions/"
+    type: web
+    priority: medium
+
+  - name: "LIST OF UG PROGRAMMES AND INSTITUTIONS | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/list-of-ug-programmes-and-institutions/"
+    type: web
+    priority: medium
+
+  - name: "ENTRY ROUTE TO NUST | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/entry-route-to-nust/"
+    type: web
+    priority: medium
+
+  - name: "MERIT GENERATION CRITERIA | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/merit-criteria-for-admission-on-net-basis/"
+    type: web
+    priority: medium
+
+  - name: "PROCEDURE OF ADMISSION ON THE BASIS OF NET | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/procedure-of-admission-on-the-basis-of-net/"
+    type: web
+    priority: medium
+
+  - name: "SUBJECTS INCLUDED IN NET WITH WEIGHTINGS | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings/"
+    type: web
+    priority: medium
+
+  - name: "ACADEMIC QUALIFICATION REQUIRED FOR DIFFERENT UG PROGRAMMES | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/academic-qualification-required-for-different-ug-progammes/"
+    type: web
+    priority: medium
+
+  - name: "DAE - ELIGIBILITY CRITERIA | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/dae-eligibility-criteria/"
+    type: web
+    priority: medium
+
+  - name: "INELIGIBILITY CRITERIA | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/ineligibility-criteria/"
+    type: web
+    priority: medium
+
+  - name: "RE-CHECKING OF NET PAPERS | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/re-checking-of-net-papers/"
+    type: web
+    priority: medium
+
+  - name: "CANCELLATION OF ADMISSION | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/cancellation-of-admission/"
+    type: web
+    priority: medium
+
+  - name: "MIGRATION & TRANSFER POLICY | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/migration-transfer-policy/"
+    type: web
+    priority: medium
+
+  - name: "NET APPLICATION PROCESSING FEE | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/ug-admission-application-processing-fee/"
+    type: web
+    priority: medium
+
+  - name: "GUIDE MAP FOR TEST VENUE | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/guide-map-for-test-venue/"
+    type: web
+    priority: medium
+
+
+  # === NEW: International / Expat Students ===
+  - name: "EXPATRIATE STUDENTS | NUST"
+    url: "https://nust.edu.pk/admissions/undergraduates/expatriate-students/"
+    type: web
+    priority: medium
+
+  - name: "INTERNATIONAL STUDENT ADMISSIONS – NUST (NIO)"
+    url: "https://nio.nust.edu.pk/admissions/international-student-admissions/"
+    type: web
+    priority: medium
