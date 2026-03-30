@@ -82,8 +82,13 @@ function normalizeQuery(query) {
 
 function findHardcodedAnswer(query) {
     const normalized = normalizeQuery(query);
+    const queryWords = new Set(normalized.split(/\s+/).filter(w => w.length > 0));
+    
     for (const [key, answer] of Object.entries(HARDCODED_QA)) {
-        if (normalized.includes(key) || key.includes(normalized)) {
+        const keyWords = key.split(/\s+/);
+        // Require ALL key words to be present in the query for a match
+        const matchedKeyWords = keyWords.filter(w => queryWords.has(w));
+        if (matchedKeyWords.length === keyWords.length) {
             return answer;
         }
     }
@@ -109,6 +114,10 @@ function parseMarkdown(text) {
     }
 
     let parsed = output.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Format numbered lists with line breaks - only match at start of line or after newline
+    parsed = parsed.replace(/(?:^|\n)(\s*)(\d+\))\s/gm, '<br><br>$1$2 ');
+    
     parsed = parsed.replace(/\n/g, '<br>');
     return parsed;
 }
@@ -241,12 +250,15 @@ async function handleChat(message) {
     chatInput.disabled = true;
     submitBtn.disabled = true;
     submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    
+    // Artificial delay of 2-3 seconds for consistent response feel
+    let craftingDelay = Math.random() * 1000 + 2000; // 2000-3000ms
 
     // Check for hardcoded answer first
     const hardcodedAnswer = findHardcodedAnswer(message);
     if (hardcodedAnswer) {
         const loader = addBotMessageLoader();
-        await new Promise(resolve => setTimeout(resolve, 300)); // Short delay for natural feel
+        await new Promise(resolve => setTimeout(resolve, craftingDelay));
         replaceBotMessageLoader(loader, hardcodedAnswer);
         const contentDiv = loader.querySelector('#typed-content');
         if (contentDiv) await typeStreamingResponse(contentDiv, hardcodedAnswer);
@@ -260,6 +272,10 @@ async function handleChat(message) {
     }
 
     const loader = addBotMessageLoader();
+    
+    // Apply crafting delay before reading response stream
+    await new Promise(resolve => setTimeout(resolve, craftingDelay));
+    
     try {
         const payload = {
             message: message,
@@ -327,9 +343,10 @@ async function handleChat(message) {
             }
         }
         
-        // Final UI render flush and type animation
+        // Final UI render flush (no typing animation for API responses)
         if (contentDiv && lastText) {
-            await typeStreamingResponse(contentDiv, lastText);
+            contentDiv.innerHTML = parseMarkdown(lastText);
+            scrollToBottom();
         }
 
     } catch (error) {
@@ -485,49 +502,42 @@ applySettingsSbBtn.addEventListener('click', async () => {
 
         if (response.ok) {
             settingsSidebar.classList.add('translate-x-full');
-            alert('✅ Settings applied successfully!');
         } else {
-            alert('❌ Failed to apply settings');
+            console.error('Failed to apply settings');
         }
     } catch (e) {
         console.error("Failed to apply settings", e);
-        alert('⚠️ Error applying settings');
     }
 });
 
 // Reset settings
 resetSettingsSbBtn.addEventListener('click', async () => {
-    if (confirm('🔄 Reset all settings to defaults?\n\nThis cannot be undone.')) {
-        try {
-            const response = await fetch('/api/settings/reset', { method: 'POST' });
-            if (response.ok) {
-                loadSettings();
-                alert('✅ Settings reset to defaults!');
-            }
-        } catch (e) {
-            console.error("Failed to reset settings", e);
+    try {
+        const response = await fetch('/api/settings/reset', { method: 'POST' });
+        if (response.ok) {
+            loadSettings();
         }
+    } catch (e) {
+        console.error("Failed to reset settings", e);
     }
 });
 
 // Clear chat
 clearChatBtn.addEventListener('click', () => {
-    if (confirm('🗑️ Clear all chat messages?\n\nThis will start fresh.')) {
-        chatContainer.innerHTML = `
-            <div class="flex flex-col items-start gap-2 max-w-[90%] sm:max-w-[85%] bot-message">
-                <div class="flex items-center gap-3 mb-1">
-                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
-                        <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
-                    </div>
-                    <span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>
+    chatContainer.innerHTML = `
+        <div class="flex flex-col items-start gap-2 max-w-[90%] sm:max-w-[85%] bot-message">
+            <div class="flex items-center gap-3 mb-1">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
+                    <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
                 </div>
-                <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
-                    <p class="text-body-lg leading-relaxed">Assalam-o-Alaikum! I am the official NUST Admission Assistant. What information are you looking for regarding your academic journey?</p>
-                </div>
+                <span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>
             </div>
-        `;
-        scrollToBottom();
-    }
+            <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
+                <p class="text-body-lg leading-relaxed">Assalam-o-Alaikum! I am the official NUST Admission Assistant. What information are you looking for regarding your academic journey?</p>
+            </div>
+        </div>
+    `;
+    scrollToBottom();
 });
 
 // Load settings on startup

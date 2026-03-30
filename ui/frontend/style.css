@@ -104,7 +104,7 @@ input[type='range']::-moz-range-progress {
     border-radius: 9999px;
 }
 
-/* Settings Sidebar - Remove Horizontal Scrollbar */
+/* Settings Sidebar - Remove Horizontal Scrollbar & Fix Sizing */
 #settings-sidebar {
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -112,16 +112,28 @@ input[type='range']::-moz-range-progress {
 
 #settings-sidebar * {
     overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 #settings-sidebar nav {
     overflow-x: hidden !important;
     overflow-y: auto !important;
+    width: 100%;
+    max-width: 100%;
 }
 
-/* Ensure sliders don't overflow */
-#settings-sidebar input[type='range'] {
+/* Ensure all inputs and elements fit */
+#settings-sidebar input[type='range'],
+#settings-sidebar select,
+#settings-sidebar textarea {
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#settings-sidebar .space-y-4 > div {
+    width: 100%;
     box-sizing: border-box;
 }
 
