@@ -357,13 +357,12 @@ def respond_stream(message: str, history: list):
         chat_stats["static_hits"] += 1
         chat_stats["last_response_time"] = round(time.time() - start_time, 3)
         words = static_answer.split(" ")
-        # 2-3 second thinking pause before first word
-        time.sleep(2.5)
+        time.sleep(0.75)
         collected = []
         for w in words:
             collected.append(w)
             yield f"data: {json.dumps({'text': ' '.join(collected)})}\n\n"
-            time.sleep(0.035)  # ~1.5s for 40-word response
+            time.sleep(0.01)
         return
 
     if query_type in STATIC:
@@ -371,14 +370,14 @@ def respond_stream(message: str, history: list):
         chat_stats["static_hits"] += 1
         chat_stats["last_response_time"] = round(time.time() - start_time, 3)
         words = STATIC[query_type].split(" ")
-        # Greetings: 1-2s thinking pause; others: 2-3s
-        think_delay = 1.5 if query_type == "greeting" else 2.5
+        # 0.75s thinking pause for all static responses
+        think_delay = 0.75
         time.sleep(think_delay)
         collected = []
         for w in words:
             collected.append(w)
             yield f"data: {json.dumps({'text': ' '.join(collected)})}\n\n"
-            time.sleep(0.04)
+            time.sleep(0.01)
         return
 
     # --- Retrieve with dynamic top_k ---
@@ -388,12 +387,12 @@ def respond_stream(message: str, history: list):
     if not results:
         msg = "I couldn't find relevant information about this. Please visit nust.edu.pk or contact the NUST admission office."
         words = msg.split(" ")
-        time.sleep(2.0)
+        time.sleep(0.75)
         collected = []
         for w in words:
             collected.append(w)
             yield f"data: {json.dumps({'text': ' '.join(collected)})}\n\n"
-            time.sleep(0.04)
+            time.sleep(0.01)
         return
 
     # --- Fast path ---
@@ -414,13 +413,13 @@ def respond_stream(message: str, history: list):
             response_time=elapsed,
         )
         words = cleaned.split(" ")
-        # 3-4 second thinking pause for fast-path (simulate reasoning)
-        time.sleep(3.2)
+        # 0.75s thinking pause for fast-path
+        time.sleep(0.75)
         collected = []
         for w in words:
             collected.append(w)
             yield f"data: {json.dumps({'text': ' '.join(collected)})}\n\n"
-            time.sleep(0.055)  # ~3-4s for 60-word response
+            time.sleep(0.01)  # fast word streaming
         return
 
     # --- Build conversation history ---

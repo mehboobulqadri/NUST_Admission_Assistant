@@ -211,7 +211,7 @@ function convertLoaderToMsg(wrap, text) {
     scrollBottom();
 }
 
-const MIN_THINK_MS = 2000;   // minimum "Thinking…" time before any text shows
+const MIN_THINK_MS = 750;   // minimum "Thinking…" time before any text shows
 const WORD_INTERVAL = 65;    // ms between each word appearing (streaming feel)
 
 async function sendMessage(text) {
@@ -304,9 +304,104 @@ chatForm.addEventListener('submit', e => {
     if (msg && !chatInput.disabled) sendMessage(msg);
 });
 
+// Hardcoded instant responses for front-page suggestion pills
+const PILL_RESPONSES = {
+    "How to apply?": `Here's how to apply for NUST undergraduate admissions:
+
+1. Register at ugadmissions.nust.edu.pk
+2. Pay Rs. 5,000 application fee per NET attempt (via 1Link/EasyPaisa/JazzCash)
+3. Appear in NET (you can take up to 4 series — best score is used)
+4. Check merit list on the portal
+5. If selected, deposit Rs. 35,000 admission fee + 1st semester tuition
+
+Admission is 100% merit-based: 75% NET + 15% HSSC + 10% SSC.`,
+
+    "NET exam syllabus": `NET (NUST Entry Test) has 200 MCQs conducted as a computer-based test.
+
+**Engineering:** 40% Math, 30% Physics, 15% Chemistry, 10% English, 5% Intelligence
+**Computing:** 40% Math, 25% Physics, 20% Computer Science, 10% English, 5% Intelligence
+**Business:** 40% English, 40% Quantitative, 20% Intelligence
+
+Fee per attempt: Rs. 5,000 (National). Results are uploaded within 24 hours. You can appear in multiple series and the best score is considered.`,
+
+    "Hostel info": `NUST H-12 campus has separate hostels for boys and girls:
+
+- Boys: Ghazali, Rumi, Raza, Attar, Beruni, Johar
+- Girls: Fatima, Zainab, Ayesha, Khadija
+- Room rent: Rs. 7,000/month
+- Mess charges: approx Rs. 12,000/month
+- Security deposit: Rs. 10,000 (refundable)
+
+Note: Hostel accommodation is NOT guaranteed for first-year students. Apply through the portal after admission confirmation.
+
+View the campus on the **🗺️ Campus Map** from the left sidebar!`,
+
+    "Scholarship options": `NUST offers several financial aid options:
+
+1. NFAAF (Need-Based) — covers tuition for deserving students; min CGPA 2.50
+2. Ehsaas Scholarship — government scholarship for low-income families
+3. PEEF — for Punjab domicile students; min CGPA 3.50
+4. Merit Scholarships — based on academic performance; min CGPA 3.50
+5. Ihsan Trust Interest-Free Loan — for students who don't qualify for grants
+
+Apply via the NFAAF online form immediately after submitting your admission application.`,
+
+    "What are my chances?": `Your admission chances depend on your aggregate score.
+
+**Formula:** NET (75%) + FSc (15%) + Matric (10%)
+
+**General guide:**
+- Above 80% — Almost confirmed for most programs
+- 75% – 80% — High chance; competitive but accessible
+- 70% – 75% — Merit-dependent; check yearly closing merits
+- Below 70% — Difficult; consider improving your NET score
+
+Want an exact calculation? Open the **🧮 Merit Calculator** from the left sidebar!`,
+
+    "BSCS fee structure": `Tuition Fee for BSCS / Computing programs (BSCS, BSSE, BSAI, BS Data Science):
+
+- Per semester: Rs. 171,350 (National) or USD 5,400/year (International)
+- One-time admission fee: Rs. 35,000
+- Security deposit: Rs. 10,000 (refundable)
+- 8 semesters total
+
+For the complete 4-year cost breakdown with hostel, open the **💰 Fee Estimator** from the left sidebar!`
+};
+
+function showPillResponse(text) {
+    hideWelcome();
+    addUserMsg(text);
+
+    const response = PILL_RESPONSES[text] || "Information not available.";
+    const words = response.split(" ");
+    const loader = addBotLoader();
+    let collected = [];
+    let idx = 0;
+
+    // 0.75s thinking pause
+    setTimeout(() => {
+        const timer = setInterval(() => {
+            if (idx < words.length) {
+                collected.push(words[idx]);
+                idx++;
+                convertLoaderToMsg(loader, collected.join(" "));
+                scrollBottom();
+            } else {
+                clearInterval(timer);
+            }
+        }, 15);
+    }, 750);
+}
+
 pills.forEach(pill => {
     pill.addEventListener('click', () => {
-        if (!chatInput.disabled) sendMessage(pill.textContent.trim());
+        if (chatInput.disabled) return;
+        const text = pill.textContent.trim();
+        if (PILL_RESPONSES[text]) {
+            showPillResponse(text);
+        } else {
+            sendMessage(text);
+        }
     });
 });
 
