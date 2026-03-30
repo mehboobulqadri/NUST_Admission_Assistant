@@ -122,6 +122,8 @@ function renderMarkdown(raw) {
         '<button class="inline-page-btn" onclick="goToPage(\'fees\')">💰 Fee Estimator</button>');
     text = text.replace(/\*\*🧮\s*Merit Calculator\*\*/g,
         '<button class="inline-page-btn" onclick="goToPage(\'merit\')">🧮 Merit Calculator</button>');
+    text = text.replace(/\*\*🗺️\s*Campus Map\*\*/g,
+        '<button class="inline-page-btn" onclick="goToPage(\'map\')">🗺️ Campus Map</button>');
 
     // Bold
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -225,22 +227,6 @@ async function sendMessage(text) {
     const thinkStart = Date.now();
 
     let fullText = '';
-    let streamDone = false;
-    let lastQueueIdx = 0;    // tracks where we are in fullText for word queueing
-    const wordQueue = [];     // words waiting to be rendered
-
-    // Start draining the word queue at a steady pace
-    const drainTimer = setInterval(() => {
-        if (wordQueue.length > 0) {
-            const display = wordQueue.join(' ');
-            convertLoaderToMsg(loader, display);
-        } else if (streamDone) {
-            // Stream ended and queue empty — final render and stop
-            if (fullText) convertLoaderToMsg(loader, fullText);
-            clearInterval(drainTimer);
-        }
-        // If queue empty but stream still active, keep ticking (waits for more words)
-    }, WORD_INTERVAL);
 
     try {
         const res = await fetch('/api/chat', {
@@ -255,13 +241,14 @@ async function sendMessage(text) {
         const decoder = new TextDecoder();
         let buffer = '';
 
+        // Read entire stream first
         while (true) {
             const { value, done } = await reader.read();
             if (done) break;
 
             buffer += decoder.decode(value, { stream: true });
             const lines = buffer.split('\n');
-            buffer = lines.pop(); // keep incomplete line
+            buffer = lines.pop();
 
             for (const line of lines) {
                 if (!line.startsWith('data: ')) continue;
@@ -269,49 +256,40 @@ async function sendMessage(text) {
                 if (raw === '[DONE]') break;
                 try {
                     const parsed = JSON.parse(raw);
-                    if (parsed.text) {
-                        fullText = parsed.text;
-
-                        const elapsed = Date.now() - thinkStart;
-                        if (elapsed < MIN_THINK_MS) continue; // still thinking, buffer silently
-
-                        // Queue only the NEW portion of text (backend sends accumulated)
-                        if (fullText.length > lastQueueIdx) {
-                            const newPart = fullText.slice(lastQueueIdx);
-                            const words = newPart.split(/\s+/).filter(w => w);
-                            for (const w of words) wordQueue.push(w);
-                            lastQueueIdx = fullText.length;
-                        }
-                    }
+                    if (parsed.text) fullText = parsed.text;
                 } catch {}
             }
         }
 
-        streamDone = true;
-
-        // Wait out any remaining think time
+        // Wait until minimum think time has passed
         const elapsed = Date.now() - thinkStart;
         if (elapsed < MIN_THINK_MS) {
             await new Promise(r => setTimeout(r, MIN_THINK_MS - elapsed));
         }
 
-        // Queue any remaining text that arrived during the think wait
-        if (fullText.length > lastQueueIdx) {
-            const remaining = fullText.slice(lastQueueIdx);
-            const words = remaining.split(/\s+/).filter(w => w);
-            for (const w of words) wordQueue.push(w);
-            lastQueueIdx = fullText.length;
-        }
-
-        // If nothing was ever received
         if (!fullText) {
-            clearInterval(drainTimer);
             convertLoaderToMsg(loader, 'Sorry, I could not get a response. Please try again.');
+        } else {
+            // Split into words and drip-feed one at a time
+            const words = fullText.split(/\s+/).filter(w => w);
+            const shown = [];
+            let idx = 0;
+
+            await new Promise(resolve => {
+                const timer = setInterval(() => {
+                    if (idx < words.length) {
+                        shown.push(words[idx]);
+                        idx++;
+                        convertLoaderToMsg(loader, shown.join(' '));
+                    } else {
+                        clearInterval(timer);
+                        resolve();
+                    }
+                }, WORD_INTERVAL);
+            });
         }
-        // Otherwise drainTimer handles the final render when queue empties
 
     } catch (err) {
-        clearInterval(drainTimer);
         convertLoaderToMsg(loader, 'Connection error. Please make sure the backend is running.');
     } finally {
         chatInput.disabled = false;
