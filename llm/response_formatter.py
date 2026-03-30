@@ -17,34 +17,9 @@ class ResponseFormatter:
         tokens_per_second=None,
     ):
         cleaned = ResponseFormatter._clean_answer(answer_text)
+        # Return only the clean answer — no metadata, no source lines, no timing
+        return cleaned
 
-        source_line = ""
-        if sources:
-            unique_sources = list(dict.fromkeys(sources))
-            clean_sources = [
-                ResponseFormatter._clean_source_name(s)
-                for s in unique_sources[:3]
-            ]
-            source_line = "📌 Sources: " + " | ".join(clean_sources)
-
-        meta_parts = []
-        if method == "fast_path":
-            meta_parts.append("⚡ Direct answer")
-        if response_time is not None:
-            meta_parts.append(f"⏱️ {response_time:.1f}s")
-        if tokens_per_second is not None and tokens_per_second > 0:
-            meta_parts.append(f"🔄 {tokens_per_second:.0f} tok/s")
-
-        meta_line = " | ".join(meta_parts) if meta_parts else ""
-
-        parts = [cleaned]
-        if source_line:
-            parts.append("")
-            parts.append(source_line)
-        if meta_line:
-            parts.append(meta_line)
-
-        return "\n".join(parts)
 
     @staticmethod
     def _clean_answer(text):

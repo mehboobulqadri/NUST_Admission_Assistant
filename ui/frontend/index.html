@@ -4,257 +4,549 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>NUST Admission Assistant</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <meta name="description" content="AI-powered NUST admissions assistant — merit calculator, fee estimator, and expert guidance.">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                "nust-blue": "#002147",
-                "nust-gold": "#C5B358",
-              },
-              fontFamily: {
-                "headline": ["Manrope", "sans-serif"],
-                "body": ["Inter", "sans-serif"],
-                "label": ["Inter", "sans-serif"]
-              },
-            },
-          },
-        }
-    </script>
 </head>
-<body class="font-body bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 antialiased selection:bg-blue-300 dark:selection:bg-blue-900/50">
+<body>
 
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 space-y-4 flex items-center justify-between px-4 sm:px-6 py-3 shadow-sm">
-    <div class="flex items-center gap-4">
-        <button class="menu-toggle material-symbols-outlined text-blue-800 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">menu</button>
-        <div class="h-9 w-9 overflow-hidden rounded-full border border-slate-200 dark:border-slate-800 bg-white flex items-center justify-center shrink-0">
-            <img alt="NUST Seal" class="h-6 w-6 object-contain" src="/resources/nust_png.png"/>
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header id="app-header">
+    <div class="header-left">
+        <div class="header-logo">
+            <img alt="NUST" src="/resources/nust_png.png"/>
         </div>
-        <h1 class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-blue-900 to-blue-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent font-manrope tracking-tight hidden sm:block">NUST Admissions</h1>
+        <div class="header-title-group">
+            <h1 class="header-title">NUST Admissions</h1>
+        </div>
     </div>
-
-    <!-- Interface Controls -->
-    <nav class="flex items-center space-x-2 sm:space-x-4">
-        <div class="relative flex items-center">
-            <span class="material-symbols-outlined text-slate-400 mr-2 text-sm hidden sm:block">memory</span>
-            <select id="model-select" class="block w-32 sm:w-40 text-xs font-bold bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-blue-500 appearance-none py-1.5 px-3 shadow-sm cursor-pointer outline-none transition-colors">
-                <option value="">Loading...</option>
+    <div class="header-right">
+        <div class="model-select-wrap">
+            <span class="material-symbols-outlined model-select-icon">memory</span>
+            <select id="model-select">
+                <option value="">Loading models…</option>
             </select>
+            <span class="material-symbols-outlined model-select-chevron">unfold_more</span>
         </div>
-        <button id="settings-btn" title="Settings" class="material-symbols-outlined text-blue-800 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">settings</button>
-        <button id="clear-chat-btn" title="Clear chat" class="material-symbols-outlined text-blue-800 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">refresh</button>
-        <button id="theme-toggle" class="material-symbols-outlined text-blue-800 dark:text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">dark_mode</button>
-    </nav>
+        <div class="header-divider"></div>
+        <button id="clear-chat-btn" class="header-icon-btn" title="New chat">
+            <span class="material-symbols-outlined">add_comment</span>
+        </button>
+        <button id="theme-toggle" class="header-icon-btn" title="Toggle theme">
+            <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+    </div>
 </header>
 
-<!-- Hideable Sidebar -->
-<!-- By default pushed off-screen (-translate-x-full) -->
-<aside id="sidebar" class="fixed left-0 top-0 h-full w-72 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl border-r border-slate-200 dark:border-white/5 flex flex-col pt-20 pb-12 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] -translate-x-full shadow-2xl">
-    <div class="px-8 mt-4 mb-8 flex justify-between items-center">
-        <h2 class="font-manrope font-extrabold text-blue-900 dark:text-yellow-600 text-xs uppercase tracking-widest opacity-80">Official Resources</h2>
-        <button class="menu-toggle material-symbols-outlined text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors lg:hidden">close</button>
-    </div>
-    <nav class="flex-1 px-4 space-y-1">
-        <a class="flex items-center gap-4 text-slate-700 dark:text-slate-300 px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors group" href="https://nust.edu.pk/admissions/" target="_blank">
-            <span class="material-symbols-outlined text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400">open_in_new</span>
-            <span class="font-inter text-sm font-semibold tracking-wide">NUST Portal</span>
-        </a>
-        <a class="flex items-center gap-4 text-slate-700 dark:text-slate-300 px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors group" href="https://nust.edu.pk/admissions/fee-structure/" target="_blank">
-            <span class="material-symbols-outlined text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400">open_in_new</span>
-            <span class="font-inter text-sm font-semibold tracking-wide">Fee Structure</span>
-        </a>
-        <a class="flex items-center gap-4 text-slate-700 dark:text-slate-300 px-4 py-3 hover:bg-blue-50 dark:hover:bg-slate-800/50 rounded-xl transition-colors group" href="https://nust.edu.pk/admissions/eligibility-criteria/" target="_blank">
-            <span class="material-symbols-outlined text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400">open_in_new</span>
-            <span class="font-inter text-sm font-semibold tracking-wide">Eligibility Criteria</span>
-        </a>
-    </nav>
-</aside>
+<!-- ═══════════════════ APP SHELL ═══════════════════ -->
+<div class="app-shell">
 
-<!-- Main Chat Canvas -->
-<main class="pt-20 pb-48 px-4 sm:px-6 lg:max-w-4xl mx-auto min-h-screen w-full flex flex-col">
-    
-    <!-- Welcome Editorial Section -->
-    <section class="mt-6 mb-8 text-center transition-colors duration-300 pt-4 shrink-0">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl text-blue-950 dark:text-white font-headline font-extrabold mb-3 tracking-tight">How can I help you today?</h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-lg mx-auto">Ask about NUST admissions, campus life, NET dates, or quickly calculate your merit standing.</p>
-    </section>
-
-    <!-- Chat Container -->
-    <div id="chat-container" class="space-y-6 pb-4 px-1 sm:px-4">
-        <!-- Initial Bot Message -->
-        <div class="flex flex-col items-start gap-2 max-w-[90%] sm:max-w-[85%] bot-message">
-            <div class="flex items-center gap-3 mb-1">
-                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
-                    <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
-                </div>
-                <span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>
-            </div>
-            <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
-                <p class="text-body-lg leading-relaxed">Assalam-o-Alaikum! I am the official NUST Admission Assistant. What information are you looking for regarding your academic journey?</p>
-            </div>
+    <!-- ──── LEFT SIDEBAR ──── -->
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-top">
+            <button class="sidebar-btn active" data-page="chat" title="Chat">
+                <span class="material-symbols-outlined sb-icon">chat_bubble</span>
+                <span class="sb-label">Chat</span>
+                <span class="sb-active-dot"></span>
+            </button>
+            <button class="sidebar-btn" data-page="merit" title="Merit Calculator">
+                <span class="material-symbols-outlined sb-icon">function</span>
+                <span class="sb-label">Merit Calc</span>
+            </button>
+            <button class="sidebar-btn" data-page="fees" title="Fee Estimator">
+                <span class="material-symbols-outlined sb-icon">account_balance_wallet</span>
+                <span class="sb-label">Fee Estimator</span>
+            </button>
+            <button class="sidebar-btn" data-page="map" title="Campus Map">
+                <span class="material-symbols-outlined sb-icon">pin_drop</span>
+                <span class="sb-label">Campus</span>
+            </button>
         </div>
-    </div>
+        <div class="sidebar-bottom">
+            <button class="sidebar-btn" data-page="analytics" title="Analytics">
+                <span class="material-symbols-outlined sb-icon">analytics</span>
+                <span class="sb-label">Analytics</span>
+            </button>
+            <button class="sidebar-btn" data-page="settings" title="Settings">
+                <span class="material-symbols-outlined sb-icon">tune</span>
+                <span class="sb-label">Settings</span>
+            </button>
+        </div>
+    </nav>
 
-    <!-- Input Area Shell -->
-    <div class="fixed bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-slate-50 via-slate-50/90 dark:from-slate-900 dark:via-slate-900/90 to-transparent z-30 shrink-0">
-        <div class="max-w-3xl mx-auto">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-300 to-blue-200 dark:from-blue-900/40 dark:to-slate-700/40 rounded-3xl blur-md opacity-30 group-focus-within:opacity-60 transition duration-700"></div>
-                
-                <form id="chat-form" class="relative flex items-center bg-white dark:bg-[#0a1526] rounded-2xl border border-slate-300 dark:border-slate-700/60 shadow-lg dark:shadow-2xl overflow-hidden pl-4 pr-2 py-2">
-                    <input id="chat-input" class="bg-transparent border-none outline-none focus:ring-0 flex-1 text-slate-900 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 font-body py-3 text-[15px] sm:text-base mr-2 disabled:opacity-50" placeholder="Ask about Merit, Fees, or Programs..." type="text" autocomplete="off"/>
-                    <div class="flex items-center shrink-0">
-                        <button id="submit-btn" type="submit" class="nust-glow-btn flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-xl text-white dark:text-slate-100 shadow disabled:opacity-50 disabled:cursor-not-allowed">
-                            <span class="material-symbols-outlined text-lg sm:text-xl" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+    <!-- ──── MAIN CONTENT ──── -->
+    <main class="main-area">
+
+        <!-- ============ PAGE: CHAT ============ -->
+        <section id="page-chat" class="page active">
+            <div class="chat-scroll-area" id="chat-scroll">
+                <!-- Welcome Hero -->
+                <div class="chat-welcome" id="chat-welcome">
+                    <div class="welcome-glow"></div>
+                    <div class="welcome-logo"><img src="/resources/nust_png.png" alt="NUST"/></div>
+                    <h2 class="welcome-title">How can I help you today?</h2>
+                    <p class="welcome-sub">Ask about NUST admissions, programs, NET dates, fees, or merit standing.</p>
+                    <div class="quick-actions">
+                        <button class="quick-card" data-page="merit">
+                            <span class="material-symbols-outlined qc-icon" style="color:#3b82f6">function</span>
+                            <span class="qc-text">Calculate Merit</span>
+                        </button>
+                        <button class="quick-card" data-page="fees">
+                            <span class="material-symbols-outlined qc-icon" style="color:#10b981">account_balance_wallet</span>
+                            <span class="qc-text">Estimate Fees</span>
+                        </button>
+                        <button class="quick-card" data-page="analytics">
+                            <span class="material-symbols-outlined qc-icon" style="color:#f59e0b">analytics</span>
+                            <span class="qc-text">View Analytics</span>
+                        </button>
+                        <button class="quick-card" data-page="map">
+                            <span class="material-symbols-outlined qc-icon" style="color:#8b5cf6">pin_drop</span>
+                            <span class="qc-text">Campus Map</span>
                         </button>
                     </div>
-                </form>
-            </div>
-            <div class="mt-4 flex flex-wrap justify-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar max-w-2xl mx-auto">
-                <button class="suggestion-btn text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors whitespace-nowrap shadow-sm">How to apply?</button>
-                <button class="suggestion-btn text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors whitespace-nowrap shadow-sm">What is the NET Syllabus?</button>
-                <button class="suggestion-btn text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors whitespace-nowrap shadow-sm">Hostel Guidelines</button>
-            </div>
-        </div>
-    </div>
-</main>
-
-<script type="module" src="script.js"></script>
-
-<!-- Settings Sidebar -->
-<aside id="settings-sidebar" class="fixed right-0 top-0 h-full w-80 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl border-l border-slate-200 dark:border-white/5 flex flex-col pt-20 pb-6 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] translate-x-full shadow-2xl overflow-y-auto">
-    
-    <!-- Header -->
-    <div class="px-6 flex justify-end items-center sticky top-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur py-4 -mx-6 px-6">
-        <button id="close-settings-sidebar-btn" class="material-symbols-outlined text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors">close</button>
-    </div>
-
-    <!-- Settings Content -->
-    <nav class="flex-1 px-4 pt-2 space-y-6 overflow-y-auto custom-scrollbar">
-        
-        <!-- Model Behavior Section -->
-        <div class="space-y-4">
-            <div class="px-3 pb-2 border-b border-slate-200 dark:border-slate-700/50">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-amber-500 text-base">lightbulb</span>
-                    Model
-                </h3>
-            </div>
-
-            <!-- Temperature -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <div class="flex items-center justify-between mb-2">
-                    <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Temperature</label>
-                    <span id="temp-value-sb" class="text-xs font-bold py-1 px-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded">0.3</span>
                 </div>
-                <input id="temperature-slider-sb" type="range" min="0" max="1" step="0.05" value="0.3" class="w-full h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full appearance-none cursor-pointer accent-blue-600">
+                <!-- Chat Messages -->
+                <div id="chat-messages"></div>
             </div>
-
-            <!-- Context Window -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Context</label>
-                <select id="num-ctx-select-sb" class="w-full px-2 py-1.5 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
-                    <option value="1024">1024 tokens</option>
-                    <option value="2048">2048 tokens</option>
-                    <option value="4096" selected>4096 tokens</option>
-                    <option value="8192">8192 tokens</option>
-                </select>
-            </div>
-
-            <!-- Response Length -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Response</label>
-                <select id="num-predict-select-sb" class="w-full px-2 py-1.5 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
-                    <option value="256">256 tokens</option>
-                    <option value="512">512 tokens</option>
-                    <option value="1024" selected>1024 tokens</option>
-                    <option value="2048">2048 tokens</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Retrieval Section -->
-        <div class="space-y-4">
-            <div class="px-3 pb-2 border-b border-slate-200 dark:border-slate-700/50">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-emerald-500 text-base">search</span>
-                    Retrieval
-                </h3>
-            </div>
-
-            <!-- Top-K -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Results</label>
-                <select id="top-k-select-sb" class="w-full px-2 py-1.5 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
-                    <option value="1">1 result</option>
-                    <option value="2">2 results</option>
-                    <option value="3" selected>3 results</option>
-                    <option value="5">5 results</option>
-                </select>
-            </div>
-
-            <!-- BM25 Weight -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <div class="flex items-center justify-between mb-2">
-                    <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Keyword</label>
-                    <span id="bm25-value-sb" class="text-xs font-bold py-1 px-2 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 rounded">0.45</span>
+            <!-- Input Bar -->
+            <div class="chat-input-bar">
+                <div class="input-bar-inner">
+                    <form id="chat-form" class="chat-form">
+                        <input id="chat-input" type="text" placeholder="Ask about admissions, fees, programs…" autocomplete="off"/>
+                        <button id="export-btn" type="button" class="input-action-btn" title="Export chat">
+                            <span class="material-symbols-outlined">download</span>
+                        </button>
+                        <button id="send-btn" type="submit" class="send-btn" title="Send">
+                            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">arrow_upward</span>
+                        </button>
+                    </form>
+                    <div class="suggestions" id="suggestions">
+                        <button class="pill">How to apply?</button>
+                        <button class="pill">NET exam syllabus</button>
+                        <button class="pill">Hostel info</button>
+                        <button class="pill">Scholarship options</button>
+                        <button class="pill">What are my chances?</button>
+                        <button class="pill">BSCS fee structure</button>
+                    </div>
                 </div>
-                <input id="bm25-slider-sb" type="range" min="0" max="1" step="0.05" value="0.45" class="w-full h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full appearance-none cursor-pointer accent-emerald-600">
             </div>
+        </section>
 
-            <!-- Vector Weight -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <div class="flex items-center justify-between mb-2">
-                    <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Semantic</label>
-                    <span id="vector-value-sb" class="text-xs font-bold py-1 px-2 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded">0.55</span>
+        <!-- ============ PAGE: MERIT CALCULATOR ============ -->
+        <section id="page-merit" class="page">
+            <div class="page-scroll">
+                <div class="page-hero-wrap blue-hero">
+                    <div class="page-hero">
+                        <div class="page-hero-icon"><span class="material-symbols-outlined">function</span></div>
+                        <div>
+                            <h2 class="page-hero-title">Merit Calculator</h2>
+                            <p class="page-hero-sub">Calculate your NUST aggregate and see your admission chances</p>
+                        </div>
+                    </div>
                 </div>
-                <input id="vector-slider-sb" type="range" min="0" max="1" step="0.05" value="0.55" class="w-full h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full appearance-none cursor-pointer accent-violet-600">
+                <div class="page-body">
+                    <div class="two-col">
+                        <!-- Left: Form -->
+                        <div class="form-card glass-card stagger-in" style="--i:0">
+                            <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon">edit_note</span>Enter Your Scores</h3>
+                            <div class="form-group">
+                                <label class="form-label">NET / Entry Test Score <span class="form-hint">(out of 200)</span></label>
+                                <input id="merit-net" type="number" min="0" max="200" class="form-input" placeholder="e.g. 145"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">HSSC / FSc / A-Level <span class="form-hint">(percentage %)</span></label>
+                                <input id="merit-fsc" type="number" min="0" max="100" step="0.01" class="form-input" placeholder="e.g. 82.5"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">SSC / Matric / O-Level <span class="form-hint">(percentage %)</span></label>
+                                <input id="merit-matric" type="number" min="0" max="100" step="0.01" class="form-input" placeholder="e.g. 90"/>
+                            </div>
+                            <button id="calc-merit-btn" class="primary-btn"><span class="material-symbols-outlined btn-icon">calculate</span>Calculate Aggregate</button>
+                            <p class="formula-note">Formula: <strong>NET (75%) + FSc (15%) + Matric (10%)</strong></p>
+                        </div>
+                        <!-- Right: Result -->
+                        <div id="merit-result-area" class="result-card glass-card stagger-in hidden-result" style="--i:1">
+                            <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon">insights</span>Your Result</h3>
+                            <div class="merit-ring-wrap">
+                                <svg class="merit-ring-svg" viewBox="0 0 120 120">
+                                    <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                                    <circle class="ring-fill" id="merit-ring" cx="60" cy="60" r="52" stroke-dasharray="0 327"/>
+                                </svg>
+                                <div class="ring-center">
+                                    <span class="ring-value" id="merit-score-display">--</span>
+                                    <span class="ring-unit">%</span>
+                                </div>
+                            </div>
+                            <div id="merit-breakdown" class="breakdown-rows"></div>
+                            <div id="merit-verdict" class="verdict-box"></div>
+                        </div>
+                    </div>
+                    <!-- Admission Guide -->
+                    <div class="glass-card chance-guide stagger-in" style="--i:2">
+                        <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon">school</span>Admission Chances Guide</h3>
+                        <div class="chance-grid">
+                            <div class="chance-item confirmed" id="cg-confirmed">
+                                <div class="chance-bar"></div>
+                                <div class="chance-content">
+                                    <span class="chance-range">Above 80%</span>
+                                    <span class="chance-verdict">Almost Confirmed</span>
+                                    <span class="chance-detail">Strong for Engineering, Computing & Business</span>
+                                </div>
+                            </div>
+                            <div class="chance-item high" id="cg-high">
+                                <div class="chance-bar"></div>
+                                <div class="chance-content">
+                                    <span class="chance-range">75% – 80%</span>
+                                    <span class="chance-verdict">High Chance</span>
+                                    <span class="chance-detail">Most programs accessible; BSCS may be competitive</span>
+                                </div>
+                            </div>
+                            <div class="chance-item medium" id="cg-medium">
+                                <div class="chance-bar"></div>
+                                <div class="chance-content">
+                                    <span class="chance-range">70% – 75%</span>
+                                    <span class="chance-verdict">Merit-Dependent</span>
+                                    <span class="chance-detail">Depends on yearly merit list & program choice</span>
+                                </div>
+                            </div>
+                            <div class="chance-item low" id="cg-low">
+                                <div class="chance-bar"></div>
+                                <div class="chance-content">
+                                    <span class="chance-range">Below 70%</span>
+                                    <span class="chance-verdict">Difficult</span>
+                                    <span class="chance-detail">Focus on improving NET score in next series</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Prompt Section -->
-        <div class="space-y-4">
-            <div class="px-3 pb-2 border-b border-slate-200 dark:border-slate-700/50">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-purple-500 text-base">person</span>
-                    Prompt
-                </h3>
+        <!-- ============ PAGE: FEE ESTIMATOR ============ -->
+        <section id="page-fees" class="page">
+            <div class="page-scroll">
+                <div class="page-hero-wrap emerald-hero">
+                    <div class="page-hero">
+                        <div class="page-hero-icon"><span class="material-symbols-outlined">account_balance_wallet</span></div>
+                        <div>
+                            <h2 class="page-hero-title">Fee Estimator</h2>
+                            <p class="page-hero-sub">Calculate your total 4-year cost at NUST</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-body">
+                    <div class="two-col">
+                        <!-- Left: Form -->
+                        <div class="form-card glass-card stagger-in" style="--i:0">
+                            <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon">list_alt</span>Select Options</h3>
+                            <div class="form-group">
+                                <label class="form-label">Program Category</label>
+                                <div class="custom-select-wrap">
+                                    <select id="fee-program" class="form-select">
+                                        <option value="">Select a program…</option>
+                                        <option value="computing">Computing / AI (BSCS, BSSE, BSAI)</option>
+                                        <option value="engineering">Engineering (ME, EE, CE, Aero…)</option>
+                                        <option value="business">Business (BBA, BS Acc & Finance)</option>
+                                        <option value="architecture">Architecture / Industrial Design</option>
+                                        <option value="social">Social Sciences (Econ, Psych, LLB)</option>
+                                    </select>
+                                    <span class="material-symbols-outlined select-chevron">expand_more</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Student Type</label>
+                                <div class="custom-select-wrap">
+                                    <select id="fee-type" class="form-select">
+                                        <option value="national">National (Pakistani)</option>
+                                        <option value="international">International (USD)</option>
+                                    </select>
+                                    <span class="material-symbols-outlined select-chevron">expand_more</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Include Hostel?</label>
+                                <div class="custom-select-wrap">
+                                    <select id="fee-hostel" class="form-select">
+                                        <option value="no">No — Day Scholar</option>
+                                        <option value="yes">Yes — Hostel Resident</option>
+                                    </select>
+                                    <span class="material-symbols-outlined select-chevron">expand_more</span>
+                                </div>
+                            </div>
+                            <button id="calc-fee-btn" class="primary-btn emerald"><span class="material-symbols-outlined btn-icon">payments</span>Estimate Total Cost</button>
+                        </div>
+                        <!-- Right: Result -->
+                        <div id="fee-result-area" class="result-card glass-card stagger-in hidden-result" style="--i:1">
+                            <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon">receipt_long</span>Cost Breakdown</h3>
+                            <div id="fee-breakdown"></div>
+                        </div>
+                    </div>
+                    <!-- Info Note -->
+                    <div class="glass-card info-note stagger-in" style="--i:2">
+                        <span class="material-symbols-outlined info-note-icon">info</span>
+                        <div>
+                            <strong>Financial Aid:</strong> NUST offers merit-based scholarships, need-based financial aid (NFAAF), and support via Ehsaas & PEEF programs. Visit the
+                            <a href="https://nust.edu.pk/admissions/financial-support/" target="_blank">Financial Support Portal</a> for details.
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Conversation History -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <label class="flex items-center gap-2 cursor-pointer">
-                    <input id="include-history-check-sb" type="checkbox" checked class="w-4 h-4 accent-purple-600 rounded cursor-pointer">
-                    <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Remember History</span>
-                </label>
+        <!-- ============ PAGE: CAMPUS MAP ============ -->
+        <section id="page-map" class="page">
+            <div class="page-scroll">
+                <div class="page-hero-wrap violet-hero">
+                    <div class="page-hero">
+                        <div class="page-hero-icon"><span class="material-symbols-outlined">pin_drop</span></div>
+                        <div>
+                            <h2 class="page-hero-title">Campus Map</h2>
+                            <p class="page-hero-sub">NUST H-12 Campus, Islamabad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-body">
+                    <div class="glass-card map-card stagger-in" style="--i:0">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=72.975%2C33.635%2C73.015%2C33.665&layer=mapnik&marker=33.6495%2C72.9955" class="map-iframe" loading="lazy" title="NUST H-12 Campus Map"></iframe>
+                    </div>
+                    <div class="map-links-grid stagger-in" style="--i:1">
+                        <a href="https://maps.app.goo.gl/RbsQBHwVYJvR5Xu86" target="_blank" class="map-link glass-card">
+                            <span class="material-symbols-outlined ml-icon" style="color:#3b82f6">directions</span>
+                            <div class="ml-text">
+                                <strong>Get Directions</strong>
+                                <small>Google Maps</small>
+                            </div>
+                            <span class="material-symbols-outlined ml-arrow">north_east</span>
+                        </a>
+                        <a href="https://campuslife.nust.edu.pk/" target="_blank" class="map-link glass-card">
+                            <span class="material-symbols-outlined ml-icon" style="color:#10b981">apartment</span>
+                            <div class="ml-text">
+                                <strong>Campus Life</strong>
+                                <small>Facilities & Amenities</small>
+                            </div>
+                            <span class="material-symbols-outlined ml-arrow">north_east</span>
+                        </a>
+                        <a href="https://nust.edu.pk/admissions/" target="_blank" class="map-link glass-card">
+                            <span class="material-symbols-outlined ml-icon" style="color:#f59e0b">school</span>
+                            <div class="ml-text">
+                                <strong>Admissions Portal</strong>
+                                <small>Apply Online</small>
+                            </div>
+                            <span class="material-symbols-outlined ml-arrow">north_east</span>
+                        </a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Custom System Prompt -->
-            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
-                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Instructions</label>
-                <textarea id="system-prompt-textarea-sb" placeholder="Custom behavior..." class="w-full px-2 py-2 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-purple-500 outline-none resize-none" rows="3"></textarea>
+        <!-- ============ PAGE: ANALYTICS ============ -->
+        <section id="page-analytics" class="page">
+            <div class="page-scroll">
+                 <div class="page-hero-wrap amber-hero">
+                    <div class="page-hero">
+                        <div class="page-hero-icon"><span class="material-symbols-outlined">analytics</span></div>
+                        <div>
+                            <h2 class="page-hero-title">System Analytics</h2>
+                            <p class="page-hero-sub">Real-time performance metrics & system health</p>
+                        </div>
+                        <button id="refresh-analytics" class="hero-action-btn" title="Refresh">
+                            <span class="material-symbols-outlined">refresh</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="page-body">
+                    <!-- Gauges -->
+                    <div class="analytics-section stagger-in" style="--i:0">
+                        <h3 class="section-label">System Resources</h3>
+                        <div class="gauges-grid">
+                            <div class="gauge-card glass-card">
+                                <div class="gauge-ring-wrapper">
+                                    <svg class="gauge-svg" viewBox="0 0 40 40"><path class="gauge-track" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/><path class="gauge-arc gauge-blue" id="g-ram" stroke-dasharray="0,100" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/></svg>
+                                    <div class="gauge-center">
+                                        <div class="g-val-wrap"><span class="gauge-val" id="v-ram">--</span><span class="gauge-pct">%</span></div>
+                                    </div>
+                                </div>
+                                <div class="gauge-info">
+                                    <div class="gauge-name">RAM</div>
+                                    <div class="gauge-detail" id="d-ram">— / — GB</div>
+                                </div>
+                            </div>
+                            <div class="gauge-card glass-card">
+                                <div class="gauge-ring-wrapper">
+                                    <svg class="gauge-svg" viewBox="0 0 40 40"><path class="gauge-track" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/><path class="gauge-arc gauge-emerald" id="g-cpu" stroke-dasharray="0,100" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/></svg>
+                                    <div class="gauge-center">
+                                        <div class="g-val-wrap"><span class="gauge-val" id="v-cpu">--</span><span class="gauge-pct">%</span></div>
+                                    </div>
+                                </div>
+                                <div class="gauge-info">
+                                    <div class="gauge-name">CPU</div>
+                                    <div class="gauge-detail" id="d-cpu">— cores</div>
+                                </div>
+                            </div>
+                            <div class="gauge-card glass-card">
+                                <div class="gauge-ring-wrapper">
+                                    <svg class="gauge-svg" viewBox="0 0 40 40"><path class="gauge-track" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/><path class="gauge-arc gauge-amber" id="g-disk" stroke-dasharray="0,100" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/></svg>
+                                    <div class="gauge-center">
+                                        <div class="g-val-wrap"><span class="gauge-val" id="v-disk">--</span><span class="gauge-pct">%</span></div>
+                                    </div>
+                                </div>
+                                <div class="gauge-info">
+                                    <div class="gauge-name">Disk</div>
+                                    <div class="gauge-detail" id="d-disk">— / — GB</div>
+                                </div>
+                            </div>
+                            <div class="gauge-card glass-card">
+                                <div class="gauge-ring-wrapper">
+                                    <svg class="gauge-svg" viewBox="0 0 40 40"><path class="gauge-track" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/><path class="gauge-arc gauge-violet" id="g-proc" stroke-dasharray="0,100" d="M20 4.0845a15.9155 15.9155 0 010 31.831 15.9155 15.9155 0 010-31.831"/></svg>
+                                    <div class="gauge-center">
+                                        <div class="g-val-wrap"><span class="gauge-val" id="v-proc">--</span><span class="gauge-pct">MB</span></div>
+                                    </div>
+                                </div>
+                                <div class="gauge-info">
+                                    <div class="gauge-name">App RAM</div>
+                                    <div class="gauge-detail" id="d-proc">Process RAM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Info -->
+                    <div class="analytics-section stagger-in" style="--i:1">
+                        <h3 class="section-label">Model & Ollama</h3>
+                        <div class="info-cards-grid">
+                            <div class="info-card glass-card"><div class="ic-icon bg-blue"><span class="material-symbols-outlined">model_training</span></div><div class="ic-body"><div class="ic-label">Active Model</div><div class="ic-value" id="a-model">—</div></div></div>
+                            <div class="info-card glass-card"><div class="ic-icon bg-emerald"><span class="material-symbols-outlined">memory</span></div><div class="ic-body"><div class="ic-label">Mode</div><div class="ic-value" id="a-mode">—</div></div></div>
+                            <div class="info-card glass-card"><div class="ic-icon bg-amber"><span class="material-symbols-outlined">thermostat</span></div><div class="ic-body"><div class="ic-label">Temperature</div><div class="ic-value" id="a-temp">—</div></div></div>
+                            <div class="info-card glass-card"><div class="ic-icon bg-violet"><span class="material-symbols-outlined">data_array</span></div><div class="ic-body"><div class="ic-label">Context</div><div class="ic-value" id="a-ctx">—</div></div></div>
+                            <div class="info-card glass-card"><div class="ic-icon bg-cyan"><span class="material-symbols-outlined">hub</span></div><div class="ic-body"><div class="ic-label">Ollama</div><div class="ic-value" id="a-ollama">—</div></div></div>
+                            <div class="info-card glass-card"><div class="ic-icon bg-rose"><span class="material-symbols-outlined">inventory_2</span></div><div class="ic-body"><div class="ic-label">Models</div><div class="ic-value" id="a-models">—</div></div></div>
+                        </div>
+                    </div>
+                    <!-- Performance -->
+                    <div class="analytics-section stagger-in" style="--i:2">
+                        <h3 class="section-label">Chat Performance</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card glass-card sc-blue"><div class="sc-num" id="s-queries">0</div><div class="sc-label">Total Queries</div></div>
+                            <div class="stat-card glass-card sc-emerald"><div class="sc-num" id="s-fast">0</div><div class="sc-label">Fast Path</div></div>
+                            <div class="stat-card glass-card sc-amber"><div class="sc-num" id="s-llm">0</div><div class="sc-label">LLM Calls</div></div>
+                            <div class="stat-card glass-card sc-violet"><div class="sc-num" id="s-static">0</div><div class="sc-label">Static</div></div>
+                            <div class="stat-card glass-card sc-cyan"><div class="sc-num" id="s-time">—</div><div class="sc-label">Last (s)</div></div>
+                            <div class="stat-card glass-card sc-rose"><div class="sc-num" id="s-tps">—</div><div class="sc-label">Tok/s</div></div>
+                            <div class="stat-card glass-card sc-slate"><div class="sc-num" id="s-avg">—</div><div class="sc-label">Avg (s)</div></div>
+                            <div class="stat-card glass-card sc-indigo"><div class="sc-num" id="s-up">—</div><div class="sc-label">Uptime</div></div>
+                        </div>
+                    </div>
+                    <!-- Knowledge Base -->
+                    <div class="analytics-section stagger-in" style="--i:3">
+                        <h3 class="section-label">Knowledge Base</h3>
+                        <div class="bars-card glass-card">
+                            <div class="bar-row">
+                                <span class="bar-label"><span class="material-symbols-outlined label-icon text-blue">description</span>Documents</span>
+                                <div class="bar-track"><div class="bar-fill bf-blue" id="bf-docs"></div></div>
+                                <span class="bar-val" id="bv-docs">—</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label"><span class="material-symbols-outlined label-icon text-emerald">segment</span>Text Chunks</span>
+                                <div class="bar-track"><div class="bar-fill bf-emerald" id="bf-chunks"></div></div>
+                                <span class="bar-val" id="bv-chunks">—</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label"><span class="material-symbols-outlined label-icon text-amber">question_answer</span>Q&amp;A Pairs</span>
+                                <div class="bar-track"><div class="bar-fill bf-amber" id="bf-qa"></div></div>
+                                <span class="bar-val" id="bv-qa">—</span>
+                            </div>
+                            <div class="bar-row">
+                                <span class="bar-label"><span class="material-symbols-outlined label-icon text-violet">scatter_plot</span>Embeddings</span>
+                                <div class="bar-track"><div class="bar-fill bf-violet" id="bf-emb"></div></div>
+                                <span class="bar-val" id="bv-emb">—</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- System Info -->
+                    <div class="analytics-section stagger-in" style="--i:4">
+                        <h3 class="section-label">System Info</h3>
+                        <div class="sysinfo-card glass-card">
+                            <div class="si-row"><span>Platform</span><span id="si-platform">—</span></div>
+                            <div class="si-row"><span>Processor</span><span id="si-proc">—</span></div>
+                            <div class="si-row"><span>Python</span><span id="si-python">—</span></div>
+                            <div class="si-row"><span>CPU Cores</span><span id="si-cores">—</span></div>
+                            <div class="si-row"><span>Cache Entries</span><span id="si-cache">—</span></div>
+                            <div class="si-row"><span>Total Tokens</span><span id="si-tokens">—</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Action Buttons -->
-    <div class="flex items-center gap-2 px-4 pt-4 border-t border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-900/90 backdrop-blur -mx-4 px-4 py-4">
-        <button id="reset-settings-sb-btn" class="flex items-center justify-center gap-1 flex-1 px-3 py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-            <span class="material-symbols-outlined text-sm">restart_alt</span>
-            <span class="hidden sm:inline">Reset</span>
-        </button>
-        <button id="apply-settings-sb-btn" class="nust-glow-btn flex items-center justify-center gap-1 flex-1 px-3 py-2.5 text-xs font-semibold text-white rounded-lg transition-all">
-            <span class="material-symbols-outlined text-sm">check_circle</span>
-            <span class="hidden sm:inline">Apply</span>
-        </button>
-    </div>
-</aside>
+        <!-- ============ PAGE: SETTINGS ============ -->
+        <section id="page-settings" class="page">
+            <div class="page-scroll">
+                <div class="page-hero-wrap slate-hero">
+                    <div class="page-hero">
+                        <div class="page-hero-icon"><span class="material-symbols-outlined">tune</span></div>
+                        <div>
+                            <h2 class="page-hero-title">Settings</h2>
+                            <p class="page-hero-sub">Tune model parameters, retrieval, and prompt behavior</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-body settings-body">
+                    <!-- Model Settings -->
+                    <div class="glass-card settings-card stagger-in" style="--i:0">
+                        <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon" style="color:#f59e0b">model_training</span>Model</h3>
+                        <div class="form-group">
+                            <div class="slider-header"><label class="form-label">Temperature</label><span class="slider-val" id="sv-temp">0.30</span></div>
+                            <input type="range" id="set-temp" min="0" max="1" step="0.05" value="0.3" class="range-slider blue"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Context Window</label>
+                            <div class="custom-select-wrap"><select id="set-ctx" class="form-select"><option value="1024">1024 tokens</option><option value="2048">2048 tokens</option><option value="4096" selected>4096 tokens</option><option value="8192">8192 tokens</option></select><span class="material-symbols-outlined select-chevron">expand_more</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Max Response Length</label>
+                            <div class="custom-select-wrap"><select id="set-predict" class="form-select"><option value="256">256 tokens</option><option value="512">512 tokens</option><option value="1024" selected>1024 tokens</option><option value="2048">2048 tokens</option></select><span class="material-symbols-outlined select-chevron">expand_more</span></div>
+                        </div>
+                    </div>
+                    <!-- Retrieval Settings -->
+                    <div class="glass-card settings-card stagger-in" style="--i:1">
+                        <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon" style="color:#10b981">search</span>Retrieval</h3>
+                        <div class="form-group">
+                            <label class="form-label">Top-K Results</label>
+                            <div class="custom-select-wrap"><select id="set-topk" class="form-select"><option value="1">1 result</option><option value="2">2 results</option><option value="3" selected>3 results</option><option value="5">5 results</option></select><span class="material-symbols-outlined select-chevron">expand_more</span></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="slider-header"><label class="form-label">Keyword Weight (BM25)</label><span class="slider-val" id="sv-bm25">0.45</span></div>
+                            <input type="range" id="set-bm25" min="0" max="1" step="0.05" value="0.45" class="range-slider emerald"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="slider-header"><label class="form-label">Semantic Weight</label><span class="slider-val" id="sv-vec">0.55</span></div>
+                            <input type="range" id="set-vec" min="0" max="1" step="0.05" value="0.55" class="range-slider violet"/>
+                        </div>
+                    </div>
+                    <!-- Prompt Settings -->
+                    <div class="glass-card settings-card stagger-in" style="--i:2">
+                        <h3 class="card-section-title"><span class="material-symbols-outlined card-title-icon" style="color:#8b5cf6">psychology</span>Prompt</h3>
+                        <div class="form-group">
+                            <label class="checkbox-label"><input type="checkbox" id="set-history" checked/><span class="checkmark"></span>Remember conversation history</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Custom System Instructions</label>
+                            <textarea id="set-prompt" class="form-textarea" rows="3" placeholder="Optional: override system behavior…"></textarea>
+                        </div>
+                    </div>
+                    <!-- Actions -->
+                    <div class="settings-actions stagger-in" style="--i:3">
+                        <button id="reset-settings-btn" class="secondary-btn"><span class="material-symbols-outlined btn-icon">restart_alt</span>Reset Defaults</button>
+                        <button id="apply-settings-btn" class="primary-btn"><span class="material-symbols-outlined btn-icon">check_circle</span>Apply Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<script type="module" src="script.js"></script>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

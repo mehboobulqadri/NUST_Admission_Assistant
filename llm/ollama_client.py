@@ -42,31 +42,27 @@ class OllamaLLM:
 
         # Model family detection
         m = model.lower()
-        self.is_qwen    = "qwen"    in m
-        self.is_gemma   = "gemma"   in m
+        self.is_qwen = "qwen" in m
+        self.is_gemma = "gemma" in m
         self.is_mistral = "mistral" in m
-        self.is_phi     = "phi"     in m
+        self.is_phi = "phi" in m
 
     def _get_cache_key(self, prompt, system_prompt):
         import hashlib
+
         combined = f"{system_prompt}|||{prompt}"
         return hashlib.md5(combined.encode()).hexdigest()
 
     def _patch_system(self, system_prompt):
         """Inject model-specific instructions if needed."""
         if self.is_qwen and system_prompt:
-            return (
-                system_prompt
-                + "\n\nIMPORTANT: Respond directly. Do NOT use <think> tags."
-            )
+            return "/no_think\n\n" + system_prompt
         return system_prompt
 
     def check_connection(self):
         """Verify Ollama is running and model is available."""
         try:
-            response = self.session.get(
-                f"{self.base_url}/api/tags", timeout=5
-            )
+            response = self.session.get(f"{self.base_url}/api/tags", timeout=5)
             response.raise_for_status()
             models = response.json().get("models", [])
             model_names = [m["name"] for m in models]
@@ -83,11 +79,15 @@ class OllamaLLM:
                 return False
 
             family = (
-                "Qwen"    if self.is_qwen    else
-                "Gemma"   if self.is_gemma   else
-                "Mistral" if self.is_mistral else
-                "Phi"     if self.is_phi     else
-                "LLaMA/other"
+                "Qwen"
+                if self.is_qwen
+                else "Gemma"
+                if self.is_gemma
+                else "Mistral"
+                if self.is_mistral
+                else "Phi"
+                if self.is_phi
+                else "LLaMA/other"
             )
             print(f"✅ LLM ready: {self.model}  [{family}]")
             if self.num_gpu == 0:
@@ -110,7 +110,7 @@ class OllamaLLM:
             "num_ctx": self.num_ctx,
             "num_predict": 1024,  # Increased from 512 for better quality responses
             "num_keep": keep_tokens,
-            "stop": ["Student:", "Assistant:", "\nStudent:", "I don't have this.", "Visit nust.edu.pk."],
+            "stop": ["Student:", "\nStudent:"],
         }
         if self.num_gpu is not None:
             options["num_gpu"] = self.num_gpu
@@ -175,17 +175,17 @@ class OllamaLLM:
             yield self.cache[key]["text"]
             return
 
-        # CPU optimization: decrease context and predict limit if on CPU
+        # CPU optimization: use reasonable context for accuracy
         keep_tokens = 64 if self.num_gpu != 0 else 24
-        ctx_limit = 1024 if self.num_gpu == 0 else self.num_ctx
-        predict_limit = 384 if self.num_gpu == 0 else 512
+        ctx_limit = 2048 if self.num_gpu == 0 else self.num_ctx
+        predict_limit = 512 if self.num_gpu == 0 else 512
 
         options = {
             "temperature": self.temperature,
             "num_ctx": ctx_limit,
             "num_predict": predict_limit,
             "num_keep": keep_tokens,
-            "stop": ["Student:", "Assistant:", "\nStudent:", "I don't have this.", "Visit nust.edu.pk."],
+            "stop": ["Student:", "\nStudent:"],
         }
         if self.num_gpu is not None:
             options["num_gpu"] = self.num_gpu
@@ -222,7 +222,7 @@ class OllamaLLM:
                         yield token
                     if chunk.get("done", False):
                         break
-            
+
             # Store in cache
             self.cache[key] = {"text": "".join(full_text)}
 

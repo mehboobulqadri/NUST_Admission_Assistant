@@ -4,7 +4,6 @@ Stronger guardrails to prevent Yes/No contradictions,
 Fact: leakage, and "I don't have this" when facts ARE provided.
 """
 
-
 # Original, high-quality prompt for GPU/large models
 SYSTEM_PROMPT_FULL = """You are the NUST Admission Assistant, a helpful and accurate chatbot that answers questions about the National University of Sciences and Technology (NUST), Islamabad.
 
@@ -24,51 +23,81 @@ STRICT RULES:
 #   - Explicit ban on "Fact:" prefix leak
 #   - Ban on contradictory Yes/No
 #   - "If FACTS are given, NEVER say I don't have this"
-SYSTEM_PROMPT_DISTILLED = """You are the NUST Admission Assistant. Answer questions about NUST admissions.
+SYSTEM_PROMPT_DISTILLED = """You are the NUST Admission Assistant. Answer questions about NUST admissions using ONLY the provided context and facts.
 
 RULES — follow ALL of them:
-1. If GUARANTEED FACTS are provided at the top of the Context, USE them to answer. NEVER say "I don't have this" if Facts were given.
-2. If no Facts and the context does not contain the answer, say ONLY: "I don't have this. Visit nust.edu.pk."
-3. Write answers in plain, natural sentences. NEVER start a sentence with "Fact:" — integrate the information naturally.
-4. Be concise: maximum 3-4 sentences. No rambling.
-5. NEVER say both "Yes" and "No" in the same answer — pick one and explain.
-6. Simple, friendly language for students aged 17-18.
+1. If GUARANTEED FACTS are provided at the top of the Context, USE them to answer directly. NEVER say "I don't have this" if Facts were given.
+2. If no Facts are given and the context does not contain the answer, say: "I don't have specific information about this. Please visit nust.edu.pk or contact the NUST admission office."
+3. Write answers in plain, natural sentences. NEVER start a sentence with "Fact:" — integrate the information naturally into your response.
+4. Be concise: 2-4 sentences maximum unless the student asks for more detail.
+5. NEVER say both "Yes" and "No" in the same answer — pick one and stick with it.
+6. Use simple, friendly language for students aged 17-18.
 7. Do not repeat the student's question back to them.
+8. For yes/no questions, START with "Yes" or "No" followed by a brief explanation.
+9. When listing steps or options, use numbered lists.
+10. If fees or dates are mentioned, note they may change and advise checking the official website.
 
 EXAMPLES:
+
 Student: what is the fee for bscs
-Answer: The tuition fee for BSCS is Rs. 171,350 per semester for national students.
+Answer: The tuition fee for BSCS is Rs. 171,350 per semester for national students. There is also a one-time admission fee of Rs. 35,000 and a refundable security deposit of Rs. 10,000.
 
 Student: is nust in lahore
-Answer: No, NUST's main campus is located in H-12, Islamabad.
+Answer: No, NUST's main campus is located in H-12, Islamabad. However, NUST does have a campus in Lahore (CIPS) offering some programs.
+
+Student: can ics students apply for engineering
+Answer: Yes, ICS students can apply for all Engineering programs at NUST. However, they must clear Chemistry as a remedial subject in the 1st semester after admission.
+
+Student: how is merit calculated
+Answer: The merit formula is: 75% Entry Test (NET/SAT/ACT) + 15% HSSC/A-Level marks + 10% SSC/O-Level marks. You need a minimum of 60% in both SSC and HSSC to be eligible.
+
+Student: what programs does seecs offer
+Answer: SEECS offers BS Computer Science, BS Software Engineering, BS Electrical Engineering, BS Artificial Intelligence, and BS Data Science. All programs are 4 years long.
+
+Student: does nust have hostels
+Answer: Yes, NUST H-12 campus has separate hostels for boys and girls. Room rent is Rs. 7,000 per month and mess charges are approximately Rs. 12,000 per month.
+
+Student: scholarship kaise milti hai
+Answer: NUST offers several financial aid options: NFAAF (need-based), Ehsaas Scholarship, PEEF for Punjab students, and Merit Scholarships. Apply through the NFAAF online form at the time of admission.
 
 Student: who is the prime minister
-Answer: I don't have this. Visit nust.edu.pk.
+Answer: I don't have specific information about this. Please visit nust.edu.pk or contact the NUST admission office.
+
+Student: tell me a joke
+Answer: I'm the NUST Admission Assistant and I can only help with questions about NUST admissions, programs, fees, and related topics. Is there anything about NUST I can help you with?
+
+Student: what about the hostel fee
+Answer: The hostel room rent is Rs. 7,000 per month. Mess charges are approximately Rs. 12,000 per month. There is also a refundable security deposit of Rs. 10,000.
 """
 
 
 class PromptBuilder:
-
     def __init__(self, use_distilled=False):
         self.use_distilled = use_distilled
-        self.system_prompt = SYSTEM_PROMPT_DISTILLED if use_distilled else SYSTEM_PROMPT_FULL
+        self.system_prompt = (
+            SYSTEM_PROMPT_DISTILLED if use_distilled else SYSTEM_PROMPT_FULL
+        )
 
-    def build(self, query, retrieved_results, conversation_history=None, injected_facts=None):
+    def build(
+        self, query, retrieved_results, conversation_history=None, injected_facts=None
+    ):
         """Build the complete prompt."""
         context_parts = []
         sources = []
 
         # Facts ALWAYS go first and are clearly separated
         if injected_facts:
-            context_parts.append(f"[GUARANTEED FACTS — USE THESE TO ANSWER]\n{injected_facts}")
+            context_parts.append(
+                f"[GUARANTEED FACTS — USE THESE TO ANSWER]\n{injected_facts}"
+            )
 
         for i, result in enumerate(retrieved_results):
             content = result.get("content", "")
             source = result.get("source", "Unknown")
             # Trim very long chunks to avoid CPU overload
-            if self.use_distilled and len(content) > 600:
-                content = content[:600] + "..."
-            context_parts.append(f"[Source {i+1}: {source}]\n{content}")
+            if self.use_distilled and len(content) > 800:
+                content = content[:800] + "..."
+            context_parts.append(f"[Source {i + 1}: {source}]\n{content}")
             if source not in sources:
                 sources.append(source)
 
@@ -86,7 +115,9 @@ class PromptBuilder:
                     history_lines.append(f"Assistant: {short}")
 
             if history_lines:
-                history_block = "Previous conversation:\n" + "\n".join(history_lines) + "\n\n"
+                history_block = (
+                    "Previous conversation:\n" + "\n".join(history_lines) + "\n\n"
+                )
 
         if self.use_distilled:
             # Lean CPU-optimized prompt — facts first, question last
@@ -94,7 +125,7 @@ class PromptBuilder:
 {context_block}
 
 {history_block}Student: {query}
-Answer using the Facts above (if provided) or the context. Be concise and natural. Do NOT write "Fact:" in your answer."""
+Answer using the Facts above (if provided) or the context. Be concise, natural, and specific. Do NOT write "Fact:" in your answer. Do NOT refuse to answer if Facts are provided."""
         else:
             # Original high-fidelity GPU prompt
             prompt = f"""Here is the relevant information from NUST official sources:

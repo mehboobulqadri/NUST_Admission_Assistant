@@ -1,6 +1,11 @@
 # Core UI & API
 gradio==5.49.1
 requests==2.33.0
+fastapi>=0.110.0
+uvicorn>=0.29.0
+
+# System Monitoring
+psutil>=5.9.0
 
 # Retrieval & Math
 numpy==2.4.3

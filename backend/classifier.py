@@ -12,19 +12,42 @@ import re
 
 class QueryClassifier:
     GREETINGS = {
-        "hi", "hello", "hey", "hii", "hiii", "heya", "helo",
-        "good morning", "good afternoon", "good evening",
-        "assalam", "salam", "aoa", "assalamualaikum",
-        "hi there", "hey there", "howdy", "sup", "whats up",
-        "yo", "greetings", "hola",
+        "hi",
+        "hello",
+        "hey",
+        "hii",
+        "hiii",
+        "heya",
+        "helo",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "assalam",
+        "salam",
+        "aoa",
+        "assalamualaikum",
+        "hi there",
+        "hey there",
+        "howdy",
+        "sup",
+        "whats up",
+        "yo",
+        "greetings",
+        "hola",
     }
 
     CASUAL = [
-        r"how\s+are\s+you", r"how\s+r\s+u", r"how\s+are\s+u",
-        r"how.?s\s+it\s+going", r"what.?s\s+up",
-        r"how\s+is\s+your\s+day", r"are\s+you\s+there",
-        r"how\s+are\s+things", r"how\s+do\s+you\s+do",
-        r"how\s+you\s+doing", r"hows\s+life",
+        r"how\s+are\s+you",
+        r"how\s+r\s+u",
+        r"how\s+are\s+u",
+        r"how.?s\s+it\s+going",
+        r"what.?s\s+up",
+        r"how\s+is\s+your\s+day",
+        r"are\s+you\s+there",
+        r"how\s+are\s+things",
+        r"how\s+do\s+you\s+do",
+        r"how\s+you\s+doing",
+        r"hows\s+life",
     ]
 
     IDENTITY = [
@@ -94,10 +117,24 @@ class QueryClassifier:
 
     # Sensitive topics that need special handling
     SENSITIVE_WORDS = {
-        "suicide", "suicidal", "kill", "die", "harm", "hurt",
-        "self harm", "selfharm", "end it", "end my",
-        "depressed", "depression", "anxious", "anxiety",
-        "mental health", "harass", "bully", "abuse",
+        "suicide",
+        "suicidal",
+        "kill",
+        "die",
+        "harm",
+        "hurt",
+        "self harm",
+        "selfharm",
+        "end it",
+        "end my",
+        "depressed",
+        "depression",
+        "anxious",
+        "anxiety",
+        "mental health",
+        "harass",
+        "bully",
+        "abuse",
     }
 
     # Urdu/Roman Urdu → English intent mapping
@@ -139,38 +176,71 @@ class QueryClassifier:
     # Common typos and their canonical keys
     TYPO_MAP = {
         # Greetings
-        "hellow": "greeting", "hye": "greeting", "heylo": "greeting",
-        "slm": "greeting", "asalam": "greeting", "hli": "greeting",
+        "hellow": "greeting",
+        "hye": "greeting",
+        "heylo": "greeting",
+        "slm": "greeting",
+        "asalam": "greeting",
+        "hli": "greeting",
         # Organization
-        "nsut": "identity", "nustt": "identity", "nut": "identity",
-        "nsut.": "identity", "nust-": "identity",
+        "nsut": "identity",
+        "nustt": "identity",
+        "nut": "identity",
+        "nsut.": "identity",
+        "nust-": "identity",
         # Contact
-        "contatc": "contact", "contct": "contact", "contatk": "contact",
-        "phne": "contact", "nuber": "contact", "numbr": "contact",
-        "emil": "contact", "admisions": "contact", "admisssions": "contact",
-        "admsion": "contact", "adm": "contact",
+        "contatc": "contact",
+        "contct": "contact",
+        "contatk": "contact",
+        "phne": "contact",
+        "nuber": "contact",
+        "numbr": "contact",
+        "emil": "contact",
+        "admisions": "contact",
+        "admisssions": "contact",
+        "admsion": "contact",
+        "adm": "contact",
         # Location
-        "locatoin": "location", "loction": "location", "locatin": "location",
-        "islambad": "location", "isalamabad": "location", "h12": "location",
+        "locatoin": "location",
+        "loction": "location",
+        "locatin": "location",
+        "islambad": "location",
+        "isalamabad": "location",
+        "h12": "location",
         # Website / Portal
-        "websit": "website", "webste": "website", "wbsite": "website",
-        "portl": "portal", "linnk": "website", "lnik": "website",
+        "websit": "website",
+        "webste": "website",
+        "wbsite": "website",
+        "portl": "portal",
+        "linnk": "website",
+        "lnik": "website",
         # Merit
-        "metrit": "aggregate formula", "mert": "aggregate formula", "metir": "aggregate formula",
-        "agregate": "aggregate formula", "aggreget": "aggregate formula",
-        "aggrigate": "aggregate formula", "agrigate": "aggregate formula",
+        "metrit": "aggregate formula",
+        "mert": "aggregate formula",
+        "metir": "aggregate formula",
+        "agregate": "aggregate formula",
+        "aggreget": "aggregate formula",
+        "aggrigate": "aggregate formula",
+        "agrigate": "aggregate formula",
         # NET
-        "entrence": "what is net", "entrans": "what is net", "entense": "what is net",
+        "entrence": "what is net",
+        "entrans": "what is net",
+        "entense": "what is net",
         "neet": "what is net",
         # Scholarship typos
-        "scholorship": "scholarships", "scholarshp": "scholarships",
-        "scolarship": "scholarships", "scholrship": "scholarships",
+        "scholorship": "scholarships",
+        "scholarshp": "scholarships",
+        "scolarship": "scholarships",
+        "scholrship": "scholarships",
         # Hostel typos
-        "hostle": "hostel info", "hotsel": "hostel info",
+        "hostle": "hostel info",
+        "hotsel": "hostel info",
         # Admission typos
-        "admision": "admission process", "addmission": "admission process",
+        "admision": "admission process",
+        "addmission": "admission process",
         # Eligibility typos
-        "eligiblity": "eligibility info", "eligibilty": "eligibility info",
+        "eligiblity": "eligibility info",
+        "eligibilty": "eligibility info",
     }
 
     @classmethod
@@ -178,11 +248,27 @@ class QueryClassifier:
         # Micro-Optimization: Collapse repeating characters
         orig = text.strip().lower()
         # Drop punctuation
-        c = re.sub(r'[!?.,]+$', '', orig).strip()
+        c = re.sub(r"[!?.,]+$", "", orig).strip()
         # Collapse repeating chars (more than 2)
-        c = re.sub(r'(.)\1{2,}', r'\1\1', c)
+        c = re.sub(r"(.)\1{2,}", r"\1\1", c)
 
         words = set(c.split())
+
+        # 0. Exact-phrase express shortcuts (highest priority after strip)
+        _CHANCES_EXACT = [
+            "what are my chances",
+            "what are my chances of getting in",
+            "what are my chances of admission",
+            "my chances of getting into nust",
+            "will i get into nust",
+            "can i get into nust",
+            "what is my chance",
+            "my admission chances",
+            "my merit position",
+            "net position",
+        ]
+        if c in _CHANCES_EXACT or any(c == p for p in _CHANCES_EXACT):
+            return "static:chances redirect"
 
         # 1. Direct Typo Map Lookup (Instant speed)
         if len(words) == 1:
@@ -213,7 +299,33 @@ class QueryClassifier:
         if urdu_result:
             return f"static:{urdu_result}"
 
-        # 3. Exact Static Answer Matching (strict — FIXED to not use substring)
+        # 2.5 Smart redirect checks (degree fee / chances)
+        _DEGREE_FEE_RE = [
+            r"(whole|entire|complete|full|total).*(degree|program|course).*(fee|cost|price|charges|amount)",
+            r"(degree|program|course).*(whole|entire|complete|full|total).*(fee|cost|price)",
+            r"how\s+much.*(full|whole|complete|entire|total|4|four).*(degree|program|year)",
+            r"(4|four)\s+year.*(fee|cost|total|price|charges)",
+            r"total\s+(degree|program).*(fee|cost|charges|amount)",
+        ]
+        for _p in _DEGREE_FEE_RE:
+            if re.search(_p, c):
+                return "static:degree fee redirect"
+
+        _CHANCES_RE = [
+            r"(what|how).*(are\s+my|my).*(chance|chances|probability|likelihood)",
+            r"(will|can)\s+i.*(get|make|selected|qualify|admitted)",
+            r"(will\s+i|can\s+i).*(get\s+into|get\s+in|enter|join)\s+(nust|university)",
+            r"what\s+are\s+my\s+chances",
+            r"(merit|aggregate).*(enough|good|required|needed|necessary)",
+            r"(percentage|aggregate|merit).*(chance|get\s+in|admission|qualify)",
+            r"chance\s+(of\s+)?(getting|getting\s+into|making)",
+            r"(my|what).*(net|merit).*(position|rank|standing)",
+            r"kya\s+main.*(nust).*(mein|main|mil|ja|aa)",
+        ]
+        for _p in _CHANCES_RE:
+            if re.search(_p, c):
+                return "static:chances redirect"
+
         for key, value in STATIC_ANSWERS.items():
             # Only exact match OR key-as-whole-word in query
             if c == key:
@@ -298,9 +410,32 @@ class QueryClassifier:
         query_words = set(query.split())
 
         # Remove very common words from both
-        stopwords = {"what", "is", "the", "for", "in", "of", "to", "are",
-                     "do", "i", "how", "can", "tell", "me", "a", "an", "at",
-                     "about", "my", "any", "nust", "please", "give", "need"}
+        stopwords = {
+            "what",
+            "is",
+            "the",
+            "for",
+            "in",
+            "of",
+            "to",
+            "are",
+            "do",
+            "i",
+            "how",
+            "can",
+            "tell",
+            "me",
+            "a",
+            "an",
+            "at",
+            "about",
+            "my",
+            "any",
+            "nust",
+            "please",
+            "give",
+            "need",
+        }
 
         key_words_clean = key_words - stopwords
         query_words_clean = query_words - stopwords
@@ -320,13 +455,43 @@ class QueryClassifier:
     @classmethod
     def _intent_match(cls, text, words):
         """Intent-based matching with strict overlap thresholds."""
-        stopwords = {"what", "is", "the", "for", "in", "of", "to", "are", "do",
-                     "i", "how", "can", "tell", "me", "a", "an", "about", "my", "any"}
+        stopwords = {
+            "what",
+            "is",
+            "the",
+            "for",
+            "in",
+            "of",
+            "to",
+            "are",
+            "do",
+            "i",
+            "how",
+            "can",
+            "tell",
+            "me",
+            "a",
+            "an",
+            "about",
+            "my",
+            "any",
+        }
         synonyms = {
-            "cost": "fee", "price": "fee", "charges": "fee", "dues": "fee",
-            "marks": "merit", "aggregate": "merit", "percentage": "merit",
-            "stay": "hostel", "room": "hostel", "dorm": "hostel", "accommodation": "hostel",
-            "exam": "test", "apply": "admission", "register": "admission", "join": "admission",
+            "cost": "fee",
+            "price": "fee",
+            "charges": "fee",
+            "dues": "fee",
+            "marks": "merit",
+            "aggregate": "merit",
+            "percentage": "merit",
+            "stay": "hostel",
+            "room": "hostel",
+            "dorm": "hostel",
+            "accommodation": "hostel",
+            "exam": "test",
+            "apply": "admission",
+            "register": "admission",
+            "join": "admission",
         }
         norm_words = {synonyms.get(w, w) for w in words if w not in stopwords}
 
@@ -334,30 +499,149 @@ class QueryClassifier:
             return None
 
         intents = {
-            "fee bscs": {"fee", "bscs", "software", "computer", "ai", "computing", "seecs", "bsse", "bscs"},
+            "fee bscs": {
+                "fee",
+                "bscs",
+                "software",
+                "computer",
+                "ai",
+                "computing",
+                "seecs",
+                "bsse",
+                "bscs",
+            },
             "fee bba": {"fee", "bba", "business", "nbs"},
-            "fee engineering": {"fee", "engineering", "mechanical", "electrical", "civil"},
-            "fee general": {"fee", "structure", "total", "amount", "afford", "expensive", "cost"},
-            "hostel charges": {"hostel", "fee", "mess", "rent", "dues", "charges", "mahanga"},
+            "fee engineering": {
+                "fee",
+                "engineering",
+                "mechanical",
+                "electrical",
+                "civil",
+            },
+            "fee general": {
+                "fee",
+                "structure",
+                "total",
+                "amount",
+                "afford",
+                "expensive",
+                "cost",
+            },
+            "degree fee redirect": {
+                "degree",
+                "fee",
+                "total",
+                "complete",
+                "whole",
+                "entire",
+                "4",
+                "four",
+                "year",
+                "years",
+                "course",
+                "program",
+                "programme",
+            },
+            "chances redirect": {
+                "chance",
+                "chances",
+                "position",
+                "net",
+                "merit",
+                "rank",
+                "get",
+                "admission",
+                "selected",
+                "qualify",
+                "got",
+                "will",
+                "can",
+            },
+            "hostel charges": {
+                "hostel",
+                "fee",
+                "mess",
+                "rent",
+                "dues",
+                "charges",
+                "mahanga",
+            },
             "hostel info": {"hostel", "boys", "girls", "name", "list", "room", "type"},
             "hostel facilities": {"hostel", "facilities", "facility", "amenities"},
-            "scholarships": {"scholarship", "financial", "aid", "loan", "ehsaas", "ihsan",
-                             "nfaaf", "peef", "wazifa", "merit"},
-            "admission process": {"admission", "apply", "application", "process", "join", "start",
-                                  "kaise", "hogi", "steps", "register"},
-            "net schedule": {"net", "dates", "schedule", "time", "series", "kab", "when"},
+            "scholarships": {
+                "scholarship",
+                "financial",
+                "aid",
+                "loan",
+                "ehsaas",
+                "ihsan",
+                "nfaaf",
+                "peef",
+                "wazifa",
+                "merit",
+            },
+            "admission process": {
+                "admission",
+                "apply",
+                "application",
+                "process",
+                "join",
+                "start",
+                "kaise",
+                "hogi",
+                "steps",
+                "register",
+            },
+            "net schedule": {
+                "net",
+                "dates",
+                "schedule",
+                "time",
+                "series",
+                "kab",
+                "when",
+            },
             "what is net": {"net", "syllabus", "pattern", "questions", "test", "exam"},
-            "application processing fee": {"net", "fee", "registration", "processing", "apply"},
+            "application processing fee": {
+                "net",
+                "fee",
+                "registration",
+                "processing",
+                "apply",
+            },
             "ibcc": {"ibcc", "equivalence", "level", "olevel", "alevel"},
             "sat/act": {"sat", "act", "international"},
             "migration": {"migration", "transfer", "policy"},
-            "aggregate formula": {"aggregate", "merit", "formula", "calculated", "calculation",
-                                  "75", "percent", "formula"},
-            "eligibility info": {"eligibility", "eligible", "requirements", "requirement",
-                                 "qualify", "qualify", "minimum", "minimum marks"},
+            "aggregate formula": {
+                "aggregate",
+                "merit",
+                "formula",
+                "calculated",
+                "calculation",
+                "75",
+                "percent",
+                "formula",
+            },
+            "eligibility info": {
+                "eligibility",
+                "eligible",
+                "requirements",
+                "requirement",
+                "qualify",
+                "qualify",
+                "minimum",
+                "minimum marks",
+            },
             "quota": {"quota", "reserved", "seats", "allocat"},
             "rechecking": {"rechecking", "re-checking", "check", "paper"},
-            "pick and drop": {"transport", "pick", "drop", "facility", "bus", "commute"},
+            "pick and drop": {
+                "transport",
+                "pick",
+                "drop",
+                "facility",
+                "bus",
+                "commute",
+            },
             "gap year": {"gap", "year", "repeater", "penal"},
             "non refundable": {"refundable", "transferable", "return"},
         }
@@ -400,7 +684,7 @@ class QueryClassifier:
     @classmethod
     def extract_facts(cls, text):
         """Inject explicit tabular facts for smaller models (like 1b).
-        
+
         IMPORTANT: Facts prefixed with 'Fact:' should be integrated naturally
         by the LLM — not repeated verbatim. The LLM is instructed to use these
         as trusted ground truth and answer in natural language.
@@ -409,33 +693,120 @@ class QueryClassifier:
         c = text.lower()
 
         # ── Fee facts ────────────────────────────────────────────────────────
-        if any(w in c for w in ["fee", "cost", "dues", "charges", "paise", "price",
-                                  "kitni", "mahanga", "afford", "expensive"]):
+        if any(
+            w in c
+            for w in [
+                "fee",
+                "cost",
+                "dues",
+                "charges",
+                "paise",
+                "price",
+                "kitni",
+                "mahanga",
+                "afford",
+                "expensive",
+            ]
+        ):
             if any(w in c for w in ["llb", "law"]):
-                facts.append("Fee for LLB (Bachelor of Laws) is Rs. 250,380 per semester (National).")
-            elif any(w in c for w in ["bscs", "computer science", "bsse", "software", "bsai",
-                                       "ai", "data science", "computing", "seecs"]):
-                facts.append("Tuition Fee for Computing/AI programs (BSCS, BSSE, BSAI, BS Data Science) is Rs. 171,350 per semester (National) or USD 5,400 per annum (International).")
-            elif any(w in c for w in ["bba", "business", "accounting", "acf", "nbs", "finance"]):
-                facts.append("Tuition Fee for Business/Accounting programs (BBA, BS Accounting & Finance) is Rs. 210,000 per semester (National) or USD 5,400 per annum (International).")
-            elif any(w in c for w in ["engineering", "mechanical", "electrical", "civil", "mechatronics",
-                                       "aerospace", "avionics", "chemical", "industrial"]):
-                facts.append("Tuition Fee for Engineering programs (BE Mechanical, Electrical, Civil, Aerospace etc.) is Rs. 171,350 per semester (National) or USD 5,400 per annum (International).")
-            elif any(w in c for w in ["economics", "mass comm", "psychology", "english", "s3h",
-                                       "social", "media", "political", "public admin", "sociology"]):
-                facts.append("Tuition Fee for Social Sciences programs (S3H) is Rs. 125,000 per semester (National) or USD 3,200 per annum (International).")
-            elif any(w in c for w in ["architecture", "b.arch", "industrial design", "sada", "lid"]):
-                facts.append("Tuition Fee for Architecture/Design programs is Rs. 175,000 per semester (National) or USD 5,400 per annum (International).")
+                facts.append(
+                    "Fee for LLB (Bachelor of Laws) is Rs. 250,380 per semester (National)."
+                )
+            elif any(
+                w in c
+                for w in [
+                    "bscs",
+                    "computer science",
+                    "bsse",
+                    "software",
+                    "bsai",
+                    "ai",
+                    "data science",
+                    "computing",
+                    "seecs",
+                ]
+            ):
+                facts.append(
+                    "Tuition Fee for Computing/AI programs (BSCS, BSSE, BSAI, BS Data Science) is Rs. 171,350 per semester (National) or USD 5,400 per annum (International)."
+                )
+            elif any(
+                w in c
+                for w in ["bba", "business", "accounting", "acf", "nbs", "finance"]
+            ):
+                facts.append(
+                    "Tuition Fee for Business/Accounting programs (BBA, BS Accounting & Finance) is Rs. 210,000 per semester (National) or USD 5,400 per annum (International)."
+                )
+            elif any(
+                w in c
+                for w in [
+                    "engineering",
+                    "mechanical",
+                    "electrical",
+                    "civil",
+                    "mechatronics",
+                    "aerospace",
+                    "avionics",
+                    "chemical",
+                    "industrial",
+                ]
+            ):
+                facts.append(
+                    "Tuition Fee for Engineering programs (BE Mechanical, Electrical, Civil, Aerospace etc.) is Rs. 171,350 per semester (National) or USD 5,400 per annum (International)."
+                )
+            elif any(
+                w in c
+                for w in [
+                    "economics",
+                    "mass comm",
+                    "psychology",
+                    "english",
+                    "s3h",
+                    "social",
+                    "media",
+                    "political",
+                    "public admin",
+                    "sociology",
+                ]
+            ):
+                facts.append(
+                    "Tuition Fee for Social Sciences programs (S3H) is Rs. 125,000 per semester (National) or USD 3,200 per annum (International)."
+                )
+            elif any(
+                w in c
+                for w in ["architecture", "b.arch", "industrial design", "sada", "lid"]
+            ):
+                facts.append(
+                    "Tuition Fee for Architecture/Design programs is Rs. 175,000 per semester (National) or USD 5,400 per annum (International)."
+                )
             elif any(w in c for w in ["admission", "processing", "application"]):
-                facts.append("Admission Processing Fee (NET per attempt): Rs. 5,000 (Pakistani/Dual National) or USD 40 (Foreign National). Admission Fee (one-time, on joining): Rs. 35,000 for all UG programs.")
-            elif any(w in c for w in ["net ki", "net fee", "registration fee", "net registration"]):
-                facts.append("NET Exam fee per attempt: Rs. 5,000 (Pakistani) or USD 40 (Foreign National). First, second, and third position holders in HSSC from any BISE are exempt from this fee.")
+                facts.append(
+                    "Admission Processing Fee (NET per attempt): Rs. 5,000 (Pakistani/Dual National) or USD 40 (Foreign National). Admission Fee (one-time, on joining): Rs. 35,000 for all UG programs."
+                )
+            elif any(
+                w in c
+                for w in ["net ki", "net fee", "registration fee", "net registration"]
+            ):
+                facts.append(
+                    "NET Exam fee per attempt: Rs. 5,000 (Pakistani) or USD 40 (Foreign National). First, second, and third position holders in HSSC from any BISE are exempt from this fee."
+                )
             else:
-                facts.append("NUST UG Tuition fees range from Rs. 125,000 (Social Sciences) to Rs. 250,380 (LLB) per semester. Engineering/Computing: Rs. 171,350. Business: Rs. 210,000. Architecture: Rs. 175,000. Admission Fee is Rs. 35,000 (one-time).")
+                facts.append(
+                    "NUST UG Tuition fees range from Rs. 125,000 (Social Sciences) to Rs. 250,380 (LLB) per semester. Engineering/Computing: Rs. 171,350. Business: Rs. 210,000. Architecture: Rs. 175,000. Admission Fee is Rs. 35,000 (one-time)."
+                )
 
         # ── Hostel / Mess facts ──────────────────────────────────────────────
-        if any(w in c for w in ["hostel", "mess", "accommodation", "room", "dorm",
-                                  "mahanga", "hostle"]):
+        if any(
+            w in c
+            for w in [
+                "hostel",
+                "mess",
+                "accommodation",
+                "room",
+                "dorm",
+                "mahanga",
+                "hostle",
+            ]
+        ):
             facts.append(
                 "NUST H-12 Islamabad campus has separate boys and girls hostels. "
                 "Boys hostels: Ghazali, Rumi, Raza, Attar, Beruni, Johar. "
@@ -447,17 +818,44 @@ class QueryClassifier:
             )
 
         # ── Merit / Aggregate facts ──────────────────────────────────────────
-        if any(w in c for w in ["merit", "aggregate", "formula", "aggregate", "aggrigate",
-                                  "agrigate", "merit mein"]):
-            facts.append("Merit formula: 75% Entry Test (NET/SAT/ACT) + 15% HSSC/A-Level + 10% SSC/O-Level. Minimum 60% marks required in both SSC and HSSC/equivalent.")
+        if any(
+            w in c
+            for w in [
+                "merit",
+                "aggregate",
+                "formula",
+                "aggregate",
+                "aggrigate",
+                "agrigate",
+                "merit mein",
+            ]
+        ):
+            facts.append(
+                "Merit formula: 75% Entry Test (NET/SAT/ACT) + 15% HSSC/A-Level + 10% SSC/O-Level. Minimum 60% marks required in both SSC and HSSC/equivalent."
+            )
             if any(w in c for w in ["computer science", "bscs", "seecs"]):
-                facts.append("Historically, BSCS closing merit at SEECS Islamabad is above 78-79% aggregate.")
+                facts.append(
+                    "Historically, BSCS closing merit at SEECS Islamabad is above 78-79% aggregate."
+                )
             if any(w in c for w in ["fsc", "60%", "60 percent", "less than 60"]):
-                facts.append("Candidates with less than 60% marks in FSc Part 1 are NOT eligible for NUST UG admission.")
+                facts.append(
+                    "Candidates with less than 60% marks in FSc Part 1 are NOT eligible for NUST UG admission."
+                )
 
         # ── NET facts ────────────────────────────────────────────────────────
-        if any(w in c for w in ["net", "entry test", "net test", "net ki", "net fee",
-                                  "net dates", "net pattern", "net syllabus"]):
+        if any(
+            w in c
+            for w in [
+                "net",
+                "entry test",
+                "net test",
+                "net ki",
+                "net fee",
+                "net dates",
+                "net pattern",
+                "net syllabus",
+            ]
+        ):
             facts.append(
                 "NET (NUST Entry Test) is conducted in 4 series per year (NET-1 to NET-4). "
                 "Students can appear in multiple series — best score is used. "
@@ -469,31 +867,93 @@ class QueryClassifier:
             )
 
         # ── Eligibility facts ────────────────────────────────────────────────
-        if any(w in c for w in ["eligib", "eligible", "requirements", "requirement",
-                                  "can i", "can pre", "can ics", "can dae", "can a level",
-                                  "minimum marks", "pre medical", "pre-med", "pre eng",
-                                  "ics", "dae", "bscs", "bsse", "bba", "engineering",
-                                  "architecture", "fsc"]):
-            if any(w in c for w in ["engineering", "electrical", "mechanical", "civil"]):
-                facts.append("Eligibility for Engineering: SSC (Science group) + HSSC Pre-Engineering group OR Computer Science group (must clear Chemistry as remedial in 1st semester) OR Pre-Medical group (must have additional Maths). Minimum 60% in both.")
-            elif any(w in c for w in ["bscs", "computing", "computer science", "bsse", "bsai", "software"]):
-                facts.append("Eligibility for Computing (BSCS/BSSE/BSAI): HSSC with Mathematics as a subject (Pre-Eng, CS, ICS, or Pre-Medical with Maths). Minimum 60% in both SSC and HSSC.")
+        if any(
+            w in c
+            for w in [
+                "eligib",
+                "eligible",
+                "requirements",
+                "requirement",
+                "can i",
+                "can pre",
+                "can ics",
+                "can dae",
+                "can a level",
+                "minimum marks",
+                "pre medical",
+                "pre-med",
+                "pre eng",
+                "ics",
+                "dae",
+                "bscs",
+                "bsse",
+                "bba",
+                "engineering",
+                "architecture",
+                "fsc",
+            ]
+        ):
+            if any(
+                w in c for w in ["engineering", "electrical", "mechanical", "civil"]
+            ):
+                facts.append(
+                    "Eligibility for Engineering: SSC (Science group) + HSSC Pre-Engineering group OR Computer Science group (must clear Chemistry as remedial in 1st semester) OR Pre-Medical group (must have additional Maths). Minimum 60% in both."
+                )
+            elif any(
+                w in c
+                for w in [
+                    "bscs",
+                    "computing",
+                    "computer science",
+                    "bsse",
+                    "bsai",
+                    "software",
+                ]
+            ):
+                facts.append(
+                    "Eligibility for Computing (BSCS/BSSE/BSAI): HSSC with Mathematics as a subject (Pre-Eng, CS, ICS, or Pre-Medical with Maths). Minimum 60% in both SSC and HSSC."
+                )
             elif any(w in c for w in ["bba", "business", "accounting", "nbs"]):
-                facts.append("Eligibility for BBA/Business programs: Any HSSC combination (no specific subjects required). Minimum 60% in both SSC and HSSC.")
+                facts.append(
+                    "Eligibility for BBA/Business programs: Any HSSC combination (no specific subjects required). Minimum 60% in both SSC and HSSC."
+                )
             elif any(w in c for w in ["architecture", "b.arch", "sada"]):
-                facts.append("Eligibility for Architecture (B.Arch): HSSC Pre-Engineering or Pre-Medical. Minimum 60% in SSC and HSSC. Aptitude test is also required.")
+                facts.append(
+                    "Eligibility for Architecture (B.Arch): HSSC Pre-Engineering or Pre-Medical. Minimum 60% in SSC and HSSC. Aptitude test is also required."
+                )
             if any(w in c for w in ["ics", "ics student"]):
-                facts.append("ICS students can apply for Computing programs (BSCS, BSSE, BSAI) since Mathematics is a mandatory subject in ICS.")
+                facts.append(
+                    "ICS students can apply for Computing programs (BSCS, BSSE, BSAI) since Mathematics is a mandatory subject in ICS."
+                )
             if "dae" in c:
-                facts.append("DAE (Diploma of Associate Engineering) holders can apply to NUST through NET. They are treated as equivalent to HSSC Pre-Engineering.")
+                facts.append(
+                    "DAE (Diploma of Associate Engineering) holders can apply to NUST through NET. They are treated as equivalent to HSSC Pre-Engineering."
+                )
             if any(w in c for w in ["pre medical", "pre-med", "pre med"]):
-                facts.append("Pre-Medical students can apply for Engineering (need additional Maths), Computing (BSCS/BSSE/BSAI — need Maths), MBBS, Biosciences, S3H programs, and BBA/Business programs.")
+                facts.append(
+                    "Pre-Medical students can apply for Engineering (need additional Maths), Computing (BSCS/BSSE/BSAI — need Maths), MBBS, Biosciences, S3H programs, and BBA/Business programs."
+                )
             if any(w in c for w in ["a level", "a-level"]):
-                facts.append("A-Level students can apply through NET (UG seats) or ACT/SAT (ACT/SAT seats). IBCC equivalence certificate required.")
+                facts.append(
+                    "A-Level students can apply through NET (UG seats) or ACT/SAT (ACT/SAT seats). IBCC equivalence certificate required."
+                )
 
         # ── Scholarship facts ────────────────────────────────────────────────
-        if any(w in c for w in ["scholarship", "financial aid", "need based", "nfaaf",
-                                  "ehsaas", "peef", "ihsan", "loan", "wazifa", "milti"]):
+        if any(
+            w in c
+            for w in [
+                "scholarship",
+                "financial aid",
+                "need based",
+                "nfaaf",
+                "ehsaas",
+                "peef",
+                "ihsan",
+                "loan",
+                "wazifa",
+                "milti",
+            ]
+        ):
             facts.append(
                 "NUST offers the following financial aid: "
                 "1) NFAAF (Need-Based Financial Aid) — covers tuition for needy students; requires min CGPA 2.50. "
@@ -505,8 +965,20 @@ class QueryClassifier:
             )
 
         # ── Admission Process facts ──────────────────────────────────────────
-        if any(w in c for w in ["apply", "admission", "how to get", "join", "how to apply",
-                                  "kaise", "admission kab", "admission process", "steps"]):
+        if any(
+            w in c
+            for w in [
+                "apply",
+                "admission",
+                "how to get",
+                "join",
+                "how to apply",
+                "kaise",
+                "admission kab",
+                "admission process",
+                "steps",
+            ]
+        ):
             if not facts:  # only if no other facts added
                 facts.append(
                     "NUST UG Admission steps: "
@@ -529,7 +1001,9 @@ class QueryClassifier:
 
         # ── Transport facts ──────────────────────────────────────────────────
         if any(w in c for w in ["transport", "pick", "drop", "bus", "commute"]):
-            facts.append("Pick & drop service available for Rawalpindi/Islamabad students only. Charges: approx Rs. 15,000/semester depending on route. Details provided at orientation.")
+            facts.append(
+                "Pick & drop service available for Rawalpindi/Islamabad students only. Charges: approx Rs. 15,000/semester depending on route. Details provided at orientation."
+            )
 
         # ── Refund policy ────────────────────────────────────────────────────
         if "refund" in c:
@@ -548,7 +1022,10 @@ class QueryClassifier:
             )
 
         # ── Condensed Math ───────────────────────────────────────────────────
-        if any(w in c for w in ["condensed math", "math course", "remedial math", "deficient"]):
+        if any(
+            w in c
+            for w in ["condensed math", "math course", "remedial math", "deficient"]
+        ):
             facts.append(
                 "NUST offers a Condensed Mathematics course for students who have Pre-Medical or other backgrounds "
                 "lacking Mathematics. It is typically a non-credit remedial course run before or during 1st semester. "
@@ -562,9 +1039,29 @@ class QueryClassifier:
 # STATIC ANSWERS — Specific facts that never change
 # ============================================================
 STATIC_ANSWERS = {
+    # ---- Smart Redirects ----
+    "degree fee redirect": (
+        "For the complete degree fee breakdown, use the **💰 Fee Estimator** page in the left sidebar!\n\n"
+        "It calculates your exact total 4-year cost based on:\n"
+        "• Your program (Computing, Engineering, Business, Architecture, Social Sciences)\n"
+        "• Student type (National / International)\n"
+        "• Whether you will live in the Hostel or commute\n\n"
+        "Open the **💰 Fee Estimator** from the left sidebar to get your personalised cost breakdown."
+    ),
+    "chances redirect": (
+        "Great question! Your admission chances depend on your aggregate score.\n\n"
+        "**Aggregate formula:** NET (75%) + FSc (15%) + Matric (10%)\n\n"
+        "**General guide based on aggregate:**\n"
+        "✅ **Above 80%** — Almost confirmed for most programs (Engineering, Computing, Business)\n"
+        "🟡 **75% – 80%** — High chance; competitive but accessible for most programs\n"
+        "⚠️ **70% – 75%** — Merit-dependent; check yearly closing merits carefully\n"
+        "❌ **Below 70%** — Difficult; consider improving your NET score\n\n"
+        "Want an exact calculation? Open the **🧮 Merit Calculator** from the left sidebar — "
+        "enter your NET score, FSc%, and Matric% for a precise aggregate and verdict."
+    ),
     "contact": "You can contact NUST Admission Office at:\n- Undergraduate: +92-51-9085-6878\n- Postgraduate: +92-51-9085-6887\n- Email: admissions@nust.edu.pk",
-    "location": "NUST H-12 Campus is located in Islamabad, Pakistan. Address: NUST H-12 Sector, Islamabad, 44000.",
-    "address": "NUST H-12 Campus is located in Islamabad, Pakistan. Address: NUST H-12 Sector, Islamabad, 44000.",
+    "location": "NUST main campus is in Sector H-12, Islamabad, Pakistan. You can view the exact location on the campus map!\n\nOpen the **🗺️ Campus Map** from the left sidebar to see it.",
+    "address": "NUST main campus is in Sector H-12, Islamabad, Pakistan. You can view the exact location on the campus map!\n\nOpen the **🗺️ Campus Map** from the left sidebar to see it.",
     "website": "The official NUST website is https://nust.edu.pk and the admission portal is https://ugadmissions.nust.edu.pk",
     "portal": "The official NUST admission portal is https://ugadmissions.nust.edu.pk",
     "merit link": "You can check the latest merit lists and aggregates at: https://ugadmissions.nust.edu.pk/meritlist/",

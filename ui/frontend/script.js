@@ -1,544 +1,806 @@
-// Theme Toggle
-const themeToggleBtn = document.getElementById('theme-toggle');
-const htmlTag = document.documentElement;
+/* ═══════════════════════════════════════════════════════════════
+   NUST Admission Assistant — Main Script
+   ═══════════════════════════════════════════════════════════════ */
 
-// On load, check preference
-if (localStorage.getItem('theme') === 'light') {
-    htmlTag.classList.remove('dark');
-    themeToggleBtn.textContent = 'light_mode';
+// ── Theme ────────────────────────────────────────────────────
+const html = document.documentElement;
+const themeBtn = document.getElementById('theme-toggle');
+const themeIcon = themeBtn.querySelector('.material-symbols-outlined');
+
+function applyTheme(dark) {
+    if (dark) { html.classList.add('dark'); themeIcon.textContent = 'dark_mode'; }
+    else       { html.classList.remove('dark'); themeIcon.textContent = 'light_mode'; }
+    localStorage.setItem('nust_theme', dark ? 'dark' : 'light');
 }
 
-themeToggleBtn.addEventListener('click', () => {
-    if (htmlTag.classList.contains('dark')) {
-        htmlTag.classList.remove('dark');
-        themeToggleBtn.textContent = 'light_mode';
-        localStorage.setItem('theme', 'light');
-    } else {
-        htmlTag.classList.add('dark');
-        themeToggleBtn.textContent = 'dark_mode';
-        localStorage.setItem('theme', 'dark');
-    }
-});
+applyTheme(localStorage.getItem('nust_theme') !== 'light');
 
-// Sidebar Toggle
-const sidebar = document.getElementById('sidebar');
-const menuBtns = document.querySelectorAll('.menu-toggle');
-menuBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        sidebar.classList.toggle('-translate-x-full');
-        // Also close settings sidebar
-        if (!settingsSidebar.classList.contains('translate-x-full')) {
-            settingsSidebar.classList.add('translate-x-full');
-        }
-    });
-});
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', (e) => {
-    if (window.innerWidth < 1024 && !sidebar.contains(e.target) && !e.target.closest('.menu-toggle')) {
-        if (!sidebar.classList.contains('-translate-x-full')) {
-            sidebar.classList.add('-translate-x-full');
-        }
-    }
-});
+themeBtn.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
 
-// ============================================================
-// HARDCODED QA MAPPING
-// ============================================================
-const HARDCODED_QA = {
-    'how to apply': `Apply to NUST, visit nust.edu.pk/admissions/ and follow these steps:
-
-(1) Register online with your CNIC
-(2) Fill in personal and educational details
-(3) Upload required documents (marks sheets, CNIC copy)
-(4) Pay application fee
-(5) Submit your application before the deadline
-
-The application portal usually opens in March and closes in May. Make sure you meet the eligibility criteria before applying.`,
-
-    'what is the net syllabus': `NUST's NET (National Entrance Test) syllabus includes:
-
-(1) Mathematics - Calculus, Algebra, Geometry
-(2) Physics - Mechanics, Electricity, Magnetism, Modern Physics
-(3) Chemistry - Organic, Inorganic, and Physical Chemistry
-(4) English - Reading Comprehension, Grammar
-
-The test is designed to assess reasoning and problem-solving skills. You can download the detailed syllabus from nust.edu.pk/admissions/.`,
-
-    'hostel guidelines': `NUST provides residential facilities for both male and female students. Hostel guidelines include:
-
-(1) Check-in procedures and documentation required
-(2) Room allocation based on merit and preference
-(3) Rules for visitors and guest policies
-(4) Curfew timings (usually 11 PM on weekdays)
-(5) Hostel dues must be paid on time
-
-All students must follow the code of conduct. For detailed guidelines, contact the Hostel Office or visit nust.edu.pk.`
+// ═══════════════════════════════════════════════════════════════
+// PAGE ROUTING
+// ═══════════════════════════════════════════════════════════════
+const pages = {
+    chat:      document.getElementById('page-chat'),
+    merit:     document.getElementById('page-merit'),
+    fees:      document.getElementById('page-fees'),
+    map:       document.getElementById('page-map'),
+    analytics: document.getElementById('page-analytics'),
+    settings:  document.getElementById('page-settings'),
 };
 
-function normalizeQuery(query) {
-    // Remove special characters and convert to lowercase
-    return query.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+const sidebarBtns = document.querySelectorAll('.sidebar-btn[data-page]');
+let currentPage = 'chat';
+
+function navigate(pageId) {
+    if (!pages[pageId] || pageId === currentPage) return;
+
+    // Deactivate current
+    pages[currentPage]?.classList.remove('active');
+    document.querySelector(`.sidebar-btn[data-page="${currentPage}"]`)?.classList.remove('active');
+
+    // Activate new
+    pages[pageId].classList.add('active');
+    document.querySelector(`.sidebar-btn[data-page="${pageId}"]`)?.classList.add('active');
+    currentPage = pageId;
+
+    // Trigger page-specific actions
+    if (pageId === 'analytics') loadAnalytics();
+    if (pageId === 'settings') loadSettings();
 }
 
-function findHardcodedAnswer(query) {
-    const normalized = normalizeQuery(query);
-    const queryWords = new Set(normalized.split(/\s+/).filter(w => w.length > 0));
-    
-    for (const [key, answer] of Object.entries(HARDCODED_QA)) {
-        const keyWords = key.split(/\s+/);
-        // Require ALL key words to be present in the query for a match
-        const matchedKeyWords = keyWords.filter(w => queryWords.has(w));
-        if (matchedKeyWords.length === keyWords.length) {
-            return answer;
-        }
-    }
-    return null;
-}
+sidebarBtns.forEach(btn => btn.addEventListener('click', () => navigate(btn.dataset.page)));
 
-// Chat Logic
-const chatContainer = document.getElementById('chat-container');
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const submitBtn = document.getElementById('submit-btn');
-const suggestionBtns = document.querySelectorAll('.suggestion-btn');
-const modelSelect = document.getElementById('model-select');
-
-// Auto format URLs, bold text, and strip Sources/Time meta footer
-function parseMarkdown(text) {
-    let output = text;
-    
-    if (text.includes('📌')) {
-        output = text.split('📌')[0].trim();
-    } else if (text.includes('⏱️')) {
-        output = text.split('⏱️')[0].trim();
-    }
-
-    let parsed = output.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-    // Format numbered lists with line breaks - only match at start of line or after newline
-    parsed = parsed.replace(/(?:^|\n)(\s*)(\d+\))\s/gm, '<br><br>$1$2 ');
-    
-    parsed = parsed.replace(/\n/g, '<br>');
-    return parsed;
-}
-
-function scrollToBottom() {
-    window.scrollTo(0, document.body.scrollHeight);
-}
-
-const botAvatarHtml = `
-    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
-        <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
-    </div>
-`;
-const botNameHtml = `<span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>`;
-
-const userAvatarHtml = `
-    <div class="w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center shrink-0 shadow-inner">
-        <span class="text-white font-bold text-[10px] font-manrope uppercase tracking-widest">You</span>
-    </div>
-`;
-const userNameHtml = `<span class="text-[10px] font-label font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Candidate</span>`;
-
-
-function addUserMessage(message) {
-    const div = document.createElement('div');
-    div.className = 'flex flex-col items-end gap-2 ml-auto max-w-[85%]';
-    div.innerHTML = `
-        <div class="flex items-center gap-3 mb-1">
-            ${userNameHtml}
-            ${userAvatarHtml}
-        </div>
-        <div class="bg-blue-600 dark:bg-blue-900/60 p-4 rounded-2xl rounded-tr-none shadow-md text-white dark:text-blue-50">
-            <p class="text-body-lg leading-relaxed">${message}</p>
-        </div>
-    `;
-    chatContainer.appendChild(div);
-    scrollToBottom();
-}
-
-function addBotMessageLoader() {
-    const div = document.createElement('div');
-    div.className = 'flex flex-col items-start gap-2 max-w-[85%] bot-message-loader';
-    div.innerHTML = `
-        <div class="flex items-center gap-3 mb-1">
-            ${botAvatarHtml}
-            ${botNameHtml}
-        </div>
-        <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-[#071324]/80 text-slate-800 dark:text-slate-200">
-            <div class="flex items-center gap-2 font-medium text-sm tracking-wide">
-                <span class="thinking-text">Crafting response</span>
-                <div class="typing-indicator flex items-center gap-1 text-blue-600 dark:text-yellow-500">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-        </div>
-    `;
-    chatContainer.appendChild(div);
-    scrollToBottom();
-    return div;
-}
-
-function replaceBotMessageLoader(loaderDiv, message) {
-    loaderDiv.classList.remove('bot-message-loader');
-    loaderDiv.innerHTML = `
-        <div class="flex items-center gap-3 mb-1">
-            ${botAvatarHtml}
-            ${botNameHtml}
-        </div>
-        <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
-            <div class="text-body-lg leading-relaxed markdown-content" id="typed-content">${parseMarkdown(message)}</div>
-        </div>
-    `;
-    scrollToBottom();
-}
-
-async function typeStreamingResponse(contentDiv, fullText) {
-    // Type out the response character by character for natural feel
-    const text = parseMarkdown(fullText);
-    let displayText = '';
-    const typingSpeed = 5; // milliseconds per character (faster = more natural)
-    
-    for (let i = 0; i < text.length; i++) {
-        displayText += text[i];
-        contentDiv.innerHTML = displayText;
-        scrollToBottom();
-        await new Promise(resolve => setTimeout(resolve, typingSpeed));
-    }
-}
-
-async function initializeModels() {
-    try {
-        const response = await fetch('/api/models');
-        if (response.ok) {
-            const data = await response.json();
-            modelSelect.innerHTML = '';
-            data.models.forEach(model => {
-                const opt = document.createElement('option');
-                opt.value = model;
-                opt.textContent = model;
-                if (model === data.current) {
-                    opt.selected = true;
-                }
-                modelSelect.appendChild(opt);
-            });
-        }
-    } catch (e) {
-        console.error("Failed to load models.", e);
-        modelSelect.innerHTML = '<option value="">Local Model Only</option>';
-    }
-}
-
-modelSelect.addEventListener('change', async (e) => {
-    const selected = e.target.value;
-    try {
-        await fetch('/api/set_model', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ model: selected })
-        });
-    } catch (err) {
-        console.error("Failed to set model", err);
-    }
+// Quick action cards on the welcome screen
+document.querySelectorAll('.quick-card[data-page]').forEach(card => {
+    card.addEventListener('click', () => navigate(card.dataset.page));
 });
 
-async function handleChat(message) {
-    addUserMessage(message);
-    chatInput.value = '';
-    
-    // Lock input
-    chatInput.disabled = true;
-    submitBtn.disabled = true;
-    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-    
-    // Artificial delay of 2-3 seconds for consistent response feel
-    let craftingDelay = Math.random() * 1000 + 2000; // 2000-3000ms
+// Global function for inline chatbot navigation buttons
+window.goToPage = function(pageId) { navigate(pageId); };
 
-    // Check for hardcoded answer first
-    const hardcodedAnswer = findHardcodedAnswer(message);
-    if (hardcodedAnswer) {
-        const loader = addBotMessageLoader();
-        await new Promise(resolve => setTimeout(resolve, craftingDelay));
-        replaceBotMessageLoader(loader, hardcodedAnswer);
-        const contentDiv = loader.querySelector('#typed-content');
-        if (contentDiv) await typeStreamingResponse(contentDiv, hardcodedAnswer);
-        
-        // Unlock input
+// ═══════════════════════════════════════════════════════════════
+// MODEL SELECTOR
+// ═══════════════════════════════════════════════════════════════
+const modelSelect = document.getElementById('model-select');
+let keepAliveTimer = null;
+
+async function loadModels() {
+    try {
+        const res = await fetch('/api/models');
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        modelSelect.innerHTML = '';
+        (data.models || []).forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m; opt.textContent = m;
+            if (m === data.current) opt.selected = true;
+            modelSelect.appendChild(opt);
+        });
+        if (!data.models?.length) {
+            modelSelect.innerHTML = '<option value="">No models found</option>';
+        }
+    } catch {
+        modelSelect.innerHTML = '<option value="">Offline — Local Only</option>';
+    }
+}
+
+async function pingModelAlive() {
+    try { await fetch('/api/chat', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({message:'ping',history:[]}) }); }
+    catch {}
+}
+
+modelSelect.addEventListener('change', async () => {
+    const model = modelSelect.value;
+    if (!model) return;
+    if (keepAliveTimer) clearInterval(keepAliveTimer);
+    try {
+        await fetch('/api/set_model', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({model}) });
+        await pingModelAlive();
+        keepAliveTimer = setInterval(pingModelAlive, 45000);
+    } catch {}
+});
+
+loadModels();
+
+// ═══════════════════════════════════════════════════════════════
+// MARKDOWN RENDERER
+// ═══════════════════════════════════════════════════════════════
+function renderMarkdown(raw) {
+    // Strip trailing metadata markers
+    let text = raw
+        .replace(/^⚡\s*Direct answer\s*\|?\s*/gm, '')
+        .replace(/📌.*$/gm, '')
+        .replace(/⏱️.*$/gm, '')
+        .replace(/^\s*Sources:.*$/gm, '')
+        .replace(/^\s*Direct.*$/gm, '')
+        .replace(/^\s*Response Time.*$/gm, '')
+        .trim();
+
+    // Inject navigation buttons for redirect messages
+    text = text.replace(/\*\*💰\s*Fee Estimator\*\*/g,
+        '<button class="inline-page-btn" onclick="goToPage(\'fees\')">💰 Fee Estimator</button>');
+    text = text.replace(/\*\*🧮\s*Merit Calculator\*\*/g,
+        '<button class="inline-page-btn" onclick="goToPage(\'merit\')">🧮 Merit Calculator</button>');
+
+    // Bold
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+    // Bullet lists
+    text = text.replace(/^[•\-*]\s+(.+)$/gm, '<li>$1</li>');
+    text = text.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+    // Newlines
+    text = text.replace(/\n\n+/g, '</p><p>');
+    text = text.replace(/\n/g, '<br>');
+
+    return `<p>${text}</p>`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAT
+// ═══════════════════════════════════════════════════════════════
+const chatInput    = document.getElementById('chat-input');
+const chatForm     = document.getElementById('chat-form');
+const sendBtn      = document.getElementById('send-btn');
+const chatMessages = document.getElementById('chat-messages');
+const chatWelcome  = document.getElementById('chat-welcome');
+const chatScroll   = document.getElementById('chat-scroll');
+const exportBtn    = document.getElementById('export-btn');
+const clearChatBtn = document.getElementById('clear-chat-btn');
+const pills        = document.querySelectorAll('.pill');
+
+let chatHasMessages = false;
+
+function scrollBottom() {
+    requestAnimationFrame(() => { chatScroll.scrollTop = chatScroll.scrollHeight; });
+}
+
+function hideWelcome() {
+    if (!chatHasMessages) {
+        chatWelcome.style.transition = 'opacity 0.3s, transform 0.3s';
+        chatWelcome.style.opacity = '0';
+        chatWelcome.style.transform = 'scale(0.96)';
+        setTimeout(() => { chatWelcome.style.display = 'none'; }, 300);
+        chatHasMessages = true;
+    }
+}
+
+function addUserMsg(text) {
+    hideWelcome();
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-user';
+    wrap.innerHTML = `
+        <div class="msg-header" style="justify-content:flex-end">
+            <span class="msg-name" style="color:var(--accent)">You</span>
+            <div class="msg-avatar user-av"><span>U</span></div>
+        </div>
+        <div class="bubble-user"><p>${escapeHtml(text)}</p></div>
+    `;
+    chatMessages.appendChild(wrap);
+    scrollBottom();
+}
+
+function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function addBotLoader() {
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-bot';
+    wrap.innerHTML = `
+        <div class="msg-header">
+            <div class="msg-avatar bot-av"><img src="/resources/nust_png.png" alt="N"/></div>
+            <span class="msg-name" style="color:var(--amber)">NUST Assistant</span>
+        </div>
+        <div class="bubble-bot">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+            <span class="thinking-label">Thinking…</span>
+        </div>
+    `;
+    chatMessages.appendChild(wrap);
+    scrollBottom();
+    return wrap;
+}
+
+function convertLoaderToMsg(wrap, text) {
+    const bubble = wrap.querySelector('.bubble-bot');
+    bubble.innerHTML = renderMarkdown(text);
+    scrollBottom();
+}
+
+const MIN_THINK_MS = 2000;   // minimum "Thinking…" time before any text shows
+const WORD_INTERVAL = 65;    // ms between each word appearing (streaming feel)
+
+async function sendMessage(text) {
+    text = text.trim();
+    if (!text) return;
+
+    chatInput.value = '';
+    chatInput.disabled = true;
+    sendBtn.disabled = true;
+    addUserMsg(text);
+
+    const loader = addBotLoader();
+    const thinkStart = Date.now();
+
+    let fullText = '';
+    let streamDone = false;
+    let lastQueueIdx = 0;    // tracks where we are in fullText for word queueing
+    const wordQueue = [];     // words waiting to be rendered
+
+    // Start draining the word queue at a steady pace
+    const drainTimer = setInterval(() => {
+        if (wordQueue.length > 0) {
+            const display = wordQueue.join(' ');
+            convertLoaderToMsg(loader, display);
+        } else if (streamDone) {
+            // Stream ended and queue empty — final render and stop
+            if (fullText) convertLoaderToMsg(loader, fullText);
+            clearInterval(drainTimer);
+        }
+        // If queue empty but stream still active, keep ticking (waits for more words)
+    }, WORD_INTERVAL);
+
+    try {
+        const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text, history: [] }),
+        });
+
+        if (!res.body) throw new Error('No stream body');
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop(); // keep incomplete line
+
+            for (const line of lines) {
+                if (!line.startsWith('data: ')) continue;
+                const raw = line.slice(6).trim();
+                if (raw === '[DONE]') break;
+                try {
+                    const parsed = JSON.parse(raw);
+                    if (parsed.text) {
+                        fullText = parsed.text;
+
+                        const elapsed = Date.now() - thinkStart;
+                        if (elapsed < MIN_THINK_MS) continue; // still thinking, buffer silently
+
+                        // Queue only the NEW portion of text (backend sends accumulated)
+                        if (fullText.length > lastQueueIdx) {
+                            const newPart = fullText.slice(lastQueueIdx);
+                            const words = newPart.split(/\s+/).filter(w => w);
+                            for (const w of words) wordQueue.push(w);
+                            lastQueueIdx = fullText.length;
+                        }
+                    }
+                } catch {}
+            }
+        }
+
+        streamDone = true;
+
+        // Wait out any remaining think time
+        const elapsed = Date.now() - thinkStart;
+        if (elapsed < MIN_THINK_MS) {
+            await new Promise(r => setTimeout(r, MIN_THINK_MS - elapsed));
+        }
+
+        // Queue any remaining text that arrived during the think wait
+        if (fullText.length > lastQueueIdx) {
+            const remaining = fullText.slice(lastQueueIdx);
+            const words = remaining.split(/\s+/).filter(w => w);
+            for (const w of words) wordQueue.push(w);
+            lastQueueIdx = fullText.length;
+        }
+
+        // If nothing was ever received
+        if (!fullText) {
+            clearInterval(drainTimer);
+            convertLoaderToMsg(loader, 'Sorry, I could not get a response. Please try again.');
+        }
+        // Otherwise drainTimer handles the final render when queue empties
+
+    } catch (err) {
+        clearInterval(drainTimer);
+        convertLoaderToMsg(loader, 'Connection error. Please make sure the backend is running.');
+    } finally {
         chatInput.disabled = false;
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        sendBtn.disabled = false;
         chatInput.focus();
+    }
+}
+
+chatForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const msg = chatInput.value.trim();
+    if (msg && !chatInput.disabled) sendMessage(msg);
+});
+
+pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+        if (!chatInput.disabled) sendMessage(pill.textContent.trim());
+    });
+});
+
+clearChatBtn.addEventListener('click', () => {
+    chatMessages.innerHTML = '';
+    chatHasMessages = false;
+    chatWelcome.style.display = '';
+    chatWelcome.style.opacity = '1';
+    chatWelcome.style.transform = '';
+});
+
+// Export chat
+exportBtn.addEventListener('click', () => {
+    let out = `NUST Admission Assistant — Chat Export\nDate: ${new Date().toLocaleString()}\n${'═'.repeat(50)}\n\n`;
+    chatMessages.querySelectorAll('.msg-bot, .msg-user').forEach(m => {
+        const isBot = m.classList.contains('msg-bot');
+        const text = m.querySelector('.bubble-bot, .bubble-user')?.textContent?.trim() || '';
+        out += `[${isBot ? 'NUST Assistant' : 'You'}]: ${text}\n\n`;
+    });
+    const blob = new Blob([out], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `nust-chat-${new Date().toISOString().slice(0,10)}.txt`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+});
+
+// ═══════════════════════════════════════════════════════════════
+// MERIT CALCULATOR
+// ═══════════════════════════════════════════════════════════════
+const CIRCUMFERENCE = 2 * Math.PI * 52; // r=52
+
+function animateRing(pct) {
+    const fill = document.getElementById('merit-ring');
+    if (!fill) return;
+    const offset = CIRCUMFERENCE * (pct / 100);
+    fill.setAttribute('stroke-dasharray', `${offset} ${CIRCUMFERENCE}`);
+
+    // Color by tier
+    let color, glow;
+    if (pct >= 80)       { color = '#10b981'; glow = 'rgba(16,185,129,0.4)'; }
+    else if (pct >= 75)  { color = '#f59e0b'; glow = 'rgba(245,158,11,0.4)'; }
+    else if (pct >= 70)  { color = '#f97316'; glow = 'rgba(249,115,22,0.4)'; }
+    else                 { color = '#ef4444'; glow = 'rgba(239,68,68,0.4)'; }
+
+    fill.style.stroke = color;
+    fill.style.filter = `drop-shadow(0 0 8px ${glow})`;
+}
+
+function animateCount(el, target, decimals = 2, duration = 1200) {
+    const start = performance.now();
+    const from = parseFloat(el.textContent) || 0;
+    function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = (from + (target - from) * eased).toFixed(decimals);
+        if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+function highlightChanceBracket(agg) {
+    document.querySelectorAll('.chance-item').forEach(el => el.classList.remove('active-chance'));
+    if (agg >= 80)      document.getElementById('cg-confirmed')?.classList.add('active-chance');
+    else if (agg >= 75) document.getElementById('cg-high')?.classList.add('active-chance');
+    else if (agg >= 70) document.getElementById('cg-medium')?.classList.add('active-chance');
+    else                document.getElementById('cg-low')?.classList.add('active-chance');
+}
+
+document.getElementById('calc-merit-btn').addEventListener('click', () => {
+    const net    = parseFloat(document.getElementById('merit-net').value);
+    const fsc    = parseFloat(document.getElementById('merit-fsc').value);
+    const matric = parseFloat(document.getElementById('merit-matric').value);
+
+    if ([net, fsc, matric].some(isNaN)) {
+        shakeElement(document.getElementById('calc-merit-btn'));
         return;
     }
 
-    const loader = addBotMessageLoader();
-    
-    // Apply crafting delay before reading response stream
-    await new Promise(resolve => setTimeout(resolve, craftingDelay));
-    
+    const netPct  = (net / 200) * 100;
+    const netCont = netPct  * 0.75;
+    const fscCont = fsc    * 0.15;
+    const matCont = matric * 0.10;
+    const agg     = netCont + fscCont + matCont;
+
+    // Show result area
+    const resultArea = document.getElementById('merit-result-area');
+    resultArea.classList.remove('hidden-result');
+    resultArea.classList.add('visible');
+
+    // Animate ring
+    setTimeout(() => animateRing(agg), 80);
+
+    // Animate score counter
+    const scoreEl = document.getElementById('merit-score-display');
+    animateCount(scoreEl, agg, 2, 1200);
+
+    // Breakdown rows
+    document.getElementById('merit-breakdown').innerHTML = `
+        <div class="bd-row" style="--d:0"><span class="bd-row-label">NET Score (75%)</span><span class="bd-row-val">${netPct.toFixed(1)}% × 0.75 = ${netCont.toFixed(2)}%</span></div>
+        <div class="bd-row" style="--d:1"><span class="bd-row-label">HSSC / FSc (15%)</span><span class="bd-row-val">${fsc.toFixed(1)}% × 0.15 = ${fscCont.toFixed(2)}%</span></div>
+        <div class="bd-row" style="--d:2"><span class="bd-row-label">SSC / Matric (10%)</span><span class="bd-row-val">${matric.toFixed(1)}% × 0.10 = ${matCont.toFixed(2)}%</span></div>
+    `;
+
+    // Verdict
+    const verdict = document.getElementById('merit-verdict');
+    if (agg >= 80) {
+        verdict.className = 'verdict-box v-high';
+        verdict.innerHTML = '✅ <strong>Almost Confirmed!</strong> Your aggregate is excellent — strong chance for Engineering, Computing (BSCS/SEECS), and Business programs.';
+    } else if (agg >= 75) {
+        verdict.className = 'verdict-box v-high';
+        verdict.innerHTML = '🟡 <strong>High Chance!</strong> Competitive merit. Most programs accessible; BSCS at SEECS may be tight in peak years.';
+    } else if (agg >= 70) {
+        verdict.className = 'verdict-box v-medium';
+        verdict.innerHTML = '⚠️ <strong>Merit-Dependent.</strong> Check historical closing merits carefully. Social Sciences and Business may be more accessible.';
+    } else if (agg >= 60) {
+        verdict.className = 'verdict-box v-medium';
+        verdict.innerHTML = '⚠️ <strong>Below Typical Threshold.</strong> Focus on Social Sciences or Architecture. Consider retaking NET for improvement.';
+    } else {
+        verdict.className = 'verdict-box v-low';
+        verdict.innerHTML = '❌ <strong>Difficult.</strong> Minimum 60% aggregate required. Focus on improving your NET score in upcoming series.';
+    }
+
+    // Highlight bracket
+    highlightChanceBracket(agg);
+});
+
+// ═══════════════════════════════════════════════════════════════
+// FEE ESTIMATOR
+// ═══════════════════════════════════════════════════════════════
+const FEE_DATA = {
+    computing:    { nat: 171350, intl: 5400, name: 'Computing / AI' },
+    engineering:  { nat: 171350, intl: 5400, name: 'Engineering' },
+    business:     { nat: 210000, intl: 5400, name: 'Business' },
+    architecture: { nat: 175000, intl: 5400, name: 'Architecture / Design' },
+    social:       { nat: 125000, intl: 3200, name: 'Social Sciences' },
+};
+
+document.getElementById('calc-fee-btn').addEventListener('click', () => {
+    const prog    = document.getElementById('fee-program').value;
+    const type    = document.getElementById('fee-type').value;
+    const hostel  = document.getElementById('fee-hostel').value === 'yes';
+
+    if (!prog) {
+        shakeElement(document.getElementById('calc-fee-btn'));
+        return;
+    }
+
+    const f = FEE_DATA[prog];
+    const isIntl = type === 'international';
+    const cur    = isIntl ? 'USD' : 'PKR';
+    const sem    = isIntl ? f.intl : f.nat;
+    const admit  = isIntl ? 1000 : 35000;
+    const hosRent = isIntl ? 100 : 7000;    // per month
+    const hosMess = isIntl ? 200 : 12000;   // per month
+    const tuition = sem * 8;
+    const hostelCost = hostel ? (hosRent + hosMess) * 10 * 4 : 0;
+    const total = tuition + admit + hostelCost;
+    const fmt = n => n.toLocaleString();
+
+    const rows = [
+        { label: 'Program',                  val: f.name },
+        { label: 'Tuition / Semester',        val: `${cur} ${fmt(sem)}` },
+        { label: 'Tuition × 8 Semesters',    val: `${cur} ${fmt(tuition)}` },
+        { label: 'Admission Fee (once)',      val: `${cur} ${fmt(admit)}` },
+    ];
+
+    if (hostel) {
+        rows.push({ label: 'Hostel Rent (4 yrs)',   val: `${cur} ${fmt(hosRent*10*4)}` });
+        rows.push({ label: 'Mess Charges (4 yrs)', val: `${cur} ${fmt(hosMess*10*4)}` });
+    }
+
+    const html_rows = rows.map((r, i) =>
+        `<div class="fee-row" style="--d:${i}"><span class="fee-label">${r.label}</span><span class="fee-val">${r.val}</span></div>`
+    ).join('');
+
+    const totalRow = `<div class="fee-row fee-total" style="--d:${rows.length}"><span class="fee-label">Estimated 4-Year Total</span><span class="fee-val">${cur} ${fmt(total)}</span></div>`;
+
+    const usdNote = !isIntl
+        ? `<div class="fee-row" style="--d:${rows.length+1};font-size:12px;color:var(--text-3)"><span>Approx USD (@280 PKR)</span><span>~USD ${Math.round(total/280).toLocaleString()}</span></div>`
+        : '';
+
+    document.getElementById('fee-breakdown').innerHTML = html_rows + totalRow + usdNote;
+
+    const resultArea = document.getElementById('fee-result-area');
+    resultArea.classList.remove('hidden-result');
+    resultArea.classList.add('visible');
+});
+
+// ═══════════════════════════════════════════════════════════════
+// ANALYTICS
+// ═══════════════════════════════════════════════════════════════
+let analyticsLoaded = false;
+
+function setGauge(id, pct) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    setTimeout(() => el.setAttribute('stroke-dasharray', `${Math.min(100, pct).toFixed(1)},100`), 100);
+}
+
+function setText(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+}
+
+function animateNum(id, target, isInt = true) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const from = parseFloat(el.textContent) || 0;
+    if (isNaN(target) || from === target) { el.textContent = target; return; }
+    const dur = 600, start = performance.now();
+    const step = now => {
+        const p = Math.min((now - start) / dur, 1);
+        const v = from + (target - from) * (1 - Math.pow(1 - p, 3));
+        el.textContent = isInt ? Math.round(v) : v.toFixed(1);
+        if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+}
+
+function formatUptime(s) {
+    if (s < 60)   return `${Math.round(s)}s`;
+    if (s < 3600) return `${Math.floor(s/60)}m ${Math.round(s%60)}s`;
+    return `${Math.floor(s/3600)}h ${Math.round((s%3600)/60)}m`;
+}
+
+async function loadAnalytics() {
     try {
-        const payload = {
-            message: message,
-            history: [] // Stateless tracking handled by backend mostly
-        };
+        const res = await fetch('/api/analytics');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const d = await res.json();
 
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+        // System gauges
+        if (d.system) {
+            // Scale RAM by 2 to pretend we have 8GB instead of 16GB
+            const realRamTotal = d.system.ram_total_gb ?? 16;
+            const targetRamTotal = 8;
+            const ramScaleMap = targetRamTotal / realRamTotal;
+            
+            const ramUsedReal = d.system.ram_used_gb ?? 0;
+            const ramUsedScaled = ramUsedReal * ramScaleMap;
+            const ramPercent = d.system.ram_percent ?? 0; // percent is identical if both scaled by same factor
+            
+            const cpu = d.system.cpu_percent ?? 0;
+            const disk = d.system.disk_percent ?? 0;
+            const procMb = d.system.process_ram_mb ?? 0;
+            const procPct = Math.min(100, (procMb / 1024) / targetRamTotal * 100);
+
+            setGauge('g-ram', ramPercent);
+            setGauge('g-cpu', cpu);
+            setGauge('g-disk', disk);
+            setGauge('g-proc', procPct);
+
+            setText('v-ram', Math.round(ramPercent));
+            setText('v-cpu', Math.round(cpu));
+            setText('v-disk', Math.round(disk));
+            setText('v-proc', Math.round(procMb));
+
+            setText('d-ram', `${ramUsedScaled.toFixed(2)} / ${targetRamTotal.toFixed(2)} GB`);
+            setText('d-cpu', `${d.system.cpu_cores_logical ?? '?'} cores`);
+            setText('d-disk', `${d.system.disk_used_gb ?? '?'} / ${d.system.disk_total_gb ?? '?'} GB`);
+            setText('d-proc', `${(procMb/1024).toFixed(2)} GB`);
+
+            setText('si-platform', d.system.platform ?? '—');
+            setText('si-proc',     d.system.processor ?? '—');
+            setText('si-python',   d.system.python_version ?? '—');
+            setText('si-cores',    d.system.cpu_cores_logical ?? '—');
+        }
+
+        // Model
+        if (d.model) {
+            setText('a-model', d.model.name ?? '—');
+            setText('a-mode',  d.model.mode ?? '—');
+            setText('a-temp',  d.model.temperature ?? '—');
+            setText('a-ctx',   d.model.num_ctx ? `${d.model.num_ctx} tokens` : '—');
+            setText('si-cache', d.model.cache_entries ?? '0');
+        }
+
+        // Ollama
+        if (d.ollama) {
+            const running = d.ollama.status === 'running';
+            const dot = `<span class="status-dot ${running ? 'online' : 'offline'}"></span>`;
+            document.getElementById('a-ollama').innerHTML = `${dot}${running ? 'Running' : 'Offline'}`;
+            setText('a-models', d.ollama.total_models !== undefined
+                ? `${d.ollama.total_models} (${d.ollama.total_size_gb} GB)`
+                : '—');
+        }
+
+        // Chat stats
+        if (d.chat) {
+            animateNum('s-queries', d.chat.total_queries       ?? 0);
+            animateNum('s-fast',    d.chat.fast_path_hits      ?? 0);
+            animateNum('s-llm',     d.chat.llm_hits            ?? 0);
+            animateNum('s-static',  d.chat.static_hits         ?? 0);
+            setText('s-time',   d.chat.last_response_time ? `${d.chat.last_response_time}s` : '—');
+            setText('s-tps',    d.chat.last_tokens_per_sec ?? '—');
+            setText('s-avg',    d.chat.avg_response_time   ? `${d.chat.avg_response_time}s` : '—');
+            setText('s-up',     d.chat.uptime_seconds      ? formatUptime(d.chat.uptime_seconds) : '—');
+            setText('si-tokens', d.chat.total_tokens_generated ?? '0');
+        }
+
+        // Retrieval / KB
+        if (d.retrieval) {
+            const docs   = d.retrieval.total_documents ?? 0;
+            const chunks = d.retrieval.chunks          ?? 0;
+            const qa     = d.retrieval.qa_pairs        ?? 0;
+            const emb    = d.retrieval.embedding_dim   ?? 0;
+
+            setText('bv-docs',   docs);
+            setText('bv-chunks', chunks);
+            setText('bv-qa',     qa);
+            setText('bv-emb',    `${emb}d`);
+
+            // Animate bars
+            setTimeout(() => {
+                const max = Math.max(docs, chunks, qa, 1);
+                document.getElementById('bf-docs').style.width   = '100%';
+                document.getElementById('bf-chunks').style.width = `${Math.min(100, chunks/max*100)}%`;
+                document.getElementById('bf-qa').style.width     = `${Math.min(100, qa/max*100)}%`;
+                document.getElementById('bf-emb').style.width    = `${Math.min(100, emb/768*100)}%`;
+            }, 200);
+        }
+
+        analyticsLoaded = true;
+
+        // Auto-poll if still on analytics page
+        if (currentPage === 'analytics') {
+            setTimeout(loadAnalytics, 1500);
+        }
+
+    } catch (err) {
+        console.error('Analytics fetch failed:', err);
+        // Show fallback in all stat cards
+        document.querySelectorAll('.sc-num, .gauge-val, .ic-value').forEach(el => {
+            if (el.textContent === '—' || el.textContent === '0') el.textContent = 'N/A';
         });
-
-        if (!response.body) throw new Error("ReadableStream not supported by browser.");
-        
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder('utf-8');
-        let done = false;
-        let contentDiv = null;
-        let lastUpdateTime = 0;
-        let lastText = "";
-
-        while (!done) {
-            const { value, done: readerDone } = await reader.read();
-            done = readerDone;
-            if (value) {
-                const chunk = decoder.decode(value, { stream: true });
-                const lines = chunk.split('\n');
-                
-                for (let line of lines) {
-                    if (line.startsWith('data: ')) {
-                        const dataStr = line.slice(6).trim();
-                        if (dataStr === '[DONE]') break;
-                        if (dataStr) {
-                            try {
-                                const parsed = JSON.parse(dataStr);
-                                if (parsed.text) {
-                                    // First token received? Convert loader to content container
-                                    if (!contentDiv) {
-                                        loader.classList.remove('bot-message-loader');
-                                        loader.innerHTML = `
-                                            <div class="flex items-center gap-3 mb-1">
-                                                ${botAvatarHtml}
-                                                ${botNameHtml}
-                                            </div>
-                                            <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-[#071324]/80 text-slate-800 dark:text-slate-200">
-                                                <div class="text-body-lg leading-relaxed markdown-content" id="stream-content"></div>
-                                            </div>
-                                        `;
-                                        contentDiv = loader.querySelector('#stream-content');
-                                    }
-                                    
-                                    lastText = parsed.text;
-                                    const now = Date.now();
-                                    // 20ms Render Throttling for faster, more responsive streaming
-                                    if (now - lastUpdateTime > 20) {
-                                        contentDiv.innerHTML = parseMarkdown(lastText);
-                                        scrollToBottom();
-                                        lastUpdateTime = now;
-                                    }
-                                }
-                            } catch(e) {}
-                        }
-                    }
-                }
-            }
-        }
-        
-        // Final UI render flush (no typing animation for API responses)
-        if (contentDiv && lastText) {
-            contentDiv.innerHTML = parseMarkdown(lastText);
-            scrollToBottom();
-        }
-
-    } catch (error) {
-        console.error("API Error:", error);
-        replaceBotMessageLoader(loader, "Connection error. Ensure the NUST assistant backend is running.");
-    } finally {
-        // Unlock input
-        chatInput.disabled = false;
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-        chatInput.focus();
     }
 }
 
-chatForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (chatInput.disabled) return;
-    const msg = chatInput.value.trim();
-    if (msg) {
-        handleChat(msg);
-    }
+document.getElementById('refresh-analytics').addEventListener('click', () => {
+    analyticsLoaded = false;
+    loadAnalytics();
 });
 
-suggestionBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (!chatInput.disabled) {
-            handleChat(btn.textContent);
-        }
-    });
+// ═══════════════════════════════════════════════════════════════
+// SETTINGS
+// ═══════════════════════════════════════════════════════════════
+const settingsEls = {
+    temp:    document.getElementById('set-temp'),
+    tempVal: document.getElementById('sv-temp'),
+    ctx:     document.getElementById('set-ctx'),
+    predict: document.getElementById('set-predict'),
+    topk:    document.getElementById('set-topk'),
+    bm25:    document.getElementById('set-bm25'),
+    bm25Val: document.getElementById('sv-bm25'),
+    vec:     document.getElementById('set-vec'),
+    vecVal:  document.getElementById('sv-vec'),
+    history: document.getElementById('set-history'),
+    prompt:  document.getElementById('set-prompt'),
+};
+
+// Live slider value display
+settingsEls.temp.addEventListener('input', () => {
+    settingsEls.tempVal.textContent = parseFloat(settingsEls.temp.value).toFixed(2);
 });
 
-// Initialize environment
-initializeModels();
+settingsEls.bm25.addEventListener('input', () => {
+    const v = parseFloat(settingsEls.bm25.value);
+    settingsEls.bm25Val.textContent = v.toFixed(2);
+    // Keep vector weight as complement
+    const cv = (1 - v).toFixed(2);
+    settingsEls.vec.value = cv;
+    settingsEls.vecVal.textContent = cv;
+});
 
-// ============================================================
-// SETTINGS SIDEBAR
-// ============================================================
+settingsEls.vec.addEventListener('input', () => {
+    const v = parseFloat(settingsEls.vec.value);
+    settingsEls.vecVal.textContent = v.toFixed(2);
+    const cb = (1 - v).toFixed(2);
+    settingsEls.bm25.value = cb;
+    settingsEls.bm25Val.textContent = cb;
+});
 
-const settingsBtn = document.getElementById('settings-btn');
-const settingsSidebar = document.getElementById('settings-sidebar');
-const closeSettingsSidebarBtn = document.getElementById('close-settings-sidebar-btn');
-const applySettingsSbBtn = document.getElementById('apply-settings-sb-btn');
-const resetSettingsSbBtn = document.getElementById('reset-settings-sb-btn');
-const clearChatBtn = document.getElementById('clear-chat-btn');
-
-// Sidebar form elements
-const tempSliderSb = document.getElementById('temperature-slider-sb');
-const tempValueSb = document.getElementById('temp-value-sb');
-const numCtxSelectSb = document.getElementById('num-ctx-select-sb');
-const numPredictSelectSb = document.getElementById('num-predict-select-sb');
-const topKSelectSb = document.getElementById('top-k-select-sb');
-const bm25SliderSb = document.getElementById('bm25-slider-sb');
-const bm25ValueSb = document.getElementById('bm25-value-sb');
-const vectorSliderSb = document.getElementById('vector-slider-sb');
-const vectorValueSb = document.getElementById('vector-value-sb');
-const includeHistoryCheckSb = document.getElementById('include-history-check-sb');
-const systemPromptTextareaSb = document.getElementById('system-prompt-textarea-sb');
-
-// Load settings on page load
 async function loadSettings() {
     try {
-        const response = await fetch('/api/settings');
-        if (response.ok) {
-            const settings = await response.json();
-            
-            // LLM Settings
-            tempSliderSb.value = settings.llm.temperature;
-            tempValueSb.textContent = settings.llm.temperature.toFixed(2);
-            numCtxSelectSb.value = settings.llm.num_ctx;
-            numPredictSelectSb.value = settings.llm.num_predict;
-            
-            // Retrieval Settings
-            topKSelectSb.value = settings.retriever.top_k;
-            bm25SliderSb.value = settings.retriever.bm25_weight;
-            bm25ValueSb.textContent = settings.retriever.bm25_weight.toFixed(2);
-            vectorSliderSb.value = settings.retriever.vector_weight;
-            vectorValueSb.textContent = settings.retriever.vector_weight.toFixed(2);
-            
-            // Prompt Settings
-            includeHistoryCheckSb.checked = settings.prompt.include_history;
-            systemPromptTextareaSb.value = settings.prompt.system_prompt || '';
+        const res = await fetch('/api/settings');
+        if (!res.ok) throw new Error();
+        const s = await res.json();
+        if (s.llm) {
+            settingsEls.temp.value    = s.llm.temperature;
+            settingsEls.tempVal.textContent = s.llm.temperature.toFixed(2);
+            settingsEls.ctx.value     = s.llm.num_ctx;
+            settingsEls.predict.value = s.llm.num_predict;
         }
-    } catch (e) {
-        console.error("Failed to load settings", e);
-    }
+        if (s.retriever) {
+            settingsEls.topk.value    = s.retriever.top_k;
+            settingsEls.bm25.value    = s.retriever.bm25_weight;
+            settingsEls.bm25Val.textContent = s.retriever.bm25_weight.toFixed(2);
+            settingsEls.vec.value     = s.retriever.vector_weight;
+            settingsEls.vecVal.textContent  = s.retriever.vector_weight.toFixed(2);
+        }
+        if (s.prompt) {
+            settingsEls.history.checked = s.prompt.include_history;
+            settingsEls.prompt.value    = s.prompt.system_prompt || '';
+        }
+    } catch {}
 }
 
-// Update sliders display
-tempSliderSb.addEventListener('input', (e) => {
-    tempValueSb.textContent = parseFloat(e.target.value).toFixed(2);
-});
-
-bm25SliderSb.addEventListener('input', (e) => {
-    bm25ValueSb.textContent = parseFloat(e.target.value).toFixed(2);
-    // Sync vector weight to maintain sum ≈ 1.0
-    const newVector = (1 - parseFloat(e.target.value)).toFixed(2);
-    vectorSliderSb.value = newVector;
-    vectorValueSb.textContent = newVector;
-});
-
-vectorSliderSb.addEventListener('input', (e) => {
-    vectorValueSb.textContent = parseFloat(e.target.value).toFixed(2);
-    // Sync bm25 weight to maintain sum ≈ 1.0
-    const newBm25 = (1 - parseFloat(e.target.value)).toFixed(2);
-    bm25SliderSb.value = newBm25;
-    bm25ValueSb.textContent = newBm25;
-});
-
-// Sidebar controls
-settingsBtn.addEventListener('click', () => {
-    settingsSidebar.classList.remove('translate-x-full');
-    loadSettings();
-});
-
-closeSettingsSidebarBtn.addEventListener('click', () => {
-    settingsSidebar.classList.add('translate-x-full');
-});
-
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', (e) => {
-    if (window.innerWidth < 1024 && !settingsSidebar.contains(e.target) && !e.target.closest('#settings-btn')) {
-        if (!settingsSidebar.classList.contains('translate-x-full')) {
-            settingsSidebar.classList.add('translate-x-full');
-        }
-    }
-});
-
-// Apply settings
-applySettingsSbBtn.addEventListener('click', async () => {
+document.getElementById('apply-settings-btn').addEventListener('click', async () => {
     try {
-        const updateData = {
-            llm: {
-                temperature: parseFloat(tempSliderSb.value),
-                num_ctx: parseInt(numCtxSelectSb.value),
-                num_predict: parseInt(numPredictSelectSb.value),
-            },
-            retriever: {
-                top_k: parseInt(topKSelectSb.value),
-                bm25_weight: parseFloat(bm25SliderSb.value),
-                vector_weight: parseFloat(vectorSliderSb.value),
-            },
-            prompt: {
-                include_history: includeHistoryCheckSb.checked,
-                system_prompt: systemPromptTextareaSb.value || null,
-            },
-        };
-
-        const response = await fetch('/api/settings', {
+        const res = await fetch('/api/settings', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updateData),
+            body: JSON.stringify({
+                llm: {
+                    temperature: parseFloat(settingsEls.temp.value),
+                    num_ctx:     parseInt(settingsEls.ctx.value),
+                    num_predict: parseInt(settingsEls.predict.value),
+                },
+                retriever: {
+                    top_k:         parseInt(settingsEls.topk.value),
+                    bm25_weight:   parseFloat(settingsEls.bm25.value),
+                    vector_weight: parseFloat(settingsEls.vec.value),
+                },
+                prompt: {
+                    include_history: settingsEls.history.checked,
+                    system_prompt:   settingsEls.prompt.value || null,
+                },
+            }),
         });
-
-        if (response.ok) {
-            settingsSidebar.classList.add('translate-x-full');
-        } else {
-            console.error('Failed to apply settings');
+        if (res.ok) {
+            flashSuccess(document.getElementById('apply-settings-btn'), 'Saved!');
         }
-    } catch (e) {
-        console.error("Failed to apply settings", e);
-    }
+    } catch {}
 });
 
-// Reset settings
-resetSettingsSbBtn.addEventListener('click', async () => {
+document.getElementById('reset-settings-btn').addEventListener('click', async () => {
     try {
-        const response = await fetch('/api/settings/reset', { method: 'POST' });
-        if (response.ok) {
-            loadSettings();
-        }
-    } catch (e) {
-        console.error("Failed to reset settings", e);
-    }
+        const res = await fetch('/api/settings/reset', { method: 'POST' });
+        if (res.ok) loadSettings();
+    } catch {}
 });
 
-// Clear chat
-clearChatBtn.addEventListener('click', () => {
-    chatContainer.innerHTML = `
-        <div class="flex flex-col items-start gap-2 max-w-[90%] sm:max-w-[85%] bot-message">
-            <div class="flex items-center gap-3 mb-1">
-                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
-                    <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
-                </div>
-                <span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>
-            </div>
-            <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
-                <p class="text-body-lg leading-relaxed">Assalam-o-Alaikum! I am the official NUST Admission Assistant. What information are you looking for regarding your academic journey?</p>
-            </div>
-        </div>
-    `;
-    scrollToBottom();
-});
+// ═══════════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════════
+function shakeElement(el) {
+    el.style.animation = 'none';
+    el.getBoundingClientRect(); // reflow
+    el.style.animation = 'shake 0.4s ease';
+    setTimeout(() => el.style.animation = '', 400);
+}
 
-// Load settings on startup
-loadSettings();
+// Inject shake keyframe
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = `
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%      { transform: translateX(-6px); }
+    40%      { transform: translateX(6px); }
+    60%      { transform: translateX(-4px); }
+    80%      { transform: translateX(4px); }
+}
+`;
+document.head.appendChild(shakeStyle);
+
+function flashSuccess(btn, label) {
+    const orig = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined btn-icon" style="font-variation-settings:'FILL' 1">check_circle</span>${label}`;
+    btn.style.background = 'linear-gradient(135deg,#064e3b,#10b981)';
+    setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+    }, 2000);
+}

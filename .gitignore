@@ -30,3 +30,6 @@ stitch*
 *.tmp
 smoke_test_*.py
 tmp_*.py
+
+
+.ruff_cache/

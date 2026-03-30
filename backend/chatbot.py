@@ -12,16 +12,13 @@ import os
 import re
 import time
 
-sys.path.insert(
-    0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from retrieval.retriever import Retriever
 from llm.ollama_client import OllamaLLM
 from llm.prompt_builder import PromptBuilder
 from llm.response_formatter import ResponseFormatter
-from backend.classifier import QueryClassifier, STATIC
-
+from backend.classifier import QueryClassifier, STATIC, STATIC_ANSWERS
 
 
 # ============================================================
@@ -30,7 +27,7 @@ from backend.classifier import QueryClassifier, STATIC
 class NUSTChatbot:
     """
     Main chatbot class — orchestrates everything.
-    
+
     Fixed Pipeline:
         User message
             → Classify (greeting/identity/query)
@@ -50,9 +47,7 @@ class NUSTChatbot:
         print("=" * 50)
 
         self.retriever = Retriever()
-        self.llm = OllamaLLM(
-            model=model, temperature=temperature
-        )
+        self.llm = OllamaLLM(model=model, temperature=temperature)
         self.prompt_builder = PromptBuilder()
         self.formatter = ResponseFormatter()
         self.classifier = QueryClassifier()
@@ -103,9 +98,19 @@ class NUSTChatbot:
             yield response
             return
 
+        # Check STATIC_ANSWERS for intent-matched queries (e.g. "static:what is net")
+        if query_type.startswith("static:"):
+            answer_key = query_type[7:]  # strip "static:" prefix
+            if answer_key in STATIC_ANSWERS:
+                response = STATIC_ANSWERS[answer_key]
+                self.conversation_history.append(("user", user_message))
+                self.conversation_history.append(("assistant", response))
+                yield response
+                return
+
         # Step 1: Retrieve
-        # 3B Speed Optimization: Use top_k=2
-        results = self.retriever.retrieve(user_message, top_k=2)
+        # 3B Speed Optimization: Use top_k=3
+        results = self.retriever.retrieve(user_message, top_k=3)
 
         if not results:
             no_result_msg = (
@@ -132,10 +137,12 @@ class NUSTChatbot:
 
         # Step 3: Prompt Building
         relevant_history = self._get_relevant_history(user_message)
+        injected_facts = self.classifier.extract_facts(user_message)
         prompt, system_prompt, sources = self.prompt_builder.build(
             query=user_message,
             retrieved_results=results,
             conversation_history=relevant_history,
+            injected_facts=injected_facts,
         )
 
         # Step 4: Stream from LLM
@@ -166,7 +173,7 @@ class NUSTChatbot:
         """
         FIX: Only include conversation history if the current query
         seems related to the previous topic.
-        
+
         This prevents "hello" from getting hostel context injected.
         """
         if not self.conversation_history:
@@ -211,9 +218,23 @@ class NUSTChatbot:
         shared = current_words & last_words
         # Remove common words from shared set
         common_words = {
-            "the", "is", "are", "what", "how", "can", "i",
-            "a", "an", "to", "for", "of", "in", "at", "do",
-            "nust", "about",
+            "the",
+            "is",
+            "are",
+            "what",
+            "how",
+            "can",
+            "i",
+            "a",
+            "an",
+            "to",
+            "for",
+            "of",
+            "in",
+            "at",
+            "do",
+            "nust",
+            "about",
         }
         meaningful_shared = shared - common_words
         has_shared_topic = len(meaningful_shared) > 0
@@ -230,10 +251,8 @@ class NUSTChatbot:
         source = qa_result.get("source", "")
 
         if self.rewrite_fast_path:
-            prompt, sys_prompt, sources = (
-                self.prompt_builder.build_fast_path_prompt(
-                    query, answer, source
-                )
+            prompt, sys_prompt, sources = self.prompt_builder.build_fast_path_prompt(
+                query, answer, source
             )
             full_text = []
             for token in self.llm.generate_stream(prompt, sys_prompt):
@@ -266,8 +285,6 @@ class NUSTChatbot:
             "model": self.llm.model,
             "total_documents": len(self.retriever.documents),
             "qa_pairs": len(self.retriever.qa_indices),
-            "conversation_turns": len(
-                self.conversation_history
-            ) // 2,
+            "conversation_turns": len(self.conversation_history) // 2,
             "fast_path_enabled": self.use_fast_path,
         }
