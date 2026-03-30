@@ -27,7 +27,7 @@ class OllamaLLM:
         model="llama3.2:3b",
         base_url="http://localhost:11434",
         temperature=0.3,
-        num_ctx=1024,
+        num_ctx=4096,
         num_gpu=None,
         num_thread=8,
     ):
@@ -108,7 +108,7 @@ class OllamaLLM:
         options = {
             "temperature": self.temperature,
             "num_ctx": self.num_ctx,
-            "num_predict": 512,
+            "num_predict": 1024,  # Increased from 512 for better quality responses
             "num_keep": keep_tokens,
             "stop": ["Student:", "Assistant:", "\nStudent:", "I don't have this.", "Visit nust.edu.pk."],
         }

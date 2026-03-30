@@ -26,6 +26,10 @@ const menuBtns = document.querySelectorAll('.menu-toggle');
 menuBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         sidebar.classList.toggle('-translate-x-full');
+        // Also close settings sidebar
+        if (!settingsSidebar.classList.contains('translate-x-full')) {
+            settingsSidebar.classList.add('translate-x-full');
+        }
     });
 });
 // Close sidebar when clicking outside on mobile
@@ -36,6 +40,55 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+
+// ============================================================
+// HARDCODED QA MAPPING
+// ============================================================
+const HARDCODED_QA = {
+    'how to apply': `Apply to NUST, visit nust.edu.pk/admissions/ and follow these steps:
+
+(1) Register online with your CNIC
+(2) Fill in personal and educational details
+(3) Upload required documents (marks sheets, CNIC copy)
+(4) Pay application fee
+(5) Submit your application before the deadline
+
+The application portal usually opens in March and closes in May. Make sure you meet the eligibility criteria before applying.`,
+
+    'what is the net syllabus': `NUST's NET (National Entrance Test) syllabus includes:
+
+(1) Mathematics - Calculus, Algebra, Geometry
+(2) Physics - Mechanics, Electricity, Magnetism, Modern Physics
+(3) Chemistry - Organic, Inorganic, and Physical Chemistry
+(4) English - Reading Comprehension, Grammar
+
+The test is designed to assess reasoning and problem-solving skills. You can download the detailed syllabus from nust.edu.pk/admissions/.`,
+
+    'hostel guidelines': `NUST provides residential facilities for both male and female students. Hostel guidelines include:
+
+(1) Check-in procedures and documentation required
+(2) Room allocation based on merit and preference
+(3) Rules for visitors and guest policies
+(4) Curfew timings (usually 11 PM on weekdays)
+(5) Hostel dues must be paid on time
+
+All students must follow the code of conduct. For detailed guidelines, contact the Hostel Office or visit nust.edu.pk.`
+};
+
+function normalizeQuery(query) {
+    // Remove special characters and convert to lowercase
+    return query.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+}
+
+function findHardcodedAnswer(query) {
+    const normalized = normalizeQuery(query);
+    for (const [key, answer] of Object.entries(HARDCODED_QA)) {
+        if (normalized.includes(key) || key.includes(normalized)) {
+            return answer;
+        }
+    }
+    return null;
+}
 
 // Chat Logic
 const chatContainer = document.getElementById('chat-container');
@@ -125,10 +178,24 @@ function replaceBotMessageLoader(loaderDiv, message) {
             ${botNameHtml}
         </div>
         <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
-            <div class="text-body-lg leading-relaxed markdown-content">${parseMarkdown(message)}</div>
+            <div class="text-body-lg leading-relaxed markdown-content" id="typed-content">${parseMarkdown(message)}</div>
         </div>
     `;
     scrollToBottom();
+}
+
+async function typeStreamingResponse(contentDiv, fullText) {
+    // Type out the response character by character for natural feel
+    const text = parseMarkdown(fullText);
+    let displayText = '';
+    const typingSpeed = 5; // milliseconds per character (faster = more natural)
+    
+    for (let i = 0; i < text.length; i++) {
+        displayText += text[i];
+        contentDiv.innerHTML = displayText;
+        scrollToBottom();
+        await new Promise(resolve => setTimeout(resolve, typingSpeed));
+    }
 }
 
 async function initializeModels() {
@@ -168,7 +235,6 @@ modelSelect.addEventListener('change', async (e) => {
 
 async function handleChat(message) {
     addUserMessage(message);
-    const loader = addBotMessageLoader();
     chatInput.value = '';
     
     // Lock input
@@ -176,6 +242,24 @@ async function handleChat(message) {
     submitBtn.disabled = true;
     submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
 
+    // Check for hardcoded answer first
+    const hardcodedAnswer = findHardcodedAnswer(message);
+    if (hardcodedAnswer) {
+        const loader = addBotMessageLoader();
+        await new Promise(resolve => setTimeout(resolve, 300)); // Short delay for natural feel
+        replaceBotMessageLoader(loader, hardcodedAnswer);
+        const contentDiv = loader.querySelector('#typed-content');
+        if (contentDiv) await typeStreamingResponse(contentDiv, hardcodedAnswer);
+        
+        // Unlock input
+        chatInput.disabled = false;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        chatInput.focus();
+        return;
+    }
+
+    const loader = addBotMessageLoader();
     try {
         const payload = {
             message: message,
@@ -229,8 +313,8 @@ async function handleChat(message) {
                                     
                                     lastText = parsed.text;
                                     const now = Date.now();
-                                    // 50ms Render Throttling for smoother UI
-                                    if (now - lastUpdateTime > 50) {
+                                    // 20ms Render Throttling for faster, more responsive streaming
+                                    if (now - lastUpdateTime > 20) {
                                         contentDiv.innerHTML = parseMarkdown(lastText);
                                         scrollToBottom();
                                         lastUpdateTime = now;
@@ -243,10 +327,9 @@ async function handleChat(message) {
             }
         }
         
-        // Final UI render flush
+        // Final UI render flush and type animation
         if (contentDiv && lastText) {
-            contentDiv.innerHTML = parseMarkdown(lastText);
-            scrollToBottom();
+            await typeStreamingResponse(contentDiv, lastText);
         }
 
     } catch (error) {
@@ -280,3 +363,172 @@ suggestionBtns.forEach(btn => {
 
 // Initialize environment
 initializeModels();
+
+// ============================================================
+// SETTINGS SIDEBAR
+// ============================================================
+
+const settingsBtn = document.getElementById('settings-btn');
+const settingsSidebar = document.getElementById('settings-sidebar');
+const closeSettingsSidebarBtn = document.getElementById('close-settings-sidebar-btn');
+const applySettingsSbBtn = document.getElementById('apply-settings-sb-btn');
+const resetSettingsSbBtn = document.getElementById('reset-settings-sb-btn');
+const clearChatBtn = document.getElementById('clear-chat-btn');
+
+// Sidebar form elements
+const tempSliderSb = document.getElementById('temperature-slider-sb');
+const tempValueSb = document.getElementById('temp-value-sb');
+const numCtxSelectSb = document.getElementById('num-ctx-select-sb');
+const numPredictSelectSb = document.getElementById('num-predict-select-sb');
+const topKSelectSb = document.getElementById('top-k-select-sb');
+const bm25SliderSb = document.getElementById('bm25-slider-sb');
+const bm25ValueSb = document.getElementById('bm25-value-sb');
+const vectorSliderSb = document.getElementById('vector-slider-sb');
+const vectorValueSb = document.getElementById('vector-value-sb');
+const includeHistoryCheckSb = document.getElementById('include-history-check-sb');
+const systemPromptTextareaSb = document.getElementById('system-prompt-textarea-sb');
+
+// Load settings on page load
+async function loadSettings() {
+    try {
+        const response = await fetch('/api/settings');
+        if (response.ok) {
+            const settings = await response.json();
+            
+            // LLM Settings
+            tempSliderSb.value = settings.llm.temperature;
+            tempValueSb.textContent = settings.llm.temperature.toFixed(2);
+            numCtxSelectSb.value = settings.llm.num_ctx;
+            numPredictSelectSb.value = settings.llm.num_predict;
+            
+            // Retrieval Settings
+            topKSelectSb.value = settings.retriever.top_k;
+            bm25SliderSb.value = settings.retriever.bm25_weight;
+            bm25ValueSb.textContent = settings.retriever.bm25_weight.toFixed(2);
+            vectorSliderSb.value = settings.retriever.vector_weight;
+            vectorValueSb.textContent = settings.retriever.vector_weight.toFixed(2);
+            
+            // Prompt Settings
+            includeHistoryCheckSb.checked = settings.prompt.include_history;
+            systemPromptTextareaSb.value = settings.prompt.system_prompt || '';
+        }
+    } catch (e) {
+        console.error("Failed to load settings", e);
+    }
+}
+
+// Update sliders display
+tempSliderSb.addEventListener('input', (e) => {
+    tempValueSb.textContent = parseFloat(e.target.value).toFixed(2);
+});
+
+bm25SliderSb.addEventListener('input', (e) => {
+    bm25ValueSb.textContent = parseFloat(e.target.value).toFixed(2);
+    // Sync vector weight to maintain sum ≈ 1.0
+    const newVector = (1 - parseFloat(e.target.value)).toFixed(2);
+    vectorSliderSb.value = newVector;
+    vectorValueSb.textContent = newVector;
+});
+
+vectorSliderSb.addEventListener('input', (e) => {
+    vectorValueSb.textContent = parseFloat(e.target.value).toFixed(2);
+    // Sync bm25 weight to maintain sum ≈ 1.0
+    const newBm25 = (1 - parseFloat(e.target.value)).toFixed(2);
+    bm25SliderSb.value = newBm25;
+    bm25ValueSb.textContent = newBm25;
+});
+
+// Sidebar controls
+settingsBtn.addEventListener('click', () => {
+    settingsSidebar.classList.remove('translate-x-full');
+    loadSettings();
+});
+
+closeSettingsSidebarBtn.addEventListener('click', () => {
+    settingsSidebar.classList.add('translate-x-full');
+});
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', (e) => {
+    if (window.innerWidth < 1024 && !settingsSidebar.contains(e.target) && !e.target.closest('#settings-btn')) {
+        if (!settingsSidebar.classList.contains('translate-x-full')) {
+            settingsSidebar.classList.add('translate-x-full');
+        }
+    }
+});
+
+// Apply settings
+applySettingsSbBtn.addEventListener('click', async () => {
+    try {
+        const updateData = {
+            llm: {
+                temperature: parseFloat(tempSliderSb.value),
+                num_ctx: parseInt(numCtxSelectSb.value),
+                num_predict: parseInt(numPredictSelectSb.value),
+            },
+            retriever: {
+                top_k: parseInt(topKSelectSb.value),
+                bm25_weight: parseFloat(bm25SliderSb.value),
+                vector_weight: parseFloat(vectorSliderSb.value),
+            },
+            prompt: {
+                include_history: includeHistoryCheckSb.checked,
+                system_prompt: systemPromptTextareaSb.value || null,
+            },
+        };
+
+        const response = await fetch('/api/settings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updateData),
+        });
+
+        if (response.ok) {
+            settingsSidebar.classList.add('translate-x-full');
+            alert('✅ Settings applied successfully!');
+        } else {
+            alert('❌ Failed to apply settings');
+        }
+    } catch (e) {
+        console.error("Failed to apply settings", e);
+        alert('⚠️ Error applying settings');
+    }
+});
+
+// Reset settings
+resetSettingsSbBtn.addEventListener('click', async () => {
+    if (confirm('🔄 Reset all settings to defaults?\n\nThis cannot be undone.')) {
+        try {
+            const response = await fetch('/api/settings/reset', { method: 'POST' });
+            if (response.ok) {
+                loadSettings();
+                alert('✅ Settings reset to defaults!');
+            }
+        } catch (e) {
+            console.error("Failed to reset settings", e);
+        }
+    }
+});
+
+// Clear chat
+clearChatBtn.addEventListener('click', () => {
+    if (confirm('🗑️ Clear all chat messages?\n\nThis will start fresh.')) {
+        chatContainer.innerHTML = `
+            <div class="flex flex-col items-start gap-2 max-w-[90%] sm:max-w-[85%] bot-message">
+                <div class="flex items-center gap-3 mb-1">
+                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow overflow-hidden border border-slate-200 dark:border-slate-800 shrink-0">
+                        <img src="/resources/nust_png.png" class="w-5 h-5 object-contain" alt="NUST">
+                    </div>
+                    <span class="text-[10px] font-label font-bold uppercase tracking-widest text-blue-700 dark:text-yellow-500">NUST Assistant</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-800/50 shadow-md bg-white/90 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200">
+                    <p class="text-body-lg leading-relaxed">Assalam-o-Alaikum! I am the official NUST Admission Assistant. What information are you looking for regarding your academic journey?</p>
+                </div>
+            </div>
+        `;
+        scrollToBottom();
+    }
+});
+
+// Load settings on startup
+loadSettings();

@@ -48,6 +48,8 @@
                 <option value="">Loading...</option>
             </select>
         </div>
+        <button id="settings-btn" title="Settings" class="material-symbols-outlined text-blue-800 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">settings</button>
+        <button id="clear-chat-btn" title="Clear chat" class="material-symbols-outlined text-blue-800 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">refresh</button>
         <button id="theme-toggle" class="material-symbols-outlined text-blue-800 dark:text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-all text-[22px]">dark_mode</button>
     </nav>
 </header>
@@ -125,5 +127,134 @@
 </main>
 
 <script type="module" src="script.js"></script>
-</body>
-</html>
+
+<!-- Settings Sidebar -->
+<aside id="settings-sidebar" class="fixed right-0 top-0 h-full w-80 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl border-l border-slate-200 dark:border-white/5 flex flex-col pt-20 pb-6 transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] translate-x-full shadow-2xl overflow-y-auto">
+    
+    <!-- Header -->
+    <div class="px-6 flex justify-end items-center sticky top-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur py-4 -mx-6 px-6">
+        <button id="close-settings-sidebar-btn" class="material-symbols-outlined text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors">close</button>
+    </div>
+
+    <!-- Settings Content -->
+    <nav class="flex-1 px-4 pt-2 space-y-6 overflow-y-auto custom-scrollbar">
+        
+        <!-- Model Behavior Section -->
+        <div class="space-y-4">
+            <div class="px-3 pb-2 border-b border-slate-200 dark:border-slate-700/50">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-500 text-base">lightbulb</span>
+                    Model
+                </h3>
+            </div>
+
+            <!-- Temperature -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <div class="flex items-center justify-between mb-2">
+                    <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Temperature</label>
+                    <span id="temp-value-sb" class="text-xs font-bold py-1 px-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded">0.3</span>
+                </div>
+                <input id="temperature-slider-sb" type="range" min="0" max="1" step="0.05" value="0.3" class="w-full h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full appearance-none cursor-pointer accent-blue-600">
+            </div>
+
+            <!-- Context Window -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Context</label>
+                <select id="num-ctx-select-sb" class="w-full px-2 py-1.5 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="1024">1024 tokens</option>
+                    <option value="2048">2048 tokens</option>
+                    <option value="4096" selected>4096 tokens</option>
+                    <option value="8192">8192 tokens</option>
+                </select>
+            </div>
+
+            <!-- Response Length -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Response</label>
+                <select id="num-predict-select-sb" class="w-full px-2 py-1.5 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="256">256 tokens</option>
+                    <option value="512">512 tokens</option>
+                    <option value="1024" selected>1024 tokens</option>
+                    <option value="2048">2048 tokens</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Retrieval Section -->
+        <div class="space-y-4">
+            <div class="px-3 pb-2 border-b border-slate-200 dark:border-slate-700/50">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-500 text-base">search</span>
+                    Retrieval
+                </h3>
+            </div>
+
+            <!-- Top-K -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Results</label>
+                <select id="top-k-select-sb" class="w-full px-2 py-1.5 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="1">1 result</option>
+                    <option value="2">2 results</option>
+                    <option value="3" selected>3 results</option>
+                    <option value="5">5 results</option>
+                </select>
+            </div>
+
+            <!-- BM25 Weight -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <div class="flex items-center justify-between mb-2">
+                    <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Keyword</label>
+                    <span id="bm25-value-sb" class="text-xs font-bold py-1 px-2 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 rounded">0.45</span>
+                </div>
+                <input id="bm25-slider-sb" type="range" min="0" max="1" step="0.05" value="0.45" class="w-full h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full appearance-none cursor-pointer accent-emerald-600">
+            </div>
+
+            <!-- Vector Weight -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <div class="flex items-center justify-between mb-2">
+                    <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Semantic</label>
+                    <span id="vector-value-sb" class="text-xs font-bold py-1 px-2 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded">0.55</span>
+                </div>
+                <input id="vector-slider-sb" type="range" min="0" max="1" step="0.05" value="0.55" class="w-full h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full appearance-none cursor-pointer accent-violet-600">
+            </div>
+        </div>
+
+        <!-- Prompt Section -->
+        <div class="space-y-4">
+            <div class="px-3 pb-2 border-b border-slate-200 dark:border-slate-700/50">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-purple-500 text-base">person</span>
+                    Prompt
+                </h3>
+            </div>
+
+            <!-- Conversation History -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input id="include-history-check-sb" type="checkbox" checked class="w-4 h-4 accent-purple-600 rounded cursor-pointer">
+                    <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Remember History</span>
+                </label>
+            </div>
+
+            <!-- Custom System Prompt -->
+            <div class="bg-slate-50 dark:bg-slate-800/40 px-3 py-3 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-2">Instructions</label>
+                <textarea id="system-prompt-textarea-sb" placeholder="Custom behavior..." class="w-full px-2 py-2 text-xs border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-purple-500 outline-none resize-none" rows="3"></textarea>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-2 px-4 pt-4 border-t border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-900/90 backdrop-blur -mx-4 px-4 py-4">
+        <button id="reset-settings-sb-btn" class="flex items-center justify-center gap-1 flex-1 px-3 py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+            <span class="material-symbols-outlined text-sm">restart_alt</span>
+            <span class="hidden sm:inline">Reset</span>
+        </button>
+        <button id="apply-settings-sb-btn" class="nust-glow-btn flex items-center justify-center gap-1 flex-1 px-3 py-2.5 text-xs font-semibold text-white rounded-lg transition-all">
+            <span class="material-symbols-outlined text-sm">check_circle</span>
+            <span class="hidden sm:inline">Apply</span>
+        </button>
+    </div>
+</aside>
+
+<script type="module" src="script.js"></script>

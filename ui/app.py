@@ -28,22 +28,31 @@ from llm.ollama_client import OllamaLLM
 from llm.prompt_builder import PromptBuilder
 from llm.response_formatter import ResponseFormatter
 from backend.classifier import QueryClassifier, STATIC
+from backend.settings import SettingsManager
 
 # ============================================================
-# GLOBAL ENGINE
+# GLOBAL ENGINE & SETTINGS
 # ============================================================
 engine = None
+settings_manager = SettingsManager()
 
 def init_engine(model, num_gpu=None, num_thread=None):
     global engine
     print(f"Initializing Chat Engine with model: {model}...")
     
     use_distilled = (num_gpu == 0)
+    settings = settings_manager.get_settings()
     
     engine = {
         "retriever": Retriever(num_gpu=num_gpu, num_thread=num_thread),
-        "llm": OllamaLLM(model=model, temperature=0.3, num_gpu=num_gpu, num_thread=num_thread),
-        "prompt_builder": PromptBuilder(use_distilled=use_distilled),
+        "llm": OllamaLLM(
+            model=model,
+            temperature=settings.llm.temperature,
+            num_ctx=settings.llm.num_ctx,
+            num_gpu=num_gpu,
+            num_thread=num_thread
+        ),
+        "prompt_builder": PromptBuilder(use_distilled=settings.prompt.use_distilled),
         "formatter": ResponseFormatter(),
         "classifier": QueryClassifier(),
     }
@@ -70,6 +79,11 @@ class ChatRequest(BaseModel):
 class ModelRequest(BaseModel):
     model: str
 
+class SettingsUpdateRequest(BaseModel):
+    retriever: dict = None
+    llm: dict = None
+    prompt: dict = None
+
 @app.get("/api/models")
 def get_models():
     """Fetch locally downloaded Ollama models."""
@@ -91,6 +105,53 @@ def set_model(req: ModelRequest):
         return {"status": "success", "model": engine["llm"].model}
     return {"status": "error", "message": "Engine not initialized"}
 
+@app.get("/api/settings")
+def get_settings():
+    """Get current settings."""
+    settings = settings_manager.get_settings()
+    return settings.to_dict()
+
+@app.post("/api/settings")
+def update_settings(req: SettingsUpdateRequest):
+    """Update settings and apply to engine."""
+    try:
+        updates = {}
+        if req.retriever:
+            updates["retriever"] = req.retriever
+        if req.llm:
+            updates["llm"] = req.llm
+        if req.prompt:
+            updates["prompt"] = req.prompt
+        
+        new_settings = settings_manager.update_settings(updates)
+        
+        # Apply to engine components
+        if req.llm:
+            if "temperature" in req.llm:
+                engine["llm"].temperature = req.llm["temperature"]
+            if "num_ctx" in req.llm:
+                engine["llm"].num_ctx = req.llm["num_ctx"]
+        
+        if req.prompt:
+            if "use_distilled" in req.prompt:
+                engine["prompt_builder"].use_distilled = req.prompt["use_distilled"]
+        
+        return {
+            "status": "success",
+            "settings": new_settings.to_dict()
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.post("/api/settings/reset")
+def reset_settings():
+    """Reset all settings to defaults."""
+    new_settings = settings_manager.reset_to_defaults()
+    return {
+        "status": "success",
+        "settings": new_settings.to_dict()
+    }
+
 def respond_stream(message: str, history: list):
     if not message or not message.strip():
         yield f"data: {json.dumps({'text': 'Please ask me a question about NUST admissions!'})}\n\n"
@@ -98,6 +159,7 @@ def respond_stream(message: str, history: list):
 
     message = message.strip()
     start_time = time.time()
+    settings = settings_manager.get_settings()
 
     # --- Static responses ---
     query_type = engine["classifier"].classify(message)
@@ -123,9 +185,9 @@ def respond_stream(message: str, history: list):
             time.sleep(0.04)
         return
 
-    # --- Retrieve ---
+    # --- Retrieve with dynamic top_k ---
     retriever = engine["retriever"]
-    top_k = 1 if "1b" in engine["llm"].model.lower() else 3
+    top_k = settings.retriever.top_k
     results = retriever.retrieve(message, top_k=top_k)
     if not results:
         msg = "I couldn't find relevant information about this. Please visit nust.edu.pk or contact the NUST admission office."
@@ -159,7 +221,7 @@ def respond_stream(message: str, history: list):
 
     # --- Build conversation history ---
     conv_history = None
-    if history:
+    if history and settings.prompt.include_history:
         msg_lower = message.lower()
         followup_signals = [
             "what about", "how about", "and ", "also ",
@@ -178,14 +240,22 @@ def respond_stream(message: str, history: list):
                     ).strip()[:200]
                     conv_history.append(("assistant", clean))
 
-    # --- Build prompt ---
+    # --- Build prompt with custom system prompt if provided ---
     injected_facts = engine["classifier"].extract_facts(message)
+    
+    # Use custom system prompt if provided
+    custom_system_prompt = settings.prompt.system_prompt
+    
     prompt, sys_prompt, sources = engine["prompt_builder"].build(
         query=message,
         retrieved_results=results,
         conversation_history=conv_history,
         injected_facts=injected_facts,
     )
+    
+    # Override system prompt if custom one is provided
+    if custom_system_prompt:
+        sys_prompt = custom_system_prompt
 
     # --- Stream LLM response ---
     llm = engine["llm"]
